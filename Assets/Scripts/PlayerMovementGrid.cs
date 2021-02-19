@@ -4,24 +4,40 @@ using UnityEngine;
 
 public class PlayerMovementGrid : MonoBehaviour
 {
+    public GameObject enemy;
     private bool isMoving;
     private Vector3 origPos, targetPos;
     private float timeToMove = 0.2f;
 
     void Update()
     {
+        Vector3 moveDirection = Vector3.zero;
         // input
         if (Input.GetKey(KeyCode.W) && !isMoving)
-            StartCoroutine(MovePlayer(Vector3.up));
+            moveDirection = Vector3.up;
+            
 
         if (Input.GetKey(KeyCode.A) && !isMoving)
-            StartCoroutine(MovePlayer(Vector3.left));
+            moveDirection = Vector3.left;
+           
         
         if (Input.GetKey(KeyCode.S) && !isMoving)
-            StartCoroutine(MovePlayer(Vector3.down));
+            moveDirection = Vector3.down;
+            
         
         if (Input.GetKey(KeyCode.D) && !isMoving)
-            StartCoroutine(MovePlayer(Vector3.right));
+            moveDirection = Vector3.right;
+        
+        if (moveDirection != Vector3.zero) {
+            StartCoroutine(MovePlayer(moveDirection));
+            createEnemy(moveDirection);
+        }
+            
+    }
+
+    private void createEnemy(Vector3 moveDirection) {
+        //Instantiate(enemy, transform.position, Quaternion.identity);
+       
     }
 
     private IEnumerator MovePlayer(Vector3 direction)
