@@ -43,4 +43,15 @@ public class EnemyController : MonoBehaviour
             (enemyPosition.x == brycesOldPosition.x && Mathf.Abs(enemyPosition.y - brycesOldPosition.y) < Mathf.Abs(enemyPosition.y - brycesPosition.y))
         || (enemyPosition.y == brycesOldPosition.y && Mathf.Abs(enemyPosition.x - brycesOldPosition.x) < Mathf.Abs(enemyPosition.x - brycesPosition.x));
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.tag == "Player")
+        {
+            PlayerController pc = bryce.GetComponent<PlayerController>();
+            pc.calculateEffects(damage, weapon);
+
+            Destroy(movePoint.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
