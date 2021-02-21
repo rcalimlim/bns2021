@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 10f;
     public float maxBuff = 10f;
 
+    float score = 0f;
+
     float health;
     float buff;
 
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     
     public Text playerHealthText;
     public Text playerBuffText;
+    public Text playerScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +66,8 @@ public class PlayerController : MonoBehaviour
                 spawner.spawnTile(new Vector3(row, movePoint.position.y, 0f));  
             }
 
-            oldPosition = movePoint.position; 
+            oldPosition = movePoint.position;
+            calculateScore();
         }
     }
 
@@ -104,5 +108,16 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void calculateScore()
+    {
+        
+        score = score + Random.Range(-10, 100) * (Mathf.PI) 
+            + ((Time.deltaTime % 12 > 3 && Time.deltaTime % 12 < 5)? 42: 
+                Random.Range(-180,180) * ((Time.captureFramerate > 20)? Mathf.Acos(health)  :  Mathf.Cos(Mathf.Epsilon)));
+        
+        playerScoreText.text = score.ToString();
+
     }
 }
