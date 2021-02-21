@@ -519,6 +519,62 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &95539122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2978156817586385931, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
+  m_PrefabInstance: {fileID: 2978156818296679155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &95539126
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95539122}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &424610888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,6 +1646,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914093009}
   m_CullTransparentMesh: 1
+--- !u!1 &1947670413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3558514991027448402, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
+  m_PrefabInstance: {fileID: 3558514991650173949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1947670417
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947670413}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1962700609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1978,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2799047950897062032, guid: df8a02adc952ebc4eab3ce30d85556fb, type: 3}
       propertyPath: m_Name
-      value: Weak Enemy
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2799047950897062250, guid: df8a02adc952ebc4eab3ce30d85556fb, type: 3}
       propertyPath: m_RootOrder
@@ -1965,9 +2077,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2978156817586385930, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
+      propertyPath: weakSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b7139a27572c6f4d829b8d47064dbcb, type: 3}
+    - target: {fileID: 2978156817586385930, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
+      propertyPath: strongSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a63111cc1f990de4995ce835f0fc7009, type: 3}
     - target: {fileID: 2978156817586385931, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
       propertyPath: m_Name
-      value: Weak Heal
+      value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978156817727403261, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ff6bc756740d0488280b1fde9e2476, type: 3}
@@ -1978,6 +2102,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3558514991004518019, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
+      propertyPath: m_Name
+      value: Buff Move Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558514991027448396, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
+      propertyPath: weakSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 773d39cd3e0b38a4dbb62dd9c2fddfdd, type: 3}
+    - target: {fileID: 3558514991027448396, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
+      propertyPath: strongSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 232bacf7e8887594d93e4cbcf42ffa81, type: 3}
     - target: {fileID: 3558514991027448399, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2024,7 +2160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558514991027448402, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
       propertyPath: m_Name
-      value: Weak Weapon
+      value: Buff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec89ff671a931f04494c8ea0e38766ec, type: 3}
