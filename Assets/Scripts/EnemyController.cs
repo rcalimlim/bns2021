@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
     public float damage = 0f;
     public float weapon = 0f;
+
+    public Text damageText;
+    public Text weaponText;
+
     public float moveSpeed = 5f;
     LayerMask stopsMovement;
     
@@ -18,12 +23,28 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movePoint = transform.GetChild(0);
         stopsMovement = LayerMask.GetMask("StopMovement");
-        //print(movePoint.gameObject.name);
+
+        movePoint = transform.GetChild(0);
         movePoint.SetParent(null);
+
         bryce = GameObject.Find("Bryce");
         brycesOldPosition = bryce.transform.position;
+
+        Transform weaponTransform = transform.Find("Stat Canvas/Buff");
+        if(weaponTransform != null) {
+            weapon = Mathf.Floor(Random.Range(1f, 5f));
+            weaponText = weaponTransform.GetComponent<Text>();
+            weaponText.text = weapon.ToString();
+        }
+
+        Transform damageTransform = transform.Find("Stat Canvas/Health");
+        if(damageTransform != null)
+        {
+            damage = damage * Mathf.Floor(Random.Range(1f, 5f));
+            damageText = damageTransform.GetComponent<Text>();
+            damageText.text = Mathf.Abs(damage).ToString();
+        }
     }
 
     private void Update() {

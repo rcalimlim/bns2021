@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,17 +13,32 @@ public class PlayerController : MonoBehaviour
     float buff;
 
     Transform movePoint;
+    Vector3 oldPosition;
+
     LayerMask stopsMovement;
+    TileSpawner spawner;
+    
+    public Text playerHealthText;
+    public Text playerBuffText;
 
     // Start is called before the first frame update
     void Start()
     {
+        // How we are performing movement because we be cheating
         movePoint = transform.GetChild(0);
-        stopsMovement = LayerMask.GetMask("StopMovement");
-        //print(movePoint.gameObject.name);
         movePoint.SetParent(null);
+        oldPosition = movePoint.position;
+
+        // needed for Wall collisions for Movepoint
+        stopsMovement = LayerMask.GetMask("StopMovement");
+        spawner = GetComponent<TileSpawner>();
+        
+        // Set up Player Stats
         health = maxHealth;
         buff = 0f;
+
+        playerHealthText.text = health.ToString();
+        playerBuffText.text = buff.ToString();
     }
 
     // Update is called once per frame
@@ -30,6 +46,25 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
         Movement.move(transform, movePoint, moveSpeed, stopsMovement);
+        
+        if (movePoint.position != oldPosition)
+        {   
+            float xcoord = movePoint.position.x - oldPosition.x;
+            float ycoord = movePoint.position.y - oldPosition.y;
+
+            if(movePoint.position.x == oldPosition.x)
+            {
+                float row = (oldPosition.y > movePoint.position.y)? 3: -3;
+                spawner.spawnTile(new Vector3(movePoint.position.x, row, 0f));
+            }
+            else if (movePoint.position.y == oldPosition.y)
+            {
+                float row = (oldPosition.x > movePoint.position.x)? 3: -3;
+                spawner.spawnTile(new Vector3(row, movePoint.position.y, 0f));  
+            }
+
+            oldPosition = movePoint.position; 
+        }
     }
 
     public void calculateEffects(float sqDamage, float sqBuff)
@@ -62,8 +97,8 @@ public class PlayerController : MonoBehaviour
         // make sure we don't have more than the max health
         health = Mathf.Min(maxHealth, health);
 
-        print("Health: " + health + " Weapon: " + buff);
-        
+        playerHealthText.text = health.ToString();
+        playerBuffText.text = buff.ToString();
         // check if we died
         if(health < 1)
         {
