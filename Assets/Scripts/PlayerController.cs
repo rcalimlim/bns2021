@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 10f;
     public float maxBuff = 10f;
 
+    public AudioClip swordAudio;
+
     float score = 0f;
 
     float health;
@@ -71,13 +73,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void calculateEffects(float sqDamage, float sqBuff)
+    public AudioClip calculateEffects(float sqDamage, float sqBuff)
     {
         buff = Mathf.Min(maxBuff, buff + sqBuff);
+        bool swordSound = false;
 
         // Calculate Damage
         if(sqDamage > 0)
         {
+            swordSound = (buff > 0);
+
             // Can the weapon cover the damage?
             if (buff > sqDamage)
             {
@@ -92,9 +97,9 @@ public class PlayerController : MonoBehaviour
             }
 
         } 
-        // it was a new weapon or health 
         else
         {
+            // it was a new weapon or health
             health += Mathf.Abs(sqDamage);
         }
 
@@ -106,17 +111,24 @@ public class PlayerController : MonoBehaviour
         // check if we died
         if(health < 1)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+
+        if(swordSound)
+            return swordAudio;
+            
+        return null;
     }
 
     void calculateScore()
     {
         
+        /*
         score = score + Random.Range(-10, 100) * (Mathf.PI) 
             + ((Time.deltaTime % 12 > 3 && Time.deltaTime % 12 < 5)? 42: 
                 Random.Range(-180,180) * ((Time.captureFramerate > 20)? Mathf.Acos(health)  :  Mathf.Cos(Mathf.Epsilon)));
-        
+        */
+        score += Random.Range(-36, 100);
         playerScoreText.text = score.ToString();
 
     }

@@ -11,12 +11,16 @@ public class EnemyController : MonoBehaviour
 
     public Sprite weakSprite;
     public Sprite strongSprite;
+    public AudioClip enemyAudio;
 
     Text damageText;
     Text buffText;
     LayerMask stopsMovement;
     Transform movePoint;
     SpriteRenderer spriteRenderer;
+    
+    AudioSource universalAudioSource;
+
 
 
     // Bryce Tracking
@@ -55,6 +59,10 @@ public class EnemyController : MonoBehaviour
             damageText = damageTransform.GetComponent<Text>();
             damageText.text = Mathf.Abs(damage).ToString();
         }
+
+        GameObject audioGameObject = GameObject.Find("Audio_GO");
+        universalAudioSource = audioGameObject.GetComponent<AudioSource>();
+        
     }
 
     private void Update() {
@@ -79,7 +87,12 @@ public class EnemyController : MonoBehaviour
         if(other.tag == "Player")
         {
             PlayerController pc = bryce.GetComponent<PlayerController>();
-            pc.calculateEffects(damage, buff);
+            AudioClip overrideSound = pc.calculateEffects(damage, buff);
+
+            if(overrideSound != null) 
+                 universalAudioSource.PlayOneShot(overrideSound);
+            else
+                universalAudioSource.PlayOneShot(enemyAudio, 1f);
 
             Destroy(movePoint.gameObject);
             Destroy(gameObject);
