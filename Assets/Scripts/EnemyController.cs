@@ -18,14 +18,21 @@ public class EnemyController : MonoBehaviour
     LayerMask stopsMovement;
     Transform movePoint;
     SpriteRenderer spriteRenderer;
-    
+
     AudioSource universalAudioSource;
 
 
 
     // Bryce Tracking
-    GameObject bryce;
-    Vector3 brycesOldPosition;
+    GameObject player;
+    PlayerController playerController;
+    Transform playerMovePoint;
+    Vector3 playerOldPosition;
+
+    // Movement Control
+    float startTime;
+    float journeyLength;
+    bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,65 +44,120 @@ public class EnemyController : MonoBehaviour
         movePoint = transform.GetChild(0);
         movePoint.SetParent(null);
 
-        bryce = GameObject.Find("Bryce");
-        brycesOldPosition = bryce.transform.position;
+        player = GameObject.Find("Bryce");
+        playerController = player.GetComponent<PlayerController>();
+        playerMovePoint = GameObject.Find("Bryce Move Point").transform;
+        playerOldPosition = playerMovePoint.position;
 
         Transform buffTransform = transform.Find("Stat Canvas/Buff");
-        if(buffTransform != null) {
+        if (buffTransform != null)
+        {
             buff = Mathf.Floor(Random.Range(1f, 10f));
 
-            spriteRenderer.sprite = (buff > 5f)? strongSprite : weakSprite;
+            spriteRenderer.sprite = (buff > 5f) ? strongSprite : weakSprite;
 
             buffText = buffTransform.GetComponent<Text>();
             buffText.text = buff.ToString();
         }
 
         Transform damageTransform = transform.Find("Stat Canvas/Health");
-        if(damageTransform != null)
+        if (damageTransform != null)
         {
             damage = damage * Mathf.Floor(Random.Range(1f, 10f));
 
-            spriteRenderer.sprite = (Mathf.Abs(damage) > 5f)? strongSprite : weakSprite;
+            spriteRenderer.sprite = (Mathf.Abs(damage) > 5f) ? strongSprite : weakSprite;
             damageText = damageTransform.GetComponent<Text>();
             damageText.text = Mathf.Abs(damage).ToString();
         }
 
         GameObject audioGameObject = GameObject.Find("Audio_GO");
         universalAudioSource = audioGameObject.GetComponent<AudioSource>();
-        
+
     }
 
-    private void Update() {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-        if (InSightAndRunning())
-        {
-            Movement.move(transform, movePoint, moveSpeed, stopsMovement);
-        }
-        brycesOldPosition = bryce.transform.position;
-    }
-
-    private bool InSightAndRunning()
+    private void Update()
     {
-        Vector3 enemyPosition = transform.position;
-        Vector3 brycesPosition = bryce.transform.position;
-        return 
-            (enemyPosition.x == brycesOldPosition.x && Mathf.Abs(enemyPosition.y - brycesOldPosition.y) < Mathf.Abs(enemyPosition.y - brycesPosition.y))
-        || (enemyPosition.y == brycesOldPosition.y && Mathf.Abs(enemyPosition.x - brycesOldPosition.x) < Mathf.Abs(enemyPosition.x - brycesPosition.x));
+        // Did we fall too far out of bounds?
+        if (transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 3 || transform.position.y < -3)
+        {
+            Destroy(movePoint.gameObject);
+            Destroy(gameObject);
+        }
+
+        if (!Vector3.Equals(playerOldPosition, playerMovePoint.position) && !isMoving)
+        {
+
+            if (movePoint.position.x == playerOldPosition.x && movePoint.position.x == playerMovePoint.position.x)
+            {
+                if (playerMovePoint.position.y > playerOldPosition.y && playerMovePoint.position.y > movePoint.position.y)
+                {
+                    movePoint.position += Vector3.up;
+                    isMoving = true;
+                    startTime = Time.time;
+                    journeyLength =  Vector3.Distance(transform.position, movePoint.position);
+                }
+
+                else if (playerMovePoint.position.y < playerOldPosition.y && playerMovePoint.position.y < movePoint.position.y)
+                { 
+                    movePoint.position += Vector3.down;
+                    isMoving = true;
+                    startTime = Time.time;
+                    journeyLength =  Vector3.Distance(transform.position, movePoint.position);
+                }
+            }
+            else if (movePoint.position.y == playerOldPosition.y && movePoint.position.y == playerMovePoint.position.y)
+            {
+                if (playerMovePoint.position.x > playerOldPosition.x && playerMovePoint.position.x > movePoint.position.x)
+                {
+                    movePoint.position += Vector3.right;
+                    isMoving = true;
+                    startTime = Time.time;
+                    journeyLength =  Vector3.Distance(transform.position, movePoint.position);
+                }
+                else if (playerMovePoint.position.x < playerOldPosition.x && playerMovePoint.position.x < movePoint.position.x)
+                { 
+                    movePoint.position += Vector3.left; 
+                    isMoving = true;
+                    startTime = Time.time;
+                    journeyLength =  Vector3.Distance(transform.position, movePoint.position); 
+                }
+            }
+
+            playerOldPosition = playerMovePoint.position;
+        }
+
+        if (isMoving)
+        {
+            float distanceCovered = (Time.time - startTime) * moveSpeed;
+            float fractionOfJourney = distanceCovered / journeyLength;
+            transform.position = Vector3.Lerp(transform.position, movePoint.position, fractionOfJourney);
+
+            if (Vector3.Distance(transform.position, movePoint.position) == 0f)
+                isMoving = false;
+        }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Player")
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
         {
-            PlayerController pc = bryce.GetComponent<PlayerController>();
-            AudioClip overrideSound = pc.calculateEffects(damage, buff);
+            AudioClip overrideSound = playerController.CalculateEffects(damage, buff);
 
-            if(overrideSound != null) 
-                 universalAudioSource.PlayOneShot(overrideSound);
+            if (overrideSound != null)
+                universalAudioSource.PlayOneShot(overrideSound);
             else
                 universalAudioSource.PlayOneShot(enemyAudio, 1f);
 
             Destroy(movePoint.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    public void UpdateDamage(float number)
+    {
+        damage = number;
+        if (damageText != null)
+            damageText.text = Mathf.Abs(number).ToString();
     }
 }

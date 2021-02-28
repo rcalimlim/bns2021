@@ -5,37 +5,35 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    // Player Max Stats
     public float maxHealth = 10f;
     public float maxBuff = 10f;
 
+    // UI Components
+    public Text playerHealthText;
+    public Text playerBuffText;
+    public Text playerScoreText;
+    public Text playerTurnText;
     public AudioClip swordAudio;
 
+    // Player Current Stats
     float score = 0f;
-
+    int turns = 0;
     float health;
     float buff;
 
     Transform movePoint;
     Vector3 oldPosition;
+    TileSpawner spawner;    
 
-    LayerMask stopsMovement;
-    TileSpawner spawner;
-    
-    public Text playerHealthText;
-    public Text playerBuffText;
-    public Text playerScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         // How we are performing movement because we be cheating
-        movePoint = transform.GetChild(0);
-        movePoint.SetParent(null);
+        movePoint = GameObject.Find("Bryce Move Point").transform;
         oldPosition = movePoint.position;
 
-        // needed for Wall collisions for Movepoint
-        stopsMovement = LayerMask.GetMask("StopMovement");
         spawner = GetComponent<TileSpawner>();
         
         // Set up Player Stats
@@ -48,11 +46,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-        Movement.move(transform, movePoint, moveSpeed, stopsMovement);
-        
-        if (movePoint.position != oldPosition)
+    {   
+        // Spawn a new tile
+        if (movePoint.position != oldPosition )
         {   
             float xcoord = movePoint.position.x - oldPosition.x;
             float ycoord = movePoint.position.y - oldPosition.y;
@@ -73,7 +69,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public AudioClip calculateEffects(float sqDamage, float sqBuff)
+    public bool Attack(EnemyController tileController)
+    {   
+        float sqDamage = tileController.damage;
+        
+        if(sqDamage <= 0) {
+            return false;
+        }
+        else if(buff >= sqDamage)
+        {
+            /*buff -= sqDamage;
+            playerBuffText.text = buff.ToString();
+            tileController.UpdateDamage(0f);*/
+            return false;
+        }
+        else if (buff > 0)
+        {
+            sqDamage -= buff;
+            buff = 0f;
+            playerBuffText.text = buff.ToString();
+            tileController.UpdateDamage(sqDamage);
+            return true;
+        }
+        return false;
+    }
+    
+    public AudioClip CalculateEffects(float sqDamage, float sqBuff)
     {
         buff = Mathf.Min(maxBuff, buff + sqBuff);
         bool swordSound = false;
@@ -89,13 +110,13 @@ public class PlayerController : MonoBehaviour
                 buff -= sqDamage;
             }
             // Weapon broke and we took damage
+            // Buff damage is handled in Attack
             else if(sqDamage >= buff) 
             {
                 sqDamage -= buff;
                 buff = 0;
                 health -= sqDamage;
             }
-
         } 
         else
         {
@@ -122,14 +143,10 @@ public class PlayerController : MonoBehaviour
 
     void calculateScore()
     {
-        
-        /*
-        score = score + Random.Range(-10, 100) * (Mathf.PI) 
-            + ((Time.deltaTime % 12 > 3 && Time.deltaTime % 12 < 5)? 42: 
-                Random.Range(-180,180) * ((Time.captureFramerate > 20)? Mathf.Acos(health)  :  Mathf.Cos(Mathf.Epsilon)));
-        */
+        turns += 1;
         score += Random.Range(-36, 100);
         playerScoreText.text = score.ToString();
-
+        playerTurnText.text = turns.ToString();
     }
+    
 }
