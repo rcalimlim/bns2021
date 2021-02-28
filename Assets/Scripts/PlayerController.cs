@@ -78,9 +78,6 @@ public class PlayerController : MonoBehaviour
         }
         else if(buff >= sqDamage)
         {
-            /*buff -= sqDamage;
-            playerBuffText.text = buff.ToString();
-            tileController.UpdateDamage(0f);*/
             return false;
         }
         else if (buff > 0)
@@ -110,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 buff -= sqDamage;
             }
             // Weapon broke and we took damage
-            // Buff damage is handled in Attack
+            //  weapon breaking handled in Attack
             else if(sqDamage >= buff) 
             {
                 sqDamage -= buff;

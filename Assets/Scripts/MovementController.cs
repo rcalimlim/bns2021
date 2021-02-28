@@ -66,7 +66,7 @@ public class MovementController : MonoBehaviour
                     EnemyController tileController = collider.gameObject.GetComponent<EnemyController>();
                     bool breakSword = playerController.Attack(tileController);
                     if(breakSword) {
-                        //universalAudioSource.PlayOneShot(swordBreak);
+                        universalAudioSource.PlayOneShot(swordBreak);
                         return;
                     }
                 }
