@@ -12,8 +12,12 @@ public class PlayerController : MonoBehaviour
     // UI Components
     public Text playerHealthText;
     public Text playerBuffText;
-    public Text playerScoreText;
-    public Text playerTurnText;
+
+    public Text[] playerScoreTexts;
+    public Text[] playerTurnTexts;
+
+    public GameObject gameOver;
+
     public AudioClip swordAudio;
 
     // Player Current Stats
@@ -129,7 +133,8 @@ public class PlayerController : MonoBehaviour
         // check if we died
         if(health < 1)
         {
-            //Destroy(gameObject);
+            gameOver.SetActive(true);
+            Destroy(gameObject);
         }
 
         if(swordSound)
@@ -142,8 +147,11 @@ public class PlayerController : MonoBehaviour
     {
         turns += 1;
         score += Random.Range(-36, 100);
-        playerScoreText.text = score.ToString();
-        playerTurnText.text = turns.ToString();
+        foreach(Text text in playerScoreTexts)
+            text.text = score.ToString();
+        
+        foreach(Text text in playerTurnTexts)
+            text.text = turns.ToString();
     }
     
 }

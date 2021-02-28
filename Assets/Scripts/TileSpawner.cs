@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
+    public int numOfInitialTiles = 10;
     public GameObject enemy;
     public GameObject health;
     public GameObject buff;
+
     
     float maxRand = 5;
 
+    void Start() {
+
+        List<Vector3> usedTiles = new List<Vector3>();
+        usedTiles.Add(Vector3.zero);
+        for(int i=0; i < numOfInitialTiles; i++)
+        {   
+            Vector3 newTile = new Vector3(Mathf.Floor(Random.Range(-3f, 3f)), Mathf.Floor(Random.Range(-3f, 3f)), 0f);
+            while(usedTiles.Contains(newTile))
+                newTile = new Vector3(Mathf.Floor(Random.Range(-3f, 3f)), Mathf.Floor(Random.Range(-3f, 3f)), 0f);
+            
+            usedTiles.Add(newTile);
+            spawnTile(newTile);
+        }
+    }
 
     public void spawnTile(Vector3 position)
     {
@@ -30,4 +46,5 @@ public class TileSpawner : MonoBehaviour
                 break;
         }  
     }
+
 }
