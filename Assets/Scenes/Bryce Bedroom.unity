@@ -1807,7 +1807,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 23
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 27
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1887,7 +1887,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 27
-      m_TileSpriteIndex: 20
+      m_TileSpriteIndex: 23
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2290,22 +2290,22 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -284479374495290202, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -6325374515801221575, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 8754111596142073555, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -7030404091344262401, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
+    m_Data: {fileID: -284479374495290202, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 20512032655672850, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 5896063926378505599, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 9093920152860237206, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -7030404091344262401, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 4841399074784541488, guid: 17ec03d45037f40eabb8f8026b8777d0, type: 3}
   - m_RefCount: 1
@@ -2675,7 +2675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012574858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.64, y: 1.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
