@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+    private Vector3Int heightCorrection = new Vector3Int(0, -1, 0);
     [SerializeField]
     private Tilemap groundTilemap;
     [SerializeField]
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private bool CanMove(Vector2 direction)
     {
-        Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
+        Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction + heightCorrection);
 
         // TODO: Remove
         Debug.LogFormat("pos: {0}, col: {1}", gridPosition, collisionTilemap.HasTile(gridPosition));
