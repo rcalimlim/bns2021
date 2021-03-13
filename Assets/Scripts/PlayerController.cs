@@ -44,9 +44,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction + heightCorrection);
 
-        // TODO: Remove
-        Debug.LogFormat("pos: {0}, col: {1}", gridPosition, collisionTilemap.HasTile(gridPosition));
-
         if (collisionTilemap.HasTile(gridPosition)) {
             return false;
         } 
