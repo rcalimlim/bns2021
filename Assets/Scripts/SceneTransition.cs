@@ -14,7 +14,11 @@ public class SceneTransition : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            PlayerDataManager.Instance.SpawnDoor = gameObject.tag;
+            PlayerDataManager.Instance.TrackSceneChange(
+                gameObject.tag, 
+                SceneManager.GetActiveScene().name,
+                sceneToLoad
+            );
             SoundManager.Instance.PlayMusic(transitionSoundEffect);
             SceneManager.LoadScene(sceneToLoad);
         }

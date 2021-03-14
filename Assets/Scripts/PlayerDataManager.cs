@@ -8,6 +8,10 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField]
     private string spawnDoor;
     [SerializeField]
+    private string prevScene;
+    [SerializeField]
+    private string currScene;
+    [SerializeField]
     private int minStress;
     [SerializeField]
     private int maxStress;
@@ -32,5 +36,26 @@ public class PlayerDataManager : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
-    public string SpawnDoor { get; set; }
+    public string SpawnDoor {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public string PrevScene {
+        get { return prevScene; }
+        set { prevScene = value; }
+    }
+
+    public string CurrScene {
+        get { return currScene; }
+        set { currScene = value; }
+    }
+
+    // Call when changing scenes to keep track of player
+    public void TrackSceneChange(string doorTag, string currentScene, string nextScene)
+    {
+        spawnDoor = doorTag;
+        prevScene = currentScene;
+        currScene = nextScene; 
+    }
 }
