@@ -5,7 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
-    private Vector3Int heightCorrection = new Vector3Int(0, -1, 0);
+    [SerializeField]
+    private int heightAdjustment = -1;
+    private Vector3Int heightCorrection;
     [SerializeField]
     private Tilemap groundTilemap;
     [SerializeField]
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        heightCorrection = new Vector3Int(0, heightAdjustment, 0);
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
 
