@@ -17,6 +17,9 @@ public class MovementController : MonoBehaviour
 
     Transform movePoint;
     LayerMask stopMovement;
+    LayerMask scouter;
+    LayerMask enemy;
+    LayerMask interactable;
 
     PlayerController playerController;
     AudioSource universalAudioSource;
@@ -30,6 +33,9 @@ public class MovementController : MonoBehaviour
 
         playerController = GetComponent<PlayerController>();
         stopMovement = LayerMask.GetMask("StopMovement");
+        scouter = LayerMask.GetMask("Scouter");
+        enemy = LayerMask.GetMask("Enemy");
+        interactable = LayerMask.GetMask("Interactable");
 
         GameObject audioGameObject = GameObject.Find("Audio_GO");
         universalAudioSource = audioGameObject.GetComponent<AudioSource>();
@@ -56,13 +62,15 @@ public class MovementController : MonoBehaviour
 
                 if(Physics2D.OverlapCircle(movePoint.position + moveVector, .2f, stopMovement)) 
                     return;
-
-                if(Physics2D.OverlapCircle(movePoint.position + moveVector, .2f)) 
+                if(Physics2D.OverlapCircle(movePoint.position + moveVector, .2f, scouter))
+                { /*Do nothing*/ }
+                else if(Physics2D.OverlapCircle(movePoint.position + moveVector, .2f, interactable))
                 {
                     Collider2D collider = Physics2D.OverlapCircle(movePoint.position + moveVector, .2f);
-
-                    
-                    
+                }
+                else if(Physics2D.OverlapCircle(movePoint.position + moveVector, .2f, enemy)) 
+                {
+                    Collider2D collider = Physics2D.OverlapCircle(movePoint.position + moveVector, .2f);
                     EnemyController tileController = collider.gameObject.GetComponent<EnemyController>();
                     bool breakSword = playerController.Attack(tileController);
                     if(breakSword) {

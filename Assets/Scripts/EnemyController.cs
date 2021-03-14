@@ -152,6 +152,12 @@ public class EnemyController : MonoBehaviour
             Destroy(movePoint.gameObject);
             Destroy(gameObject);
         }
+        
+        if(other.tag == "Objective")
+        {
+            Destroy(movePoint.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     public void UpdateDamage(float number)

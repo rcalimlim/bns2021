@@ -60,12 +60,12 @@ public class PlayerController : MonoBehaviour
             if(movePoint.position.x == oldPosition.x)
             {
                 float row = (oldPosition.y > movePoint.position.y)? 3: -3;
-                spawner.spawnTile(new Vector3(movePoint.position.x, row, 0f));
+                spawner.spawnTile(new Vector3(movePoint.position.x, row, 0f), turns);
             }
             else if (movePoint.position.y == oldPosition.y)
             {
                 float row = (oldPosition.x > movePoint.position.x)? 3: -3;
-                spawner.spawnTile(new Vector3(row, movePoint.position.y, 0f));  
+                spawner.spawnTile(new Vector3(row, movePoint.position.y, 0f), turns);  
             }
 
             oldPosition = movePoint.position;
