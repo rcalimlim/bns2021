@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject credits, closeCreditsButton, showCreditsButton, newGameButton;
+    public GameObject credits, closeCreditsButton, showCreditsButton, initialSelected;
     public Text muteText;
 
 
@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
      
     
     private void Awake() {
-        if(AudioListener.volume == 0)
+        if(AudioListener.volume == 0 && muteText)
         {
             muted = true;
             muteText.text = "Unmute";
@@ -24,13 +24,28 @@ public class MenuController : MonoBehaviour
 
     private void Start() {
         // Default the menu option
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(newGameButton);
+        setInitial();
+        
+    }
+    public void setInitial()
+    {   
+        switch(gameObject.name)
+        {
+            case "StartMenu":
+            case "GameOver":
+            case "GameOver(Clone)":
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(initialSelected); break;
+            default:
+                EventSystem.current.SetSelectedGameObject(null);
+                break;
+        }
     }
     private void Update() {
         
     }
 
+    // Various Menu Functions
     public void Mute()
     {
         if(!muted)
@@ -50,9 +65,26 @@ public class MenuController : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Bryce Bedroom");
+        SceneManager.LoadScene("BNS2019");
     }
 
+    public void StartMenu() 
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void PopulateTextElement(string path, string value)
+    {
+        Text itemText = transform.Find(path)?.gameObject.GetComponent<Text>();
+        if(itemText)
+        {
+            itemText.text = value;
+        }
+            
+    }
+
+
+    // Start Menu Functions
     public void OpenCredits()
     {
         credits.SetActive(true);
@@ -69,7 +101,6 @@ public class MenuController : MonoBehaviour
 
     public void QuiteGame()
     {
-
         // Will not work in editor
         print("Quitting");
         Application.Quit();
