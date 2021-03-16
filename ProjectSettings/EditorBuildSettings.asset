@@ -15,15 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/BNS2019+.unity
     guid: 3bcedf356e008bd4782c75e06e5ee861
   - enabled: 1
-    path: Assets/Scenes/Bryce Bedroom.unity
-    guid: 299cba436113ac240807d66ec2408f90
-  - enabled: 1
-    path: Assets/Scenes/DKL.unity
+    path: Assets/Scenes/DiningKitchenLiving.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Marlon Bedroom.unity
+    path: Assets/Scenes/BryceBedroom.unity
+    guid: 299cba436113ac240807d66ec2408f90
+  - enabled: 1
+    path: Assets/Scenes/Darkness.unity
+    guid: dffa2a68301ad9f40bc0b59d414683cb
+  - enabled: 1
+    path: Assets/Scenes/MarlonBedroom.unity
     guid: e18621220e791eb44b09b266e4c4ef3f
   - enabled: 1
-    path: Assets/Scenes/Oliver Bedroom.unity
+    path: Assets/Scenes/OliverBedroom.unity
     guid: d58e080526ee54ffe86fb541328e2dd9
   m_configObjects: {}
