@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - InteractableTile
+  - Wall
   - Sound
   - BBDoor0
   layers:
