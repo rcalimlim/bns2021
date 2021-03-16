@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: e7b5249be4da52b4089df2ff3eaf36bb
   - enabled: 1
+    path: Assets/Scenes/BNS2019.unity
+    guid: 16e11d95652f07c49b84192813642cc3
+  - enabled: 1
+    path: Assets/Scenes/BNS2019+.unity
+    guid: 3bcedf356e008bd4782c75e06e5ee861
+  - enabled: 1
     path: Assets/Scenes/Bryce Bedroom.unity
     guid: 299cba436113ac240807d66ec2408f90
   - enabled: 1

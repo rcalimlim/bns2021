@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class TableuGameCtrl : MonoBehaviour
 {   
@@ -12,6 +13,7 @@ public class TableuGameCtrl : MonoBehaviour
     // Tile Spawning
     [SerializeField] private GameObject iTilePreFab;
     [SerializeField] private int spawnScouterTurn = 20;
+    [SerializeField] private int numOfInitialTiles = 10;
     private bool scouterSpawned = false;
 
     // UI and Audio
@@ -34,6 +36,7 @@ public class TableuGameCtrl : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
         statUi = transform.Find("Stat Canvas").GetComponent<TableuStatUIController>();
         bnsMenuCtrl = bns2019UI.GetComponent<MenuController>();
+        StartGame();
     }
 
     private void OnEnable() {
@@ -181,6 +184,11 @@ public class TableuGameCtrl : MonoBehaviour
         else if(tileType == "scouter")
         {   // Scouter logic PENDING
             PlayAudio(5);
+            // Save Status to universal Stat Holder
+            
+            //Load next scene
+            SceneManager.LoadScene("BNS2019+");
+            
         }
     }
 
@@ -201,6 +209,21 @@ public class TableuGameCtrl : MonoBehaviour
        
     }
 
+    void StartGame()
+    {
+        List<Vector3> placedTiles = new List<Vector3>();
+        placedTiles.Add(Vector3.zero);
+        for(int i=0; i < numOfInitialTiles; i++)
+        {   
+            Vector3 newTile;
+            do
+                newTile = new Vector3(Random.Range(-2, 3), Random.Range(-2, 3), 0);
+            while(placedTiles.Contains(newTile));
+                
+            placedTiles.Add(newTile);
+            SpawnTile(newTile);
+        }
+    }
     void GameOver()
     {
         GameObject gameOver = Instantiate(gameOverUI);

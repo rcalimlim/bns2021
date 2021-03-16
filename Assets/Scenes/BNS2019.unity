@@ -1194,7 +1194,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff02640e80bdb2c429d9d0e8fbdbbe40, type: 3}
   - {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
   iTilePreFab: {fileID: 5792591173724984233, guid: f7352730b6051944b9cedee58d2aea93, type: 3}
-  spawnScouterTurn: 1
+  spawnScouterTurn: 20
+  numOfInitialTiles: 15
   gameOverUI: {fileID: 5224977140081304535, guid: 730f1e2be15f247418ace3f00ff4cf38, type: 3}
   bns2019UI: {fileID: 1931508304}
 --- !u!50 &831249494

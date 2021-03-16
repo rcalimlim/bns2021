@@ -71,6 +71,7 @@ public class TileController : MonoBehaviour
             stressLevel = 0;
             weaponLevel = 0;
             spriteRenderer.sprite = tileSprites[6];
+            spriteRenderer.sortingOrder = 400;
             statUi.DisableStress();
             statUi.DisableWeapon();
         }
