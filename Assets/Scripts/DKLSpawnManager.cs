@@ -11,6 +11,8 @@ public class DKLSpawnManager : MonoBehaviour
     private GameObject mbDoor0;
     [SerializeField]
     private GameObject obDoor0;
+    [SerializeField]
+    private GameObject vhDoor0;
 
     private void Start()
     {
@@ -32,6 +34,10 @@ public class DKLSpawnManager : MonoBehaviour
                 SpawnPlayerWithOffset(obDoor0, new Vector3(-1.5f, 0.5f, 0f));
                 break;
                 
+            case ("VirginiaHouse", "DiningKitchenLiving"):
+                SpawnPlayerWithOffset(vhDoor0, new Vector3(0f, -0.5f, 0f));
+                break;
+
             default:
                 break;
         }
