@@ -54,4 +54,10 @@ public class PlayerController : MonoBehaviour
 
         return true;
     }
+
+    public void updateHeightCorrection(int height)
+    {
+        heightAdjustment = height;
+        heightCorrection = new Vector3Int(0, heightAdjustment, 0);
+    }
 }

@@ -1623,6 +1623,10 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: BryceBedroom
       objectReference: {fileID: 0}
+    - target: {fileID: 1462638809858699835, guid: 34e236f9b6e1249849f47ccc3c8a4af2, type: 3}
+      propertyPath: doorToSpawnAt
+      value: BBDoor0SpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 3790218601963390001, guid: 34e236f9b6e1249849f47ccc3c8a4af2, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5638,6 +5642,14 @@ PrefabInstance:
     - target: {fileID: 2561679561869731776, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561679561869731777, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
+      propertyPath: loadPos.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561679561869731777, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
+      propertyPath: loadPos.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2561679561869731783, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
       propertyPath: m_Name
