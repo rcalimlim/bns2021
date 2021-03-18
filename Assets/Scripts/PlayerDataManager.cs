@@ -11,12 +11,21 @@ public class PlayerDataManager : MonoBehaviour
     private string prevScene;
     [SerializeField]
     private string currScene;
+    [SerializeField] private Vector3 loadPos;
+
+    /*
+     Player Stats
+    */
     [SerializeField]
-    private int minStress;
+    private int minStress = 0;
     [SerializeField]
-    private int maxStress;
+    private int maxStress = 100;
     [SerializeField]
-    private int currentStress;
+    private int currentStress = 60;
+    
+    /* 
+     Game Stats
+    */
     [SerializeField]
     private int score;
     [SerializeField]
@@ -37,8 +46,8 @@ public class PlayerDataManager : MonoBehaviour
     }
 
     public string SpawnDoor {
-        get { return name; }
-        set { name = value; }
+        get { return spawnDoor; }
+        set { spawnDoor = value; }
     }
 
     public string PrevScene {
@@ -51,11 +60,32 @@ public class PlayerDataManager : MonoBehaviour
         set { currScene = value; }
     }
 
+    public Vector3 LoadAtPos {
+        get { return loadPos;}
+        set {loadPos = value;}
+    }
+
     // Call when changing scenes to keep track of player
     public void TrackSceneChange(string doorTag, string currentScene, string nextScene)
     {
         spawnDoor = doorTag;
         prevScene = currentScene;
-        currScene = nextScene; 
+        currScene = nextScene;
+        loadPos = Vector3.zero; 
+    }
+
+    public void TrackSceneChange(Vector3 loadAtPos, string currentScene, string nextScene)
+    {
+        loadPos = loadAtPos;
+        spawnDoor = "";
+        prevScene = currentScene;
+        currScene = nextScene;
+    }
+
+    public void UpdateStats(int stress, int score, int turns)
+    {
+        currentStress = stress * 10;
+        this.score = score;
+        this.turns = turns; 
     }
 }

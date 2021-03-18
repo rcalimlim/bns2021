@@ -10,7 +10,8 @@ public class MenuController : MonoBehaviour
     public GameObject credits, closeCreditsButton, showCreditsButton, initialSelected;
     public Text muteText;
 
-
+    [SerializeField] private AudioClip song;
+    private SoundManager soundManager;
     private bool muted = false;
      
     
@@ -23,9 +24,12 @@ public class MenuController : MonoBehaviour
     }
 
     private void Start() {
+        soundManager = SoundManager.Instance;
         // Default the menu option
         setInitial();
-        
+
+        if(gameObject.name == "StartMenu")
+            soundManager.PlayMusic(song);        
     }
     public void setInitial()
     {   

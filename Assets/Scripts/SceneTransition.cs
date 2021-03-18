@@ -7,15 +7,17 @@ public class SceneTransition : MonoBehaviour
 {
     [SerializeField]
     private string sceneToLoad;
+    [SerializeField] string doorToSpawnAt;
     [SerializeField]
     private AudioClip transitionSoundEffect;
+    
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             PlayerDataManager.Instance.TrackSceneChange(
-                gameObject.tag, 
+                doorToSpawnAt, 
                 SceneManager.GetActiveScene().name,
                 sceneToLoad
             );

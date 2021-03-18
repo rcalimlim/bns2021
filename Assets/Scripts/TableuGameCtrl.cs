@@ -184,7 +184,10 @@ public class TableuGameCtrl : MonoBehaviour
         else if(tileType == "scouter")
         {   // Scouter logic PENDING
             PlayAudio(5);
+            
             // Save Status to universal Stat Holder
+            PlayerDataManager.Instance.UpdateStats(playerManager.Stress, playerManager.Score, playerManager.Turns);
+            PlayerDataManager.Instance.TrackSceneChange(transform.position, SceneManager.GetActiveScene().name, "BNS2019+");
             
             //Load next scene
             SceneManager.LoadScene("BNS2019+");
