@@ -10,7 +10,15 @@
                     "type": "PassThrough",
                     "id": "a55a8bc5-45c7-4dc9-a2b0-b82ee14cc25f",
                     "expectedControlType": "Vector2",
-                    "processors": "NormalizeVector2",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "7c0d19ac-3160-41f2-a161-375de1efbbf1",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "Press"
                 }
             ],
@@ -124,6 +132,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "40e3c358-c062-4678-b67c-9cad7741443d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
