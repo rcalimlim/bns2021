@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int heightAdjustment = -1;
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tilemap collisionTilemap;
-    [SerializeField] private int interactableLayer = -1000;
     private Vector3Int heightCorrection;
     private PlayerInput controls;
     private Rigidbody2D rb;
@@ -74,11 +73,14 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        Debug.Log("e pressed");
         if (state == State.Idle)
         {
             Vector2 interactPos = (Vector2)transform.position + facingDirection;
-            Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
+            Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.3f);
+            if (collider)
+            {
+                // ...
+            }
         }
     }
 
