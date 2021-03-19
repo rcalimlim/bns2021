@@ -69,15 +69,19 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(TypeDialog(dialog.Lines[0]));
     }
 
-    public IEnumerator TypeDialog(string line)
+    public IEnumerator TypeDialog(DialogElement line)
     {
         isTyping = true;
         dialogText.text = "";
-        foreach (var letter in line.ToCharArray())
+
+        dialogText.fontStyle = line.Style;
+
+        foreach (var letter in line.Text.ToCharArray())
         {
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+
         isTyping = false;
     }
 }
