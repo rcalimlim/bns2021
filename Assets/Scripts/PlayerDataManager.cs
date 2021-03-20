@@ -27,7 +27,7 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int turns;
 
-    // global game flags because this is a hackathon baby
+    // global trigger flags
     private Dictionary<string, bool> triggerFlags = new Dictionary<string, bool>();
 
     private void Awake()
@@ -84,6 +84,7 @@ public class PlayerDataManager : MonoBehaviour
         // to having a false val
         return val;
     }
+
     public void SetTriggerFlag(string flagName, bool val)
     {
         triggerFlags[flagName] = val;

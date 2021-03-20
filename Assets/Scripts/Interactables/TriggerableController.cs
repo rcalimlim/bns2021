@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableController : MonoBehaviour, Interactable
+public class TriggerableController : MonoBehaviour
 {
     [SerializeField] private bool debugEnabled = false;
     [SerializeField] private string enableAfterTriggerFlag;
@@ -10,7 +10,6 @@ public class InteractableController : MonoBehaviour, Interactable
     [SerializeField] private string activatesTriggerFlagName;
 
     [SerializeField] private Dialog dialog;
-
     private bool IsEnabled()
     {
         if (debugEnabled)
@@ -36,25 +35,15 @@ public class InteractableController : MonoBehaviour, Interactable
         return PlayerDataManager.Instance.GetTriggerFlag(enableAfterTriggerFlag);
     }
 
-    private void ActivateTriggerFlag()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (activatesTriggerFlagName != "")
+        if (IsEnabled() && other.CompareTag("Player") && !other.isTrigger)
         {
+            if (dialog.Lines.Count > 0)
+            {
+                StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+            }
             PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);
-        }
-    }
-
-    public void Interact()
-    {
-        Debug.Log(enableAfterTriggerFlag);
-        if (IsEnabled())
-        {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
-            ActivateTriggerFlag();
-        }
-        else
-        {
-            Debug.Log("Interaction disabled");
         }
     }
 }
