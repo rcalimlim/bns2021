@@ -13,12 +13,29 @@ public class Inventory : ScriptableObjectBase
         {
             if(itemBag[i].Item == _item)
             {
-                itemBag[i].AddAmount(_amount);
+                itemBag[i].ModifyAmount(_amount);
                 return;
             }
         }
 
         itemBag.Add(new InventorySlot(_item, _amount));
+    }
+
+    public void RemoveItem(Item _item, int _amount)
+    {
+         for(int i = 0; i < itemBag.Count; i++)
+        {
+            if(itemBag[i].Item == _item)
+            {
+                itemBag[i].ModifyAmount(_amount);
+                
+                if(itemBag[i].Amount <= 0)
+                {
+                    itemBag.Remove(itemBag[i]);
+                }
+                return;
+            }
+        }
     }
 
     public List<InventorySlot> Items {get {return itemBag;}}
@@ -37,7 +54,7 @@ public class InventorySlot
         amount = _amount;
     }
 
-    public void AddAmount(int value)
+    public void ModifyAmount(int value)
     {
         amount += value;
     }
