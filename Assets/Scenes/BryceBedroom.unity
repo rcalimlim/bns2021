@@ -2002,8 +2002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f5dc330b48e8c49b4fb908529398f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 1
   isBlocking: 1
-  enableAfterTriggerFlag: TableauDefeated
+  enableAfterTriggerFlag: 
   disableAfterTriggerFlag: BBAntRemoved
   activatesTriggerFlagName: 
 --- !u!224 &506981656
@@ -2063,7 +2064,7 @@ MonoBehaviour:
   activatesTriggerFlagName: BBAntRemoved
   dialog:
     lines:
-    - text: Alright, time to deal with this ant- wait, where did it go?
+    - text: Alright, time to deal with this ant- wait, what's happening?
       style: 0
 --- !u!114 &506981659
 MonoBehaviour:
@@ -2087,8 +2088,12 @@ MonoBehaviour:
       style: 2
     - text: Maybe someone helped you out?
       style: 2
-    - text: '[Familiar Voice] Yah... right.'
+    - text: ...
+      style: 2
+    - text: '[Familiar Distant Voice] Yah... right.'
       style: 0
+    - text: ...
+      style: 2
     - text: Hmm, no ant, but what's this?
       style: 0
     - text: Ornament acquired!
@@ -5392,79 +5397,6 @@ PrefabInstance:
       objectReference: {fileID: 140671874}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
---- !u!1001 &3221797027746914879
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: dialog.lines.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: disableAfterTriggerFlag
-      value: TrollFought
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: activatesTriggerFlagName
-      value: TrollFought
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: dialog.lines.Array.data[0].text
-      value: Troll defeated!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
-      propertyPath: m_Name
-      value: DebugTriggerTrollFought
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
 --- !u!1001 &5386025063048634454
 PrefabInstance:
   m_ObjectHideFlags: 0
