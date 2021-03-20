@@ -23,7 +23,7 @@ public class BBSpawnManager : MonoBehaviour
                 break;
 
             case ("BNS2019+", "BryceBedroom"):
-                SpawnPlayerWithOffset(bbDoor1, new Vector3(-1.5f, 0f, 0f));
+                SpawnPlayerWithOffset(bbDoor1, new Vector3(-1.5f, 0.5f, 0f));
                 break;
                 
             default:

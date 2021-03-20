@@ -4,66 +4,52 @@ using UnityEngine;
 
 public class PlayerDataManager : MonoBehaviour
 {
-    public static PlayerDataManager Instance = null;
-    [SerializeField]
-    private string spawnDoor;
-    [SerializeField]
-    private string prevScene;
-    [SerializeField]
-    private string currScene;
+    // singleton
+    private static PlayerDataManager instance;
+    public static PlayerDataManager Instance { get { return instance; } }
+
+    // Player scene spawning data
+    [SerializeField] private string spawnDoor;
+    [SerializeField] private string prevScene;
+    [SerializeField] private string currScene;
     [SerializeField] private Vector3 loadPos;
 
     /*
      Player Stats
     */
-    [SerializeField]
-    private int minStress = 0;
-    [SerializeField]
-    private int maxStress = 100;
-    [SerializeField]
-    private int currentStress = 60;
+    [SerializeField] private int minStress = 0;
+    [SerializeField] private int maxStress = 100;
+    [SerializeField] private int currentStress = 60;
     
     /* 
      Game Stats
     */
-    [SerializeField]
-    private int score;
-    [SerializeField]
-    private int turns;
+    [SerializeField] private int score;
+    [SerializeField] private int turns;
+
+    // global game flags because this is a hackathon baby
+    private Dictionary<string, bool> triggerFlags = new Dictionary<string, bool>();
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance != null && instance != this)
         {
-            Instance = this;
-        }
-        else if (Instance != this)
+            Destroy(this.gameObject);
+        } else
         {
-            Destroy(gameObject);
+            instance = this;
         }
 
         DontDestroyOnLoad (gameObject);
     }
 
-    public string SpawnDoor {
-        get { return spawnDoor; }
-        set { spawnDoor = value; }
-    }
+    public string SpawnDoor { get { return spawnDoor; } }
 
-    public string PrevScene {
-        get { return prevScene; }
-        set { prevScene = value; }
-    }
+    public string PrevScene { get { return prevScene; } }
 
-    public string CurrScene {
-        get { return currScene; }
-        set { currScene = value; }
-    }
+    public string CurrScene { get { return currScene; } }
 
-    public Vector3 LoadAtPos {
-        get { return loadPos;}
-        set {loadPos = value;}
-    }
+    public Vector3 LoadAtPos { get { return loadPos;} }
 
     // Call when changing scenes to keep track of player
     public void TrackSceneChange(string doorTag, string currentScene, string nextScene)
@@ -87,5 +73,19 @@ public class PlayerDataManager : MonoBehaviour
         currentStress = stress * 10;
         this.score = score;
         this.turns = turns; 
+    }
+
+    public bool GetTriggerFlag(string flagName)
+    {
+        bool val;
+        triggerFlags.TryGetValue(flagName, out val);
+        // this is a hack, because return false means it wasn't in the hash not
+        // that the flag is actually false in this case, not existing is equivalent
+        // to having a false val
+        return val;
+    }
+    public void SetTriggerFlag(string flagName, bool val)
+    {
+        triggerFlags[flagName] = val;
     }
 }
