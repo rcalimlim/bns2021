@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4758ae8ece1d16442ab98afeb9f32fa3, type: 3}
+  m_Name: Sealed Weapon
+  m_EditorClassIdentifier: 
+  DeveloperDescription: 'Not able to upgrade
+
+    Turns into the ZXV Sword'
+  description: 
+  rating: 0
+  upgradable: 0
+  specials:
+  - No
+  weaponType: 3
