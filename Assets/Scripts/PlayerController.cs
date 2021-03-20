@@ -59,12 +59,19 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        Vector2 interactPos = (Vector2)transform.position + facingDirection;
-        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.3f);
+        Vector2 interactPos = (Vector2)transform.position + facingDirection + new Vector2(0f, -0.5f);
+        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.1f);
         if (collider != null)
         {
             collider.GetComponent<Interactable>()?.Interact();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // for debugging player interaction overlap circle
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere((Vector2)transform.position + facingDirection + new Vector2(0f, -0.5f), 0.1f);
     }
 
     public void HandleUpdate()

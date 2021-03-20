@@ -9,10 +9,11 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get { return instance; } }
 
     private GameState state = GameState.FreeRoam;
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
 
     private void Awake()
     {
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
