@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Dialog, Battle }
+public enum GameState { FreeRoam, Dialog, Battle, Menu }
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 
     private GameState state = GameState.FreeRoam;
     private PlayerController playerController;
+    [SerializeField] Inventory playerInventory;
 
     private void Awake()
     {
@@ -48,6 +49,10 @@ public class GameController : MonoBehaviour
         else if (state == GameState.Battle)
         {
            // ...
+        }    
+        else if (state == GameState.Menu)
+        {
+            // MenuController.HandleUpdate();
         }    
     }
 }

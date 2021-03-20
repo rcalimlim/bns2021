@@ -67,6 +67,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OpenMenu()
+    {
+        // MenuController.OpenPauseMenu();
+    }
+
     private void OnDrawGizmos()
     {
         // for debugging player interaction overlap circle
@@ -84,6 +89,11 @@ public class PlayerController : MonoBehaviour
         if (controls.Main.Interaction.triggered)
         {
             Interact();
+        }
+
+        if (controls.Main.Menu.triggered)
+        {
+            OpenMenu();
         }
     }
 

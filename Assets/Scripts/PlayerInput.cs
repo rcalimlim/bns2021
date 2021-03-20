@@ -33,6 +33,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""0212ea51-5022-484c-a5f7-29cb005bc2ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -156,6 +164,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34678e29-a075-4642-9e2b-b117d61f1caa"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +185,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
         m_Main_Movement = m_Main.FindAction("Movement", throwIfNotFound: true);
         m_Main_Interaction = m_Main.FindAction("Interaction", throwIfNotFound: true);
+        m_Main_Menu = m_Main.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,12 +237,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private IMainActions m_MainActionsCallbackInterface;
     private readonly InputAction m_Main_Movement;
     private readonly InputAction m_Main_Interaction;
+    private readonly InputAction m_Main_Menu;
     public struct MainActions
     {
         private @PlayerInput m_Wrapper;
         public MainActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Main_Movement;
         public InputAction @Interaction => m_Wrapper.m_Main_Interaction;
+        public InputAction @Menu => m_Wrapper.m_Main_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +260,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Interaction.started -= m_Wrapper.m_MainActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnInteraction;
+                @Menu.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
@@ -248,6 +273,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -256,5 +284,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }
