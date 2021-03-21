@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44487558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057405444}
@@ -2147,7 +2147,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &506981653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2155,7 +2155,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506981652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2250,7 +2250,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506981652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1079475340}
@@ -2277,6 +2277,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: TableauDefeated
   disableAfterTriggerFlag: TrollFought
   activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: Oh crap, there's a rubber ant here. How am I supposed to leave now?
@@ -2297,6 +2299,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: TrollFought
   disableAfterTriggerFlag: BBAntRemoved
   activatesTriggerFlagName: BBAntRemoved
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: Alright, time to deal with this ant- wait, where'd it go?
@@ -3460,6 +3464,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: 
   disableAfterTriggerFlag: 
   activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: Usually I'd practice, but I've played Aerheadh's Theme enough today.
@@ -4076,6 +4082,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: 
   disableAfterTriggerFlag: 
   activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: How am I supposed to play from this angle?
@@ -5697,6 +5705,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: 
   disableAfterTriggerFlag: 
   activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: Uh, is someone in there?

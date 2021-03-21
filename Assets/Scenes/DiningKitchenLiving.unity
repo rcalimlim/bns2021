@@ -4377,6 +4377,8 @@ MonoBehaviour:
   enableAfterTriggerFlag: 
   disableAfterTriggerFlag: HingeFought
   activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 0}
   dialog:
     lines:
     - text: Oh crap, there's that ant again. Good thing I'm waiting for my package.
@@ -6627,15 +6629,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.32654476
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6665,9 +6667,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: DKLOliWorkCyclesDinged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: activatesTriggerFlagName
+      value: DKLOliWorkCyclesDinged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: '*ding*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].text
+      value: I heard the bell just now. Work Cycles must still be going on.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
+      value: Oh, wait, the door is open. Is he not here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].style
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Name
-      value: erablePrefabAssetAsset
+      value: DKLOutsideOliRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
