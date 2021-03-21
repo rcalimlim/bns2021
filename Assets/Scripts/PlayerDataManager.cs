@@ -17,9 +17,12 @@ public class PlayerDataManager : MonoBehaviour
     /*
      Player Stats
     */
-    [SerializeField] private int minStress = 0;
-    [SerializeField] private int maxStress = 100;
-    [SerializeField] private int currentStress = 60;
+    [SerializeField] private int minStress;
+    [SerializeField] private int maxStress;
+    [SerializeField] private int currentStress;
+    public int MinStress { get { return minStress; } }
+    public int MaxStress { get { return maxStress; } }
+    public int CurrentStress { get { return currentStress; } }
     
     /* 
      Game Stats
@@ -27,11 +30,16 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int turns;
 
-    // global game flags because this is a hackathon baby
+    // global trigger flags
     private Dictionary<string, bool> triggerFlags = new Dictionary<string, bool>();
 
     private void Awake()
     {
+        // Default values, because serialized defaults are not supported
+        minStress = 0;
+        maxStress = 100;
+        currentStress = 0;
+
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -84,6 +92,7 @@ public class PlayerDataManager : MonoBehaviour
         // to having a false val
         return val;
     }
+
     public void SetTriggerFlag(string flagName, bool val)
     {
         triggerFlags[flagName] = val;

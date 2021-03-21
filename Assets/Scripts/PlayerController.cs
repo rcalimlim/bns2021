@@ -49,9 +49,25 @@ public class PlayerController : MonoBehaviour
 
     private bool CanMove(Vector2 direction)
     {
+        // quickly check for collision tilemap
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction + heightCorrection);
+        if (collisionTilemap.HasTile(gridPosition))
+        {
+            return false;
+        }
 
-        if (collisionTilemap.HasTile(gridPosition)) {
+        // else check if there's a conditional asset in the way
+        Vector2 interactPos = (Vector2)transform.position + facingDirection + new Vector2(0f, -0.5f);
+        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.1f);
+
+        bool isBlocking = false;
+        ConditionalAssetController cac = collider?.GetComponent<ConditionalAssetController>();
+        if (cac != null)
+        {
+            isBlocking = cac.IsBlocking;
+        }
+
+        if (isBlocking) {
             return false;
         } 
 
@@ -64,7 +80,11 @@ public class PlayerController : MonoBehaviour
         Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.1f);
         if (collider != null)
         {
-            collider.GetComponent<Interactable>()?.Interact();
+            Interactable[] interactables = collider.GetComponents<Interactable>();
+            foreach (Interactable interactable in interactables)
+            {
+                interactable.Interact();
+            }
         }
     }
 
