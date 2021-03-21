@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int heightAdjustment = -1;
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tilemap collisionTilemap;
+    [SerializeField] private Menu menu;
     private Vector3Int heightCorrection;
     private PlayerInput controls;
     private Rigidbody2D rb;
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private void OpenMenu()
     {
-        // MenuController.OpenPauseMenu();
+        menu.OpenMenu(controls);
     }
 
     private void OnDrawGizmos()

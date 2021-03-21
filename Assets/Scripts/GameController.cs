@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     private GameState state = GameState.FreeRoam;
     private PlayerController playerController;
     [SerializeField] Inventory playerInventory;
+    [SerializeField] Menu pauseMenu;
 
     private void Awake()
     {
@@ -33,6 +34,12 @@ public class GameController : MonoBehaviour
                 state = GameState.FreeRoam;
             }
         };
+        pauseMenu.OnOpenMenu += () => state = GameState.Menu;
+        pauseMenu.OnCloseMenu += () => {
+            if(state == GameState.Menu)
+                state = GameState.FreeRoam;
+        };
+
     }
 
     // Update is called once per frame
@@ -52,7 +59,7 @@ public class GameController : MonoBehaviour
         }    
         else if (state == GameState.Menu)
         {
-            // MenuController.HandleUpdate();
+            pauseMenu.HandleUpdate();
         }    
     }
 }

@@ -8,8 +8,8 @@ public class Armor: EquipableItem
 {   
     [SerializeField]
     ArmorType type;
-    public string Type
+    public override string Type
     {
-        get { return Enum.GetName(typeof(WeaponType), type); }
+        get => Enum.GetName(typeof(ArmorType), type); 
     }
 }

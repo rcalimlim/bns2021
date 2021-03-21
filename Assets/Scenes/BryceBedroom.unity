@@ -5165,6 +5165,10 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 2768938729796005471, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 11400000, guid: e6f0aa9da4ca27e4e908602a64183e1d, type: 2}
+    - target: {fileID: 2768938729796005471, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 140671874}
@@ -5286,6 +5290,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 11400000, guid: e6f0aa9da4ca27e4e908602a64183e1d, type: 2}
     - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: groundTilemap
       value: 

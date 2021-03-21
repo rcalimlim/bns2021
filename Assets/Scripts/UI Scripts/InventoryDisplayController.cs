@@ -7,6 +7,7 @@ public class InventoryDisplayController : MonoBehaviour
 {
     [SerializeField] Inventory inventory;
     [SerializeField] GameObject itemSlotPrefab;
+    [SerializeField] GameObject toolTipCanvas;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
 
     // Start is called before the first frame update
@@ -18,14 +19,20 @@ public class InventoryDisplayController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateItemList();
+        if(itemsDisplayed.Count != inventory.Items.Count)
+        {
+            itemsDisplayed.Clear();
+            CreateDisplay();
+        }
+        //UpdateItemList();
     }
 
     public void CreateDisplay()
     {
         for (int i = 0; i < inventory.Items.Count; i++)
         {
-            itemsDisplayed.Add(inventory.Items[i], AddItem(inventory.Items[i], i));
+            //itemsDisplayed.Add(inventory.Items[i], AddItem(inventory.Items[i], i));
+            itemsDisplayed.Add(inventory.Items[i], AddItem(inventory.Items[i]));
         }
     }
 
@@ -42,6 +49,7 @@ public class InventoryDisplayController : MonoBehaviour
             else
                 itemsDisplayed.Add(inventory.Items[i], AddItem(inventory.Items[i], i));
         }
+
     }
 
     Vector3 GetPosition(int i)
@@ -58,6 +66,19 @@ public class InventoryDisplayController : MonoBehaviour
         var children = obj.GetComponentsInChildren<Text>();
         children[0].text = inventorySlot.Item.name;
         children[1].text = "x " + inventorySlot.Amount;
+
+        return obj;
+    }
+
+    GameObject AddItem(InventorySlot inventorySlot)
+    {
+        var obj = Instantiate(itemSlotPrefab, Vector3.zero, Quaternion.identity, this.transform);
+        InventorySlotButtonController isbc = obj.GetComponent<InventorySlotButtonController>();
+        isbc.InventorySlot = inventorySlot;
+        
+        TooltipTrigger ttt = obj.GetComponent<TooltipTrigger>();
+        ttt.inventorySlot = inventorySlot;
+        ttt.TooltipCanvas = toolTipCanvas;
 
         return obj;
     }

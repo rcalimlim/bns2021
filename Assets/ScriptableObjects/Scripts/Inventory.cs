@@ -6,6 +6,8 @@ using UnityEngine;
 public class Inventory : ScriptableObjectBase
 {
     [SerializeField] List<InventorySlot> itemBag = new List<InventorySlot>();
+    [SerializeField] Weapon equipedWeapon;
+    [SerializeField] Armor equipedArmor;
 
     public void AddItem(Item _item, int _amount)
     {
@@ -38,7 +40,37 @@ public class Inventory : ScriptableObjectBase
         }
     }
 
+    public int GetQuantity(Item item)
+    {
+        int amt = 0;
+        InventorySlot invSlot = itemBag.Find(slot => slot.Item == item);
+
+        if(invSlot != null)
+            amt = invSlot.Amount;
+        
+        return amt;
+    }
+
     public List<InventorySlot> Items {get {return itemBag;}}
+    
+    public void Equip(EquipableItem item)
+    {
+        if(item is Weapon)
+            equipedWeapon = (Weapon)item;
+        else if(item is Armor)
+            equipedArmor = (Armor)item;
+    }
+    
+    public Weapon EquipedWeapon
+    {   get => equipedWeapon;
+        set => equipedWeapon = value ?? equipedWeapon;
+    }
+
+    public Armor EquipedArmor
+    {
+        get => equipedArmor;
+        set => equipedArmor = value ?? equipedArmor;
+    }
 
 }
 
