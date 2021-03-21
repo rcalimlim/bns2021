@@ -47,9 +47,12 @@ public class InteractableController : MonoBehaviour, Interactable
     }
     private void AddItemsToInventory()
     {
-        foreach (InventoryItem inventoryItem in inventoryItems)
+        if (inventoryItems != null && inventoryItems.Length > 0)
         {
-            playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+            foreach (InventoryItem inventoryItem in inventoryItems)
+            {
+                playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+            }
         }
     }
 
