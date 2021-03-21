@@ -11,6 +11,7 @@ public class ConditionalAssetController : MonoBehaviour
     [SerializeField] private string disableAfterTriggerFlag;
     [SerializeField] private string activatesTriggerFlagName;
     private SpriteRenderer spriteRenderer;
+    private PlayerDataManager playerDataManager;
 
     public bool IsBlocking { get { return isBlocking; } }
 
@@ -22,6 +23,10 @@ public class ConditionalAssetController : MonoBehaviour
             spriteRenderer = sp;
         }
 
+    }
+
+    private void Start()
+    {
         if (IsEnabled() == false)
         {
             Disable();

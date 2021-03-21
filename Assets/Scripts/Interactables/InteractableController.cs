@@ -51,9 +51,5 @@ public class InteractableController : MonoBehaviour, Interactable
             StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
             ActivateTriggerFlag();
         }
-        else
-        {
-            Debug.Log("Interaction disabled");
-        }
     }
 }
