@@ -8,6 +8,8 @@ public class InteractableController : MonoBehaviour, Interactable
     [SerializeField] private string enableAfterTriggerFlag;
     [SerializeField] private string disableAfterTriggerFlag;
     [SerializeField] private string activatesTriggerFlagName;
+    [SerializeField] private InventoryItem[] inventoryItems;
+    [SerializeField] private Inventory playerInventory;
 
     [SerializeField] private Dialog dialog;
 
@@ -43,12 +45,20 @@ public class InteractableController : MonoBehaviour, Interactable
             PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);
         }
     }
+    private void AddItemsToInventory()
+    {
+        foreach (InventoryItem inventoryItem in inventoryItems)
+        {
+            playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+        }
+    }
 
     public void Interact()
     {
         if (IsEnabled())
         {
             StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+            AddItemsToInventory();
             ActivateTriggerFlag();
         }
     }
