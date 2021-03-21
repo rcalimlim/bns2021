@@ -26,13 +26,14 @@ public class ConditionalAssetController : MonoBehaviour
         {
             Disable();
         }
+    }
 
-        DialogManager.Instance.OnShowDialog += () => StartCoroutine(BlinkSprite());
-        DialogManager.Instance.OnCloseDialog += () =>
+    private void Update()
+    {
+        if (IsEnabled() == false)
         {
-            new WaitForEndOfFrame();
             Disable();
-        };
+        }
     }
 
     private bool IsEnabled()
