@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 enum WeaponType 
 {
@@ -37,6 +38,11 @@ public class Item : ScriptableObjectBase
     {
         get {return description;}
     }
+
+    public Sprite Sprite
+    {
+        get {return sprite;}
+    }
 }
 
 [System.Serializable]
@@ -50,6 +56,8 @@ public abstract class EquipableItem : Item
 
     [SerializeField]
     List<string> specials = new List<string>();
+
+    public abstract string Type{get;}
 
     public string Rating
     {

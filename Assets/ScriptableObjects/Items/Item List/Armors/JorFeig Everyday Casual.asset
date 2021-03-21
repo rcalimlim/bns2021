@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: Starting Armor
   description: Comfortable casual wear with stylish NUANCE
+  sprite: {fileID: 0}
   rating: 0
   upgradable: 1
   specials:

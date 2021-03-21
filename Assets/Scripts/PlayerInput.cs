@@ -177,6 +177,33 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""211f9ad5-80ff-4256-a812-94af7a49c9f0"",
+            ""actions"": [
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0f9a464-2d8d-4148-af70-fbae93e616ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""015be1c6-7013-472e-9f88-843afb5e22da"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -186,6 +213,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Main_Movement = m_Main.FindAction("Movement", throwIfNotFound: true);
         m_Main_Interaction = m_Main.FindAction("Interaction", throwIfNotFound: true);
         m_Main_Menu = m_Main.FindAction("Menu", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Close = m_Menu.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -280,10 +310,47 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         }
     }
     public MainActions @Main => new MainActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Close;
+    public struct MenuActions
+    {
+        private @PlayerInput m_Wrapper;
+        public MenuActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Close => m_Wrapper.m_Menu_Close;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Close.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnClose;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Close.started += instance.OnClose;
+                @Close.performed += instance.OnClose;
+                @Close.canceled += instance.OnClose;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IMainActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnClose(InputAction.CallbackContext context);
     }
 }
