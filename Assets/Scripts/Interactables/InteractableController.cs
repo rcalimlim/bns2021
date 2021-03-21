@@ -46,7 +46,6 @@ public class InteractableController : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Debug.Log(enableAfterTriggerFlag);
         if (IsEnabled())
         {
             StartCoroutine(DialogManager.Instance.ShowDialog(dialog));

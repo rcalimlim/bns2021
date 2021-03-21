@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  itemBag: []
+  itemBag:
+  - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    amount: 2

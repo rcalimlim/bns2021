@@ -8,6 +8,8 @@ public class TriggerableController : MonoBehaviour
     [SerializeField] private string enableAfterTriggerFlag;
     [SerializeField] private string disableAfterTriggerFlag;
     [SerializeField] private string activatesTriggerFlagName;
+    [SerializeField] private InventoryItem[] inventoryItems;
+    [SerializeField] private Inventory playerInventory;
 
     [SerializeField] private Dialog dialog;
     private bool IsEnabled()
@@ -35,6 +37,14 @@ public class TriggerableController : MonoBehaviour
         return PlayerDataManager.Instance.GetTriggerFlag(enableAfterTriggerFlag);
     }
 
+    private void AddItemsToInventory()
+    {
+        foreach (InventoryItem inventoryItem in inventoryItems)
+        {
+            playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (IsEnabled() && other.CompareTag("Player") && !other.isTrigger)
@@ -43,6 +53,7 @@ public class TriggerableController : MonoBehaviour
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
             }
+            AddItemsToInventory();
             PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);
         }
     }

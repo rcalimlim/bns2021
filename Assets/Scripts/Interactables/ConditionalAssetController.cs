@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,28 +22,19 @@ public class ConditionalAssetController : MonoBehaviour
             spriteRenderer = sp;
         }
 
-        if (!IsEnabled())
+        if (IsEnabled() == false)
         {
             Disable();
         }
+
+        DialogManager.Instance.OnShowDialog += () => StartCoroutine(BlinkSprite());
+        DialogManager.Instance.OnCloseDialog += () =>
+        {
+            new WaitForEndOfFrame();
+            Disable();
+        };
     }
 
-    private void Update()
-    {
-        // needs to basically happen once
-        if (isEnabled == true && disableAfterTriggerFlag != "")
-        {
-            bool isDisabled = PlayerDataManager.Instance.GetTriggerFlag(disableAfterTriggerFlag);
-            if (isDisabled)
-            {
-                if (spriteRenderer != null)
-                {
-                    StartCoroutine(BlinkSpriteOff());
-                }
-                Disable();
-            }
-        }
-    }
     private bool IsEnabled()
     {
         bool isDisabled = false;
@@ -70,18 +62,14 @@ public class ConditionalAssetController : MonoBehaviour
         spriteRenderer.enabled = false;
     }
 
-    private IEnumerator BlinkSpriteOff()
+    private IEnumerator BlinkSprite()
     {
-        for (int i = 0; i < 6; ++i)
+        while (isEnabled == true && spriteRenderer != null)
         {
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.enabled = false;
-                yield return new WaitForSecondsRealtime(0.4f);
-                spriteRenderer.enabled = true;
-                yield return new WaitForSecondsRealtime(0.4f);
-            }
+            spriteRenderer.enabled = false;
+            yield return new WaitForSecondsRealtime(0.4f);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSecondsRealtime(0.4f);
         }
-        spriteRenderer.enabled = false;
     }
 }
