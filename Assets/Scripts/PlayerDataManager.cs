@@ -28,7 +28,6 @@ public class PlayerDataManager : MonoBehaviour
 
     public void AdjustStress (int stress)
     {
-        Debug.LogFormat("{0}, {1}", currentStress, stress);
         if (stress < 0)
         {
             currentStress = Mathf.Max(minStress, currentStress - stress);
