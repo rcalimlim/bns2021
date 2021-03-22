@@ -56,13 +56,18 @@ public class InteractableController : MonoBehaviour, Interactable
         }
     }
 
+    private IEnumerator InvokeActionsSync()
+    {
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog, false));
+        AddItemsToInventory();
+        ActivateTriggerFlag();
+    }
+
     public void Interact()
     {
         if (IsEnabled())
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
-            AddItemsToInventory();
-            ActivateTriggerFlag();
+            StartCoroutine(InvokeActionsSync());
         }
     }
 }

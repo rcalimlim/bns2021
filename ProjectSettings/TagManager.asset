@@ -7,7 +7,7 @@ TagManager:
   - InteractableTile
   - Wall
   - Sound
-  - BBDoor0
+  - Canvas
   layers:
   - Default
   - TransparentFX

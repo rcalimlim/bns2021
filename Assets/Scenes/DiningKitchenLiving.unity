@@ -1517,6 +1517,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &293874990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 1468865573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &293874991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293874990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d83e9ba9c350a41b77c7838aba2e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: DKLFirstPandemicTreeInteraction
+  disableAfterTriggerFlag: BusterBarbellAcquired
+  activatesTriggerFlagName: BusterBarbellAcquired
+  inventoryItems: []
+  playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+  itemToRemoveOnAccept: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+  itemToGiveOnAccept: {fileID: 11400000, guid: 3edb7622e2e00de4b865d49a33b2bdf5, type: 2}
+  dialog:
+    lines:
+    - text: Replace a missing ornament?
+      style: 0
+  onAcceptDialogSuccess:
+    lines:
+    - text: After you hang the ornament, you hear a rustling of tree branches, something
+        thumping, then a heavy clang.
+      style: 2
+    - text: ...what the hell? I'm definitely dreaming or something now.
+      style: 0
+    - text: Buster Barbell acquired!
+      style: 2
+  onAcceptDialogFailure:
+    lines:
+    - text: You don't have enough ornaments. Perhaps you can come back later.
+      style: 2
+  onDecline:
+    lines: []
 --- !u!1 &294109493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1295709077157642216, guid: 34e236f9b6e1249849f47ccc3c8a4af2, type: 3}
@@ -6191,11 +6235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.z

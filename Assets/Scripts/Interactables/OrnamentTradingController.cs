@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PandemicTreeOrnamentController : MonoBehaviour, Interactable
+public class OrnamentTradingController : MonoBehaviour, Interactable
 {
     [SerializeField] private bool debugEnabled = false;
     [SerializeField] private string enableAfterTriggerFlag;
@@ -10,8 +10,13 @@ public class PandemicTreeOrnamentController : MonoBehaviour, Interactable
     [SerializeField] private string activatesTriggerFlagName;
     [SerializeField] private InventoryItem[] inventoryItems;
     [SerializeField] private Inventory playerInventory;
+    [SerializeField] private Item itemToRemoveOnAccept;
+    [SerializeField] private Item itemToGiveOnAccept;
 
     [SerializeField] private Dialog dialog;
+    [SerializeField] private Dialog onAcceptDialogSuccess;
+    [SerializeField] private Dialog onAcceptDialogFailure;
+    [SerializeField] private Dialog onDecline;
 
     private bool IsEnabled()
     {
@@ -56,9 +61,49 @@ public class PandemicTreeOrnamentController : MonoBehaviour, Interactable
         }
     }
 
-    private IEnumerator DoAllActionsSync()
+    private IEnumerator OnAcceptSync()
     {
-        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        DialogManager.Instance.CloseDialog();
+
+
+        // logic for taking the ornament
+        if (playerInventory.GetQuantity(itemToRemoveOnAccept) > 0)
+        {
+            playerInventory.RemoveItem(itemToRemoveOnAccept, -1);
+            playerInventory.AddItem(itemToGiveOnAccept, 1);
+            yield return StartCoroutine(DialogManager.Instance.ShowDialog(onAcceptDialogSuccess));
+        }
+        else
+        {
+            yield return StartCoroutine(DialogManager.Instance.ShowDialog(onAcceptDialogFailure));
+        }
+    }
+
+    private void OnAccept()
+    {
+        StartCoroutine(OnAcceptSync());
+    }
+
+    private void OnDecline()
+    {
+        DialogManager.Instance.CloseDialog();
+    }
+
+    private void SetupDialogCallbacks()
+    {
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        DialogButtonClickHandler dbch = canvas?.GetComponent<DialogButtonClickHandler>(); 
+        if (dbch != null)
+        {
+            dbch.onAccept = OnAccept;
+            dbch.onDecline = OnDecline;
+        }
+    }
+
+    private IEnumerator InvokeActionsSync()
+    {
+        SetupDialogCallbacks();
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog, true));
         AddItemsToInventory();
         ActivateTriggerFlag();
     }
@@ -67,7 +112,7 @@ public class PandemicTreeOrnamentController : MonoBehaviour, Interactable
     {
         if (IsEnabled())
         {
-            StartCoroutine(DoAllActionsSync());
+            StartCoroutine(InvokeActionsSync());
         }
     }
 }
