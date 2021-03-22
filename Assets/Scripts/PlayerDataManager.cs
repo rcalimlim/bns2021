@@ -25,7 +25,6 @@ public class PlayerDataManager : MonoBehaviour
     public int CurrentStress { 
         get { return currentStress; } 
     }
-
     public void AdjustStress (int stress)
     {
         if (stress < 0)
