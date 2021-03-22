@@ -3170,6 +3170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1686839010}
+  - {fileID: 1176270722}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6116,6 +6117,85 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
   m_PrefabInstance: {fileID: 1062978428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1176270721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 718352053}
+    m_Modifications:
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: DKLMarlonRoomTriggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: activatesTriggerFlagName
+      value: DKLMarlonRoomTriggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: Uhhh. He doesn't keep it the cleanest. Entering might stress me out.
+        What should I do?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: m_Name
+      value: DKLOutisdeMarlonRoom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+--- !u!4 &1176270722 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+  m_PrefabInstance: {fileID: 1176270721}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1246204349
 PrefabInstance:
