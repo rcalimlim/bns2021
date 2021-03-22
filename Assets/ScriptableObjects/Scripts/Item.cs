@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum WeaponType 
+public enum WeaponType 
 {
     Straight,
     Heavy,
@@ -11,7 +11,7 @@ enum WeaponType
     Curved
 }
 
-enum ArmorType 
+public enum ArmorType 
 {
     Guarding,
     Parrying,
