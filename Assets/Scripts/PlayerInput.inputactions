@@ -191,6 +191,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Battle",
+            "id": "e648215d-eaf8-4cf4-aa60-42fd6658f92b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "f15042e0-4482-4bd0-9eb7-c1bd73f71a27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "48f105b2-169d-4eba-b5de-14d4d7092c22",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

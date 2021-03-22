@@ -204,6 +204,33 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Battle"",
+            ""id"": ""e648215d-eaf8-4cf4-aa60-42fd6658f92b"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""f15042e0-4482-4bd0-9eb7-c1bd73f71a27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""48f105b2-169d-4eba-b5de-14d4d7092c22"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -216,6 +243,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Close = m_Menu.FindAction("Close", throwIfNotFound: true);
+        // Battle
+        m_Battle = asset.FindActionMap("Battle", throwIfNotFound: true);
+        m_Battle_Newaction = m_Battle.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -343,6 +373,39 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Battle
+    private readonly InputActionMap m_Battle;
+    private IBattleActions m_BattleActionsCallbackInterface;
+    private readonly InputAction m_Battle_Newaction;
+    public struct BattleActions
+    {
+        private @PlayerInput m_Wrapper;
+        public BattleActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Battle_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Battle; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BattleActions set) { return set.Get(); }
+        public void SetCallbacks(IBattleActions instance)
+        {
+            if (m_Wrapper.m_BattleActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_BattleActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_BattleActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_BattleActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_BattleActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public BattleActions @Battle => new BattleActions(this);
     public interface IMainActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -352,5 +415,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     public interface IMenuActions
     {
         void OnClose(InputAction.CallbackContext context);
+    }
+    public interface IBattleActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
