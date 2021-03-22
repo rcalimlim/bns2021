@@ -60,12 +60,19 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ShowDialog(Dialog dialog)
+    public IEnumerator ShowDialog(Dialog dialog, bool isAcceptDecline = false)
     {
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
         this.dialog = dialog;
+
+        foreach(Button button in dialogBox.GetComponentsInChildren<Button>())
+        {
+            button.gameObject.SetActive(isAcceptDecline);
+        }
+
         dialogBox.SetActive(true);
+
         StartCoroutine(TypeDialog(dialog.Lines[0]));
     }
 
