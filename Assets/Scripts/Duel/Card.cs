@@ -36,7 +36,7 @@ public class Card
     public string LongName{get => $"{LongType} {Strength}";}
 
     /*
-     * Overrides
+     * 
     */
     public string AllCardInfo()
     {
