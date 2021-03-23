@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CardTest : MonoBehaviour
 {
+    public bool RunTests = false;
     // Start is called before the first frame update
     void Start()
     {
-        //createCard();
-        //makeRandomCards();
-        //makeCard();
+        if(RunTests)
+        {
+            createCard();
+            makeRandomCards();
+            makeCard();
+        }
     }
 
 
@@ -50,5 +54,5 @@ public class CardTest : MonoBehaviour
         print($"Attempt MakeDefenseCard (failure): {Card.MakeDefenseCard(5, "parry")?.AllCardInfo()}");
         print($"Attempt MakeDefenseCard (failure): {Card.MakeDefenseCard(1, "Lash")?.AllCardInfo()}");
     }
-    
+
 }
