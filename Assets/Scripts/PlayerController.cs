@@ -40,10 +40,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
+        Vector2 normalizedVector = direction;
+        normalizedVector.x = Mathf.RoundToInt(normalizedVector.x);
+        normalizedVector.y = Mathf.RoundToInt(normalizedVector.y);
+        Debug.LogFormat("{0}, {1}", direction, normalizedVector);
         // face the player in the direction of the last movement attempt
-        facingDirection = direction;
-        if (CanMove(direction)) {
-            transform.position += (Vector3)direction;
+        facingDirection = normalizedVector;
+        if (CanMove(normalizedVector)) {
+            transform.position += (Vector3)normalizedVector;
         }
     }
 
