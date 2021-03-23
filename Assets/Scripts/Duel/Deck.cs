@@ -29,11 +29,11 @@ public class Deck
         }
     }
 
-    public Card Draw(string cardType)
+    public Card Draw(string cardClass)
     {
-        if(cardType.ToLower() == "attack")
+        if(cardClass == "Attack")
             return DrawAttackCard();
-        else if(cardType.ToLower() == "defense")
+        else if(cardClass == "Defense")
             return DrawDefenseCard();
         
         return null;
