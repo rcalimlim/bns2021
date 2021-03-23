@@ -57,6 +57,8 @@ public abstract class EquipableItem : Item
     [SerializeField]
     List<string> specials = new List<string>();
 
+    public List<string> Specials {get => specials;}
+
     public abstract string Type{get;}
 
     public string Rating
