@@ -16,7 +16,7 @@ public class CardTest
                 "Focused Thrust",
                 "Lunge toward an enemy with a piercing strike that hits multiple times. Significantly increases stagger.",
                 "1.opponent.hp.params.debuff=-20;1.opponent.defense.params.set=1"
-                )
+                );
         DuelWeapon busterSword = new DuelWeapon(
                 bs_name,
                 bs_wt,
@@ -31,13 +31,13 @@ public class CardTest
         Console.WriteLine(busterSword.getSpecialName());
         Console.WriteLine(busterSword.getSpecialDescription());
         Console.WriteLine(busterSword.getSpecialRecipe());
-        bool success = busterSword.useSpecial()
+        bool success = busterSword.useSpecial();
         Console.WriteLine("Success: " + success);
         
         DuelWeapon busterBarbell = new DuelWeapon(busterSword);
         busterBarbell.name = "A large steel barbell that has inherited the hopes of those who lift.";
         busterBarbell.rating = B;
-        success = busterBarbell.useSpecial()
+        success = busterBarbell.useSpecial();
         Console.WriteLine("Success: " + success);
 
 
@@ -64,8 +64,7 @@ public class CardTest
         Console.WriteLine(fg.getSpecialName());
         Console.WriteLine(fg.getSpecialDescription());
         Console.WriteLine(fg.getSpecialRecipe());
-        success = fg.useSpecial()
-        Console.WriteLine("Success: " + success);
+        success = fg.useSpecial();
     }
 }
 
