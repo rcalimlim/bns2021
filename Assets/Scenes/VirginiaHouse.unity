@@ -568,6 +568,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
   m_PrefabInstance: {fileID: 478460361}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &601741867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 799211176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &725133693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,6 +630,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
+--- !u!1001 &799211176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1807679489}
+    m_Modifications:
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: StreamGlitched
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: activatesTriggerFlagName
+      value: StreamGlitched
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: Everything is glitching out. It's weird
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_Name
+      value: VHStreamComputer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
 --- !u!1 &896764839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3797,7 @@ Transform:
   m_Children:
   - {fileID: 1457553481}
   - {fileID: 478460362}
+  - {fileID: 601741867}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
