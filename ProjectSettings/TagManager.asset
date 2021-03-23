@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Sound
   - Canvas
+  - BBDoor0
+  - SceneFadeUI
   layers:
   - Default
   - TransparentFX
