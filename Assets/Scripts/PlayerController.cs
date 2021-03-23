@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tilemap collisionTilemap;
     [SerializeField] private Menu menu;
+    [SerializeField] private float timeToMove;
     private Vector3Int heightCorrection;
     private PlayerInput controls;
     private Rigidbody2D rb;
     private Vector2 facingDirection = Vector2.zero;
+    private bool isMoving = false;
 
 
     private void Awake()
@@ -38,17 +40,29 @@ public class PlayerController : MonoBehaviour
         heightCorrection = new Vector3Int(0, heightAdjustment, 0);
     }
 
-    private void Move(Vector2 direction)
+    private IEnumerator Move(Vector2 direction)
     {
+        isMoving = true;
         Vector2 normalizedVector = direction;
         normalizedVector.x = Mathf.RoundToInt(normalizedVector.x);
         normalizedVector.y = Mathf.RoundToInt(normalizedVector.y);
 
         // face the player in the direction of the last movement attempt
         facingDirection = normalizedVector;
+        Vector2 currentPos = transform.position;
+        Vector2 targetPos = transform.position + (Vector3)(normalizedVector);
+        float elapsedTime = 0;
         if (CanMove(normalizedVector)) {
-            transform.position += (Vector3)normalizedVector;
+            //transform.position += (Vector3)normalizedVector;
+            while (elapsedTime < timeToMove)
+            {
+                transform.position = Vector3.Lerp(currentPos, targetPos, (elapsedTime / timeToMove));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            transform.position = targetPos;
         }
+        isMoving = false;
     }
 
     private bool CanMove(Vector2 direction)
@@ -106,9 +120,9 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (controls.Main.Movement.triggered)
+        if (controls.Main.Movement.triggered && isMoving == false)
         {
-            Move(controls.Main.Movement.ReadValue<Vector2>());
+            StartCoroutine(Move(controls.Main.Movement.ReadValue<Vector2>()));
         }
 
         if (controls.Main.Interaction.triggered)
@@ -120,6 +134,7 @@ public class PlayerController : MonoBehaviour
         {
             OpenMenu();
         }
+
     }
 
     public void updateHeightCorrection(int height)

@@ -1227,6 +1227,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: autoEquipItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: autoEquipItems
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
@@ -2249,7 +2257,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
     qty: 1
   playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
-  autoEquipItem: 0
+  autoEquipItems: 0
   dialog:
     lines:
     - text: You search the area, but it's as if the ant has been removed completely.
@@ -3524,7 +3532,7 @@ MonoBehaviour:
   activatesTriggerFlagName: TableauDefeated
   inventoryItems: []
   playerInventory: {fileID: 0}
-  autoEquipItem: 0
+  autoEquipItems: 0
   dialog:
     lines:
     - text: ...
@@ -6132,10 +6140,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
-      propertyPath: menu
-      value: 
-      objectReference: {fileID: 11400000, guid: e6f0aa9da4ca27e4e908602a64183e1d, type: 2}
     - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: groundTilemap
       value: 

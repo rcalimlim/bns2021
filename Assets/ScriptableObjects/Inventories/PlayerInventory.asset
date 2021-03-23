@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   itemBag:
-  - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+  - item: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
     amount: 2
-  - item: {fileID: 11400000, guid: 969d10e374c7abe4f86ff7f0683ccd14, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
-    amount: 1
-  equipedWeapon: {fileID: 0}
+  equipedWeapon: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
   equipedArmor: {fileID: 0}
