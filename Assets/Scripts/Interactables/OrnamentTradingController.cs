@@ -50,16 +50,6 @@ public class OrnamentTradingController : MonoBehaviour, Interactable
             PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);
         }
     }
-    private void AddItemsToInventory()
-    {
-        if (inventoryItems != null && inventoryItems.Length > 0)
-        {
-            foreach (InventoryItem inventoryItem in inventoryItems)
-            {
-                playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
-            }
-        }
-    }
 
     private IEnumerator OnAcceptSync()
     {
@@ -72,6 +62,7 @@ public class OrnamentTradingController : MonoBehaviour, Interactable
             playerInventory.RemoveItem(itemToRemoveOnAccept, -1);
             playerInventory.AddItem(itemToGiveOnAccept, 1);
             yield return StartCoroutine(DialogManager.Instance.ShowDialog(onAcceptDialogSuccess));
+            ActivateTriggerFlag();
         }
         else
         {
@@ -104,8 +95,6 @@ public class OrnamentTradingController : MonoBehaviour, Interactable
     {
         SetupDialogCallbacks();
         yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog, true));
-        AddItemsToInventory();
-        ActivateTriggerFlag();
     }
 
     public void Interact()
