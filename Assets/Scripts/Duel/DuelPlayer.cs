@@ -50,7 +50,7 @@ public class DuelPlayer
 
     public override string ToString()
     {   
-        string str = $"Player: {name}\nHP: {hp}\nWeapon: {equipedWeapon.Name}\nArmor: {equipedArmor.Name}\n";
+        string str = $"Player: {name}\nHP: {hp}\nWeapon: {equipedWeapon.name}\nArmor: {equipedArmor.name}\n"; // DuelWeapon and DuelArmor use lowercase .name field
         str += $"Attack Hand: {HandToString(attackHand)}\nDefense Hand: {HandToString(defenseHand)}\n";
         str += $"Inventory:\n{InventoryToString(inventory)}";
 
@@ -69,11 +69,11 @@ public class DuelPlayer
     {
         string outputStr = "Weapons: ";
         foreach(Equipment gear in inventory["weapons"])
-            outputStr += $"{gear.Name},";
+            outputStr += $"{gear.name},"; // Equipment.name attribute
         
         outputStr += "\nArmors: ";
         foreach(Equipment gear in inventory["armors"])
-            outputStr += $"{gear.Name},";
+            outputStr += $"{gear.name},"; // Equipment.name attribute
 
         return outputStr;
     }

@@ -3,14 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardTest
+public class WeaponsArmorTest : MonoBehaviour
 {
 
-    static void main(string[] args)
+    public bool RunTest = false;
+
+    void Start() {
+        testDuelWeapon();
+        testDuelArmor();
+    }
+
+    void testDuelWeapon()
     {
         string bs_name = "Buster Sword";
-        WeaponType bs_wt = Heavy;
-        EquitmentRaiting bs_rat = A;
+        WeaponType bs_wt = WeaponType.Heavy;
+        EquitmentRaiting bs_rat = EquitmentRaiting.A;
         string bs_description = "A large broadsword that has inherited the hopes of those who fight.";
         Special bs_special = new Special(
                 "Focused Thrust",
@@ -36,14 +43,16 @@ public class CardTest
         
         DuelWeapon busterBarbell = new DuelWeapon(busterSword);
         busterBarbell.name = "A large steel barbell that has inherited the hopes of those who lift.";
-        busterBarbell.rating = B;
+        busterBarbell.rating = EquitmentRaiting.B;
         success = busterBarbell.useSpecial();
         Console.WriteLine("Success: " + success);
+    }
 
-
+    void testDuelArmor()
+    {
         string fg_name = "Fencing Gear";
-        ArmorType fg_at = Parrying;
-        EquitmentRaiting fg_rat = B;
+        ArmorType fg_at = ArmorType.Parrying;
+        EquitmentRaiting fg_rat = EquitmentRaiting.B;
         string fg_description = "Keeps you agile."; 
         Special fg_special = new Special(
                 "Full Thrust",
@@ -64,7 +73,7 @@ public class CardTest
         Console.WriteLine(fg.getSpecialName());
         Console.WriteLine(fg.getSpecialDescription());
         Console.WriteLine(fg.getSpecialRecipe());
-        success = fg.useSpecial();
+        bool success = fg.useSpecial();
     }
 }
 

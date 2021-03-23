@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Special
 {
-    string name;
-    string description;
-    string recipe;
-    bool expended;
+    public string name;
+    public string description;
+    public string recipe;
+    public bool expended;
 
     public Special(string name, string description, string recipe)
     {
@@ -20,13 +20,13 @@ public class Special
 
 public class Equipment
 {
-    EquitmentRaiting rating;
-    string name;
-    string description;
-    string details;
-    Special special;
+    public EquitmentRaiting rating;
+    public string name;
+    public string description;
+    public string details;
+    public Special special;
 
-    public override string Rating
+    public string Rating
     {
         get => Enum.GetName(typeof(EquitmentRaiting), rating);
     }
@@ -58,7 +58,7 @@ public class Equipment
 
 public class DuelWeapon : Equipment
 {
-    WeaponType weaponType;
+    public WeaponType weaponType;
 
     public DuelWeapon(
             string name,
@@ -82,7 +82,7 @@ public class DuelWeapon : Equipment
         this.special.expended = false;
     }
 
-    public override string Type
+    public string Type
     {
         get => Enum.GetName(typeof(WeaponType), weaponType);
     }
@@ -91,7 +91,7 @@ public class DuelWeapon : Equipment
 
 public class DuelArmor : Equipment
 {
-    ArmorType armorType;
+    public ArmorType armorType;
 
     public DuelArmor(
             string name,
@@ -115,7 +115,7 @@ public class DuelArmor : Equipment
         this.special.expended = false;
     }
 
-    public override string Type
+    public string Type
     {
         get => Enum.GetName(typeof(ArmorType), armorType);
     }
