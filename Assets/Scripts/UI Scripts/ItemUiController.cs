@@ -18,6 +18,8 @@ public class ItemUiController : MonoBehaviour
     Sprite defaultSprite;
 
     InventorySlot inventorySlot;
+    
+    [SerializeField]
     Item item;
 
     // Start is called before the first frame update
