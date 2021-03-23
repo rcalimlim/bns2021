@@ -16,40 +16,68 @@ public class Special
         this.description = description;
         this.recipe = recipe;
     }
+
+    // Unity assums private if no protection is listed. These are getters for those values
+    public string Name {get=> name;}
+    public string Description {get => description;}
+    public string Recipe {get => recipe;}
+    public bool Expended {
+        get => expended;
+        set => expended = value; // value is what ever is on the right hand side of the equation. See useSpecial()
+    }
 }
 
 public class Equipment
 {
-    EquitmentRaiting rating;
-    string name;
-    string description;
-    string details;
-    Special special;
+    // These are nativly private so the child can not access them unless we
+    // set them to protected
+    protected EquitmentRaiting rating;
+    protected string name;
+    protected string description;
+    protected string details;
+    protected Special special;
 
-    public override string Rating
+    public string Name {
+        get => name;
+        set => name = value;}
+    public string Description {get => description;}
+    public string Details{get => details;}
+     
+    // removed the override because it is not overriding any method from its parent class
+    public string Rating
     {
         get => Enum.GetName(typeof(EquitmentRaiting), rating);
     }
+    
+    /* wrote a set method in but you can't use this and the string one above it without different names
+     // since rating is an Enum the above was written with the intention of only Read operations and not sets
+     // since the upgrading of equipment was designed for outside of battle.
+    public EquitmentRaiting Rating
+    { set => rating = value; }
+    */
 
+    // You could do this if you wanted
+    public string SpecialName{get => special.Name;}   
     public string getSpecialName()
     {
-        return this.special.name;
+        return this.special.Name;
     }
 
     public string getSpecialDescription()
     {
-        return this.special.description;
+        return this.special.Description;
     }
 
     public string getSpecialRecipe()
     {
-        return this.special.recipe;
+        return this.special.Recipe;
     }
 
     public bool useSpecial()
     {
-        if (this.special.expended == false) {
-            this.special.expended = true;
+        // Using the Get/Set set in the Special class
+        if (this.special.Expended == false) {
+            this.special.Expended = true;
             return true;
         }
         return false;
@@ -79,10 +107,10 @@ public class DuelWeapon : Equipment
         this.weaponType = w.weaponType;
         this.description = w.description;
         this.special = w.special;
-        this.special.expended = false;
+        this.special.Expended = false;
     }
 
-    public override string Type
+    public string Type
     {
         get => Enum.GetName(typeof(WeaponType), weaponType);
     }
@@ -112,11 +140,11 @@ public class DuelArmor : Equipment
         this.armorType = a.armorType;
         this.description = a.description;
         this.special = a.special;
-        this.special.expended = false;
+        this.special.Expended = false;
     }
 
-    public override string Type
+    public string Type
     {
-        get => Enum.GetName(typeof(WeaponType), weaponType);
+        get => Enum.GetName(typeof(ArmorType), armorType);
     }
 }
