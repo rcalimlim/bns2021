@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   itemBag:
-  - item: {fileID: 11400000, guid: 3edb7622e2e00de4b865d49a33b2bdf5, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 83f12f67fdc545d41a14a01105771b26, type: 2}
-    amount: 1
+  - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    amount: 2
   - item: {fileID: 11400000, guid: 969d10e374c7abe4f86ff7f0683ccd14, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     amount: 1
   equipedWeapon: {fileID: 0}
   equipedArmor: {fileID: 0}
