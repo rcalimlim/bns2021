@@ -12,9 +12,9 @@ public class Special
 
     public Special(string name, string description, string recipe)
     {
-        name = name;
-        description = description;
-        recipe = recipe;
+        this.name = name;
+        this.description = description;
+        this.recipe = recipe;
     }
 }
 
@@ -26,7 +26,7 @@ public class Equipment
     string details;
     Special special;
 
-    public override string rating
+    public override string Rating
     {
         get => Enum.GetName(typeof(EquitmentRaiting), rating);
     }
@@ -56,11 +56,11 @@ public class Equipment
     }
 }
 
-public class Weapon : Equipment
+public class DuelWeapon : Equipment
 {
     WeaponType weaponType;
 
-    public Weapon(
+    public DuelWeapon(
             string name,
             WeaponType weaponType,
             EquitmentRaiting rating,
@@ -69,16 +69,17 @@ public class Weapon : Equipment
     {
         this.name = name;
         this.weaponType = weaponType;
-        string this.description = description;
-        Special this.special = special;
+        this.description = description;
+        this.special = special;
     }
 
-    public Weapon(Weapon w) 
+    public DuelWeapon(DuelWeapon w) 
     {
         this.name = w.name;
         this.weaponType = w.weaponType;
-        string this.description = w.description;
-        Special this.special = w.special;
+        this.description = w.description;
+        this.special = w.special;
+        this.special.expended = false;
     }
 
     public override string Type
@@ -88,11 +89,11 @@ public class Weapon : Equipment
 
 }
 
-public class Armor : Equipment
+public class DuelArmor : Equipment
 {
     ArmorType armorType;
 
-    public Armor(
+    public DuelArmor(
             string name,
             ArmorType armorType,
             EquitmentRaiting rating,
@@ -101,16 +102,17 @@ public class Armor : Equipment
     {
         this.name = name;
         this.armorType = armorType;
-        string this.description = description;
-        Special this.special = special;
+        this.description = description;
+        this.special = special;
     }
 
-    public Armor(Armor a)
+    public DuelArmor(DuelArmor a)
     {
         this.name = a.name;
         this.armorType = a.armorType;
-        string this.description = a.description;
-        Special this.special = a.special;
+        this.description = a.description;
+        this.special = a.special;
+        this.special.expended = false;
     }
 
     public override string Type
