@@ -35,6 +35,12 @@ public class PlayerDataManager : MonoBehaviour
         {
             currentStress = Mathf.Min(currentStress + stress, maxStress);
         }
+
+        if (currentStress >= maxStress)
+        {
+            currentStress = maxStress;
+            RespawnManager.Instance.ActivateRespawnSequence();
+        }
     }
     
     /* 

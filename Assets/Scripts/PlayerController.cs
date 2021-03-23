@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         Vector2 normalizedVector = direction;
         normalizedVector.x = Mathf.RoundToInt(normalizedVector.x);
         normalizedVector.y = Mathf.RoundToInt(normalizedVector.y);
-        Debug.LogFormat("{0}, {1}", direction, normalizedVector);
+
         // face the player in the direction of the last movement attempt
         facingDirection = normalizedVector;
         if (CanMove(normalizedVector)) {

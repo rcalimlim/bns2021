@@ -10,6 +10,7 @@ public class TriggerableController : MonoBehaviour
     [SerializeField] private string activatesTriggerFlagName;
     [SerializeField] private InventoryItem[] inventoryItems;
     [SerializeField] private Inventory playerInventory;
+    [SerializeField] private bool autoEquipItem = false;
 
     [SerializeField] private Dialog dialog;
     private bool IsEnabled()
@@ -42,6 +43,10 @@ public class TriggerableController : MonoBehaviour
         foreach (InventoryItem inventoryItem in inventoryItems)
         {
             playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+            if (autoEquipItem == true)
+            {
+                // playerInventory.Equip();
+            }
         }
     }
 
