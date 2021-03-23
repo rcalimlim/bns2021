@@ -1716,6 +1716,42 @@ MonoBehaviour:
       style: 2
   onDecline:
     lines: []
+--- !u!114 &293874992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293874990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d83e9ba9c350a41b77c7838aba2e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: BusterBarbellAcquired
+  disableAfterTriggerFlag: 
+  activatesTriggerFlagName: 
+  inventoryItems: []
+  playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+  itemToRemoveOnAccept: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+  itemToGiveOnAccept: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
+  dialog:
+    lines:
+    - text: Replace a missing ornament?
+      style: 2
+  onAcceptDialogSuccess:
+    lines:
+    - text: A Duper Junk falls out of the tree.
+      style: 2
+    - text: Duper Junk acquired!
+      style: 2
+  onAcceptDialogFailure:
+    lines:
+    - text: You don't have enough ornaments!
+      style: 2
+  onDecline:
+    lines: []
 --- !u!1 &294109493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1295709077157642216, guid: 34e236f9b6e1249849f47ccc3c8a4af2, type: 3}
