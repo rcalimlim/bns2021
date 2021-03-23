@@ -25,6 +25,10 @@ public class PlayerDataManager : MonoBehaviour
     public int CurrentStress { 
         get { return currentStress; } 
     }
+    public bool IsDead()
+    {
+        return currentStress >= maxStress;
+    }
     public void AdjustStress (int stress)
     {
         if (stress < 0)
@@ -39,8 +43,13 @@ public class PlayerDataManager : MonoBehaviour
         if (currentStress >= maxStress)
         {
             currentStress = maxStress;
-            RespawnManager.Instance.ActivateRespawnSequence();
+            StartCoroutine(RespawnManager.Instance.ActivateRespawnSequence());
         }
+    }
+
+    public void ResetStress ()
+    {
+        currentStress = minStress;
     }
     
     /* 

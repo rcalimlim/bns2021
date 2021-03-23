@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     [SerializeField] Inventory playerInventory;
     [SerializeField] Menu pauseMenu;
 
+    public GameState State { get { return state; } }
+
     private void Awake()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -41,7 +43,7 @@ public class GameController : MonoBehaviour
         };
 
         RespawnManager.Instance.OnDeath += () => state = GameState.Respawning;
-        RespawnManager.Instance.OnRevived += () => state = GameState.FreeRoam;
+        RespawnManager.Instance.OnRevive += () => state = GameState.FreeRoam;
     }
 
     // Update is called once per frame

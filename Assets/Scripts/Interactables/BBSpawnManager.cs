@@ -5,29 +5,36 @@ using UnityEngine;
 public class BBSpawnManager : MonoBehaviour
 {
     // list doors
-    [SerializeField]
-    private GameObject bbDoor0;
-    [SerializeField]
-    private GameObject bbDoor1;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject bbDoor0;
+    [SerializeField] private GameObject bbDoor1;
+    [SerializeField] private GameObject respawnPoint;
 
     private void Start()
     {
-        string prevScene = PlayerDataManager.Instance.PrevScene;
-        string currScene = PlayerDataManager.Instance.CurrScene;
-        string spawnDoor = PlayerDataManager.Instance.SpawnDoor;
-
-        switch ((prevScene, currScene))
+        if (PlayerDataManager.Instance.IsDead() == true)
         {
-            case ("DiningKitchenLiving", "BryceBedroom"):
-                SpawnPlayerWithOffset(bbDoor0, new Vector3(0f, -0.5f, 0f));
-                break;
+            SpawnPlayerWithOffset(respawnPoint, new Vector3(0f, 0.5f, 0f));
+        }
+        else
+        {
+            string prevScene = PlayerDataManager.Instance.PrevScene;
+            string currScene = PlayerDataManager.Instance.CurrScene;
+            string spawnDoor = PlayerDataManager.Instance.SpawnDoor;
 
-            case ("BNS2019+", "BryceBedroom"):
-                SpawnPlayerWithOffset(bbDoor1, new Vector3(-1.5f, 0.5f, 0f));
-                break;
-                
-            default:
-                break;
+            switch ((prevScene, currScene))
+            {
+                case ("DiningKitchenLiving", "BryceBedroom"):
+                    SpawnPlayerWithOffset(bbDoor0, new Vector3(0f, -0.5f, 0f));
+                    break;
+
+                case ("BNS2019+", "BryceBedroom"):
+                    SpawnPlayerWithOffset(bbDoor1, new Vector3(-1.5f, 0.5f, 0f));
+                    break;
+                    
+                default:
+                    break;
+            }
         }
     }
 

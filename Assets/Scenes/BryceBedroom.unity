@@ -724,7 +724,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
   m_PrefabInstance: {fileID: 5530893629080893356}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5530893629080893357}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65669046064c642a0924e6e7f815c15d, type: 3}
@@ -760,6 +760,111 @@ Transform:
   m_Father: {fileID: 382323727}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &262999557
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2418476055487046142, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_Name
+      value: RespawnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.32043684
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4155201
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4878378
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5530893629080893357}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: respawnSpot
+      value: 
+      objectReference: {fileID: 385256827}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnRevive.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[0].text
+      value: '*beep* Stress approaching critical levels *boop*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[1].text
+      value: I'm feeling... tired. Let me go rest for a bit.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[0].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[1].style
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnRevive.lines.Array.data[0].text
+      value: '*blink* *yawn*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnRevive.lines.Array.data[1].text
+      value: ' I feel fully refreshed! Now where was I...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnRevive.lines.Array.data[0].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnRevive.lines.Array.data[1].style
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
 --- !u!1 &311131449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
@@ -1276,8 +1381,39 @@ Transform:
   m_Children:
   - {fileID: 397606758}
   - {fileID: 166442780}
+  - {fileID: 385256828}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &385256827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385256828}
+  m_Layer: 0
+  m_Name: BBRespawnPoint
+  m_TagString: Respawn
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &385256828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385256827}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 382323727}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &396576379
 PrefabInstance:
@@ -2157,6 +2293,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
     qty: 1
   playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+  autoEquipItem: 0
   dialog:
     lines:
     - text: You search the area, but it's as if the ant has been removed completely.
@@ -2203,7 +2340,7 @@ Transform:
   - {fileID: 1159755047}
   - {fileID: 448307938}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &559726056 stripped
 GameObject:
@@ -3103,7 +3240,7 @@ Transform:
   - {fileID: 396576380}
   - {fileID: 753795051}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081240751
 GameObject:
@@ -3136,7 +3273,7 @@ Transform:
   - {fileID: 559726057}
   - {fileID: 1955072301}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1151890963
 PrefabInstance:
@@ -3147,7 +3284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3332,8 +3469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2c908852ab86444ba324e4b06108d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5530893629080893357}
   bbDoor0: {fileID: 1159755044}
   bbDoor1: {fileID: 448307935}
+  respawnPoint: {fileID: 385256827}
 --- !u!4 &1206878539
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,7 +3485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1400217294 stripped
 Transform:
@@ -3429,6 +3568,7 @@ MonoBehaviour:
   activatesTriggerFlagName: TableauDefeated
   inventoryItems: []
   playerInventory: {fileID: 0}
+  autoEquipItem: 0
   dialog:
     lines:
     - text: ...
@@ -5952,6 +6092,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+--- !u!1 &5530893629080893357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7726569853506671233, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+  m_PrefabInstance: {fileID: 5530893629080893356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6877184074589201601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6066,7 +6211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8098532248779756472, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8098532248779756472, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_LocalPosition.x

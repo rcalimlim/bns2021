@@ -8187,5 +8187,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[0].text
+      value: '*beep* Stress approaching critical levels *beep*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[1].text
+      value: I think I should lie down.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[0].style
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
