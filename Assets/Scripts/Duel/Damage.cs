@@ -68,7 +68,7 @@ public class Damage
     public int stackArmorType(ArmorType armorT, Defense defenseT)
     {
     }
-
+*/
 
 
     public int damage(
@@ -82,6 +82,7 @@ public class Damage
             EquitmentRaiting armorR
             )
     {
+        /*
         int stackEvent = 0;
         int multEvent = 1;
         double stackDmg = (
@@ -100,7 +101,8 @@ public class Damage
                 );
         dmg = Math.Max(Math.Ceiling(stackDmg * multDmg), 1);
         return multNegate(attackT, defenseT) * dmg;
+        */
+        return 1; // not implemented
     }
-    */
 }
 
