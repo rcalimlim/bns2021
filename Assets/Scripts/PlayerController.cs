@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 facingDirection = Vector2.zero;
     private bool isMoving = false;
     private Animator animator;
+    private string currentSpriteArmor = "";
 
     private void Awake()
     {
@@ -155,17 +156,30 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateSprite(Item equippedArmor)
     {
-        Debug.Log(equippedArmor.name);
-        switch (equippedArmor.name) 
-		{
-            case ("Fencing Gear"):
-                animator.SetTrigger("ChangeToFencing");
-                break;
-            case ("Waaarkout Clothes"):
-                animator.SetTrigger("ChangeToWarkout");
-                break;
-            default:
-                break;
-		}
+        if (equippedArmor.name != currentSpriteArmor)
+        {
+            Debug.Log(equippedArmor.name);
+            switch (equippedArmor.name) 
+            {
+                case ("JorFeig Everyday Casual"):
+                    currentSpriteArmor = "JorFeig Everyday Casual";
+                    animator.SetTrigger("ChangeToJorFei");
+                    break;
+                case ("Fencing Gear"):
+                    currentSpriteArmor = "Fencing Gear";
+                    animator.SetTrigger("ChangeToFencing");
+                    break;
+                case ("Mukbang Magus Robe"):
+                    currentSpriteArmor = "Mukbang Magus Robe";
+                    animator.SetTrigger("ChangeToChef");
+                    break;
+                case ("Waaarkout Clothes"):
+                    currentSpriteArmor = "Waaarkout Clothes";
+                    animator.SetTrigger("ChangeToWarkout");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
