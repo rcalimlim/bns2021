@@ -258,41 +258,41 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3265273889991522357}
-    m_Position: {x: -240, y: 360, z: 0}
+    m_Position: {x: -240, y: 800, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2569760856486070405}
-    m_Position: {x: 50, y: 360, z: 0}
+    m_Position: {x: -110, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5304445759716979949}
-    m_Position: {x: 100, y: 480, z: 0}
+    m_Position: {x: 50, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8583777650241864396}
-    m_Position: {x: 100, y: 560, z: 0}
+    m_Position: {x: 20, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5627749347147838395}
-    m_Position: {x: 400, y: 480, z: 0}
+    m_Position: {x: 450, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1912362386822963003}
-    m_Position: {x: 400, y: 560, z: 0}
+    m_Position: {x: 490, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2739945280606983741}
-    m_Position: {x: 450, y: 360, z: 0}
+    m_Position: {x: 600, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8306256183499591366}
-    m_Position: {x: 740, y: 360, z: 0}
+    m_Position: {x: 750, y: 800, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1281341300484519910}
-    m_Position: {x: 250, y: 260, z: 0}
+    m_Position: {x: 250, y: 930, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7572491901263484457}
-    m_Position: {x: 250, y: 160, z: 0}
+    m_Position: {x: 250, y: 1160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -50, y: -160, z: 0}
-  m_EntryPosition: {x: -360, y: 260, z: 0}
+  m_EntryPosition: {x: -460, y: 480, z: 0}
   m_ExitPosition: {x: 120, y: -160, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -2569760856486070405}
@@ -857,7 +857,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: ChangeToNYEStream
     m_Type: 9
