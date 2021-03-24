@@ -55,9 +55,9 @@ public abstract class EquipableItem : Item
     bool upgradable = true;
 
     [SerializeField]
-    List<string> specials = new List<string>();
+    List<Special> specials = new List<Special>();
 
-    public List<string> Specials {get => specials;}
+    public List<Special> Specials {get => specials;}
 
     public abstract string Type{get;}
 

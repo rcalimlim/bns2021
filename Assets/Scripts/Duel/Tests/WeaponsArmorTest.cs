@@ -9,43 +9,79 @@ public class WeaponsArmorTest : MonoBehaviour
     public bool RunTest = false;
 
     void Start() {
-        testDuelWeapon();
-        testDuelArmor();
+        Debug.LogFormat("chicken party");
+        if (RunTest) {
+            testDuelWeapon();
+            testDuelArmor();
+        }
     }
 
     void testDuelWeapon()
     {
+        Debug.LogFormat("\nTesting creating a DuelWeapon from scratch\n***");
         string bs_name = "Buster Sword";
         WeaponType bs_wt = WeaponType.Heavy;
         EquitmentRaiting bs_rat = EquitmentRaiting.A;
+        Debug.LogFormat("This should be A: {0}",Enum.GetName(typeof(EquitmentRaiting),bs_rat));
         string bs_description = "A large broadsword that has inherited the hopes of those who fight.";
         Special bs_special = new Special(
                 "Focused Thrust",
-                "Lunge toward an enemy with a piercing strike that hits multiple times. Significantly increases stagger.",
-                "1.opponent.hp.params.debuff=-20;1.opponent.defense.params.set=1"
+                "Lunge toward an enemy with a piercing strike that hits multiple times. Significantly increases stagger."
                 );
+        List<Special> bss = new List<Special>();
+        bss.Add(bs_special);
         DuelWeapon busterSword = new DuelWeapon(
                 bs_name,
                 bs_wt,
                 bs_rat,
                 bs_description,
-                bs_special
+                bss
                 );
-        Console.WriteLine(busterSword.name);
-        Console.WriteLine(busterSword.description);
-        Console.WriteLine(busterSword.Type);
-        Console.WriteLine(busterSword.Rating);
-        Console.WriteLine(busterSword.getSpecialName());
-        Console.WriteLine(busterSword.getSpecialDescription());
-        Console.WriteLine(busterSword.getSpecialRecipe());
-        bool success = busterSword.useSpecial();
-        Console.WriteLine("Success: " + success);
-        
+        Debug.LogFormat(
+                "name: {0} desc: {1} type: {2} raiting: {3}",
+                busterSword.name,
+                busterSword.description,
+                busterSword.Type,
+                busterSword.Rating
+                );
+        foreach (Special s in busterSword.specials) {
+            Debug.LogFormat("special: {0} {1} {2} {3}",
+                    s.name,
+                    s.description,
+                    s.expended,
+                    s.timing
+                    );
+        }
+       
+        Debug.LogFormat("\nTesting cloning a DuelWeapon from another DuelWeapon " +
+                "then changing the attributes\n***");
         DuelWeapon busterBarbell = new DuelWeapon(busterSword);
-        busterBarbell.name = "A large steel barbell that has inherited the hopes of those who lift.";
+        busterBarbell.name = "Buster Barbell";
+        busterBarbell.description = "A large steel barbell that has inherited the hopes of those who lift.";
+        Special bbFAIVES = new Special(
+                "FAIVES",
+                "FAIVES.",
+                duration: 3,
+                timing: 0
+                );
+        busterBarbell.specials = new List<Special>();
+        busterBarbell.specials.Add(bbFAIVES);
         busterBarbell.rating = EquitmentRaiting.B;
-        success = busterBarbell.useSpecial();
-        Console.WriteLine("Success: " + success);
+        Debug.LogFormat(
+                "name: {0} desc: {1} type: {2} raiting: {3}",
+                busterBarbell.name,
+                busterBarbell.description,
+                busterBarbell.Type,
+                busterBarbell.Rating
+                );
+        foreach (Special s in busterBarbell.specials) {
+            Debug.LogFormat("special: {0} {1} {2} {3}",
+                    s.name,
+                    s.description,
+                    s.expended,
+                    s.timing
+                    );
+        }
     }
 
     void testDuelArmor()
@@ -55,25 +91,35 @@ public class WeaponsArmorTest : MonoBehaviour
         EquitmentRaiting fg_rat = EquitmentRaiting.B;
         string fg_description = "Keeps you agile."; 
         Special fg_special = new Special(
-                "Full Thrust",
-                "All attacks become THRUST.",
-                "1.self.attack.params.set=T.duration=3"
+                "Parry Reposte",
+                "When you successfully counter your opponent, you cause damage.",
+                duration: 0, 
+                timing: 2
                 );
+        List<Special> fgs = new List<Special>();
+        fgs.Add(fg_special);
         DuelArmor fg = new DuelArmor(
                 fg_name,
                 fg_at,
                 fg_rat,
                 fg_description,
-                fg_special
+                fgs
                 );
-        Console.WriteLine(fg.name);
-        Console.WriteLine(fg.description);
-        Console.WriteLine(fg.Type);
-        Console.WriteLine(fg.Rating);
-        Console.WriteLine(fg.getSpecialName());
-        Console.WriteLine(fg.getSpecialDescription());
-        Console.WriteLine(fg.getSpecialRecipe());
-        bool success = fg.useSpecial();
+        Debug.LogFormat(
+                "name: {0} desc: {1} type: {2} raiting: {3}",
+                fg.name,
+                fg.description,
+                fg.Type,
+                fg.Rating
+                );
+        foreach (Special s in fg.specials) {
+            Debug.LogFormat("special: {0} {1} {2} {3}",
+                    s.name,
+                    s.description,
+                    s.expended,
+                    s.timing
+                    );
+        }
     }
 }
 
