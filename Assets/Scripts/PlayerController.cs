@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
     private Animator animator;
 
-
     private void Awake()
     {
         controls = new PlayerInput();
@@ -146,12 +145,19 @@ public class PlayerController : MonoBehaviour
         {
             OpenMenu();
         }
-
     }
 
     public void updateHeightCorrection(int height)
     {
         heightAdjustment = height;
         heightCorrection = new Vector3Int(0, heightAdjustment, 0);
+    }
+
+    public void UpdateSprite(Item equippedArmor)
+    {
+        switch (equippedArmor)
+        {
+            // build out mapping of equipped armors then call from Inventory script
+        }
     }
 }
