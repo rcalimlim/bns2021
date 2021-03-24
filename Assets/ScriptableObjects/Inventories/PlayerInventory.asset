@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  itemBag:
-  - item: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
-    amount: 1
-  equipedWeapon: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
-  equipedArmor: {fileID: 0}
+  itemBag: []
+  equipedWeapon: {fileID: 0}
+  equipedArmor: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
