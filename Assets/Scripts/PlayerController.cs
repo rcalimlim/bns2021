@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Tilemap collisionTilemap;
     [SerializeField] private Menu menu;
     [SerializeField] private float timeToMove;
+    [SerializeField] private Inventory inventory;
+
     private Vector3Int heightCorrection;
     private PlayerInput controls;
     private Rigidbody2D rb;
@@ -24,6 +26,9 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
+
+        // make sure the right sprite is being used when scene switching
+        UpdateSprite(inventory.GetEquippedArmor());
     }
 
     private void OnEnable()
@@ -172,6 +177,10 @@ public class PlayerController : MonoBehaviour
                 case ("Mukbang Magus Robe"):
                     currentSpriteArmor = "Mukbang Magus Robe";
                     animator.SetTrigger("ChangeToChef");
+                    break;
+                case ("NYE Stream Gear"):
+                    currentSpriteArmor = "NYE Stream Gear";
+                    animator.SetTrigger("ChangeToNYEStream");
                     break;
                 case ("Waaarkout Clothes"):
                     currentSpriteArmor = "Waaarkout Clothes";

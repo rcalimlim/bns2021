@@ -64,6 +64,11 @@ public class Inventory : ScriptableObjectBase
             GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerController>()?.UpdateSprite(item);
         }
     }
+
+    public Item GetEquippedArmor()
+    {
+        return equipedArmor;
+    }
     
     public Weapon EquipedWeapon
     {   get => equipedWeapon;

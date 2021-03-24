@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  itemBag: []
+  itemBag:
+  - item: {fileID: 11400000, guid: 9c4a57a0bc22ad144932a59c9c5126db, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    amount: 1
   equipedWeapon: {fileID: 0}
-  equipedArmor: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
+  equipedArmor: {fileID: 11400000, guid: 9c4a57a0bc22ad144932a59c9c5126db, type: 2}

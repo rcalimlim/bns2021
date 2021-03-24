@@ -1238,6 +1238,10 @@ PrefabInstance:
       value: 1015
       objectReference: {fileID: 0}
     - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 2043863672}
