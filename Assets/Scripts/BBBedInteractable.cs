@@ -16,7 +16,13 @@ public class BBBedInteractable : MonoBehaviour, Interactable
         }
         else
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(stressedDialog));
+            StartCoroutine(ActivateStressedFlow());
         }
+    }
+
+    private IEnumerator ActivateStressedFlow()
+    {
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(stressedDialog));
+        yield return RespawnManager.Instance.ActivateSleepSequence();
     }
 }

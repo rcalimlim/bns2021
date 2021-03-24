@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db15764066b014fa149c02f0121e7b, type: 3}
+  m_Name: Enemy Test Inventory
+  m_EditorClassIdentifier: 
+  DeveloperDescription: Test Enemy Inventory
+  itemBag:
+  - item: {fileID: 11400000, guid: bf5742d2d335f284884cee1e4a5aaddc, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: d59b346fe5b86c14fa7ba2e08afbab7a, type: 2}
+    amount: 1
+  equipedWeapon: {fileID: 11400000, guid: d59b346fe5b86c14fa7ba2e08afbab7a, type: 2}
+  equipedArmor: {fileID: 11400000, guid: bf5742d2d335f284884cee1e4a5aaddc, type: 2}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Dialog, Battle, Menu }
+public enum GameState { FreeRoam, Dialog, Battle, Menu, Respawning }
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     private PlayerController playerController;
     [SerializeField] Inventory playerInventory;
     [SerializeField] Menu pauseMenu;
+
+    public GameState State { get { return state; } }
 
     private void Awake()
     {
@@ -40,6 +42,8 @@ public class GameController : MonoBehaviour
                 state = GameState.FreeRoam;
         };
 
+        RespawnManager.Instance.OnDeath += () => state = GameState.Respawning;
+        RespawnManager.Instance.OnRevive += () => state = GameState.FreeRoam;
     }
 
     // Update is called once per frame
@@ -61,5 +65,9 @@ public class GameController : MonoBehaviour
         {
             pauseMenu.HandleUpdate();
         }    
+        else if (state == GameState.Respawning)
+        {
+            // ...
+        }
     }
 }

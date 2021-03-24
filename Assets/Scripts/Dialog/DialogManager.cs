@@ -53,20 +53,39 @@ public class DialogManager : MonoBehaviour
                 StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
             } else
             {
-                currentLine = 0;
-                dialogBox.SetActive(false);
-                OnCloseDialog?.Invoke();
+                CloseDialog();
             }
         }
     }
 
-    public IEnumerator ShowDialog(Dialog dialog)
+    public IEnumerator ShowDialog(Dialog dialog, bool isAcceptDecline = false)
     {
+        foreach(Button button in dialogBox.GetComponentsInChildren<Button>(true))
+        {
+            button.gameObject.SetActive(false);
+        }
+
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
         this.dialog = dialog;
+
+
+
         dialogBox.SetActive(true);
-        StartCoroutine(TypeDialog(dialog.Lines[0]));
+
+        yield return StartCoroutine(TypeDialog(dialog.Lines[0]));
+
+        foreach(Button button in dialogBox.GetComponentsInChildren<Button>(true))
+        {
+            button.gameObject.SetActive(isAcceptDecline);
+        }
+    }
+
+    public void CloseDialog()
+    {
+        currentLine = 0;
+        dialogBox.SetActive(false);
+        OnCloseDialog?.Invoke();
     }
 
     public IEnumerator TypeDialog(DialogElement line)

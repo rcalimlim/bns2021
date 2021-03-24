@@ -47,19 +47,27 @@ public class InteractableController : MonoBehaviour, Interactable
     }
     private void AddItemsToInventory()
     {
-        foreach (InventoryItem inventoryItem in inventoryItems)
+        if (inventoryItems != null && inventoryItems.Length > 0)
         {
-            playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+            foreach (InventoryItem inventoryItem in inventoryItems)
+            {
+                playerInventory.AddItem(inventoryItem.Item, inventoryItem.Qty);
+            }
         }
+    }
+
+    private IEnumerator InvokeActionsSync()
+    {
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog, false));
+        AddItemsToInventory();
+        ActivateTriggerFlag();
     }
 
     public void Interact()
     {
         if (IsEnabled())
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
-            AddItemsToInventory();
-            ActivateTriggerFlag();
+            StartCoroutine(InvokeActionsSync());
         }
     }
 }

@@ -18,5 +18,9 @@ MonoBehaviour:
   rating: 0
   upgradable: 1
   specials:
-  - Barbell Medic
+  - name: Barbell Medic
+    description: Restore your HP to 100 once.
+    expended: 0
+    duration: 0
+    timing: 0
   type: 0

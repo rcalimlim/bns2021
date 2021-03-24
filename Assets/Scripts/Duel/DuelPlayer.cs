@@ -19,7 +19,7 @@ public class DuelPlayer
     public string Name {get => name;}
     public int HP {
         get => hp;
-        set => hp = Mathf.Clamp(hp + value, 0, 200);
+        set => hp = Mathf.Clamp(value, 0, 200);
     }       
     public DuelWeapon Weapon {get => equipedWeapon;}
     public DuelArmor Armor {get => equipedArmor;}
@@ -149,15 +149,23 @@ public class DuelPlayer
         return false;
     }
 
-    public bool PlayCard(string cardClass, int index)
+    public Card PlayCard(string cardClass, int index)
     {   
-        if(index < 0 || index > 6)
-            return false;
-        if(cardClass == "Attack")
-            attackHand.RemoveAt(index);
-        else /*if(cardClass == "Defense")*/
-            defenseHand.RemoveAt(index);
+        if(index < 0 || index > 5)
+            return null;
         
-        return true;
+        Card played;
+        if(cardClass == "Attack") 
+        {
+            played = attackHand[index];
+            attackHand.RemoveAt(index);
+        }  
+        else /*if(cardClass == "Defense")*/
+        {
+            played = defenseHand[index];
+            defenseHand.RemoveAt(index);
+        }
+        
+        return played;
     }
 }

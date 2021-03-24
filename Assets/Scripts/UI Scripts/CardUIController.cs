@@ -8,12 +8,12 @@ public class CardUIController : MonoBehaviour
     public int strength;
     public string type;
 
-    Text strengthNW,strengthSE,typeTxt; 
+    Text strengthNW,strengthSE,typeTxt;
+    public Button button;
     
     
     // Start is called before the first frame update
-    void Start()
-    {
+    void Awake(){
         foreach(Text text in GetComponentsInChildren<Text>())
         {
             switch(text.name)
@@ -23,6 +23,12 @@ public class CardUIController : MonoBehaviour
                 case "Type": typeTxt = text; break;
             }
         }
+
+        button = GetComponentInChildren<Button>();
+    }
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

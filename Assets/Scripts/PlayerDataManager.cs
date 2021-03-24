@@ -22,7 +22,35 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private int currentStress;
     public int MinStress { get { return minStress; } }
     public int MaxStress { get { return maxStress; } }
-    public int CurrentStress { get { return currentStress; } }
+    public int CurrentStress { 
+        get { return currentStress; } 
+    }
+    public bool IsDead()
+    {
+        return currentStress >= maxStress;
+    }
+    public void AdjustStress (int stress)
+    {
+        if (stress < 0)
+        {
+            currentStress = Mathf.Max(minStress, currentStress - stress);
+        }
+        else
+        {
+            currentStress = Mathf.Min(currentStress + stress, maxStress);
+        }
+
+        if (currentStress >= maxStress)
+        {
+            currentStress = maxStress;
+            StartCoroutine(RespawnManager.Instance.ActivateRespawnSequence());
+        }
+    }
+
+    public void ResetStress ()
+    {
+        currentStress = minStress;
+    }
     
     /* 
      Game Stats

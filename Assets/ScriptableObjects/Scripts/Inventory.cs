@@ -58,7 +58,11 @@ public class Inventory : ScriptableObjectBase
         if(item is Weapon)
             equipedWeapon = (Weapon)item;
         else if(item is Armor)
+        {
             equipedArmor = (Armor)item;
+            // TODO: update this
+            GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerController>()?.UpdateSprite(item);
+        }
     }
     
     public Weapon EquipedWeapon
