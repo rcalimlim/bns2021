@@ -73,25 +73,52 @@ public class DuelUIController : MonoBehaviour
     {
         foreach (CardUIController uiCard in uiCards)
         {
-            // UnityAction
+            // THIS IS TEST CODE
+
+
+            // AddListen accepts a UnityAction
             uiCard.button.onClick.AddListener(() => {
-                print(uiCard.name);
+                //print(uiCard.name); 
+                // ^-- This will hold the object but Trial/Error showed 
+                // this will not hold primitives. i.e. for int loop would produce last int only
+                
+                
+                // Use the actual GameObject name to determine which card was clicked
                 string[] cardparse = uiCard.name.Split(' ');
                 
-                // Play current card
+                // Play current card - Test Code!!!!
                 Card played = duel.Player.PlayCard(cardparse[0], int.Parse(cardparse[1]));
-                print(played.AllCardInfo());
-                
-                // Hide this hand
-                attackCardPannel.transform.localScale = 
-                    (cardparse[0] == "Attack")? Vector3.zero : Vector3.one;
-                    
-                defenseCardPannel.transform.localScale = 
-                    (cardparse[0] == "Defense")? Vector3.zero : Vector3.one;
+                                
+                // Play a fake turn
+                duel.FakeTurn(played);
+                StartCoroutine(waitABit(2.5f));
 
-
+                // TEST CODE
+                SwapHands(cardparse[0]);              
+                // TEST CODE
                 duel.Player.DrawCard(cardparse[0]);
             });
         }
+    }
+
+    public void SwapHands(string toCardClass)
+    {
+        attackCardPannel.transform.localScale = 
+            (toCardClass == "Attack")? Vector3.zero : Vector3.one;
+
+        defenseCardPannel.transform.localScale = 
+            (toCardClass == "Defense")? Vector3.zero : Vector3.one;
+    }
+
+    IEnumerator waitABit(float seconds)
+    {
+        //Print the time of when the function is first called.
+        //Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(seconds);
+
+        //After we have waited 5 seconds print the time again.
+        //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

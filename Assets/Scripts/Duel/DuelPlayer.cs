@@ -19,7 +19,7 @@ public class DuelPlayer
     public string Name {get => name;}
     public int HP {
         get => hp;
-        set => hp = Mathf.Clamp(hp + value, 0, 200);
+        set => hp = Mathf.Clamp(value, 0, 200);
     }       
     public DuelWeapon Weapon {get => equipedWeapon;}
     public DuelArmor Armor {get => equipedArmor;}

@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
 
    public int Health {
        get => health;
-       set => health = Mathf.Clamp(0,value,MAX_HEALTH);
+       set => health = Mathf.Clamp(value,0,MAX_HEALTH);
     }
 
    private void Awake() {
