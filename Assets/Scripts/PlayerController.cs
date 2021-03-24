@@ -155,6 +155,17 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateSprite(Item equippedArmor)
     {
-        Debug.Log("UpdateSprite called, but Armor to Sprite mapping not implemented yet.");
+        Debug.Log(equippedArmor.name);
+        switch (equippedArmor.name) 
+		{
+            case ("Fencing Gear"):
+                animator.SetTrigger("ChangeToFencing");
+                break;
+            case ("Waaarkout Clothes"):
+                animator.SetTrigger("ChangeToWarkout");
+                break;
+            default:
+                break;
+		}
     }
 }
