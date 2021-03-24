@@ -6,6 +6,10 @@ public class DuelController : MonoBehaviour
 {   
     [SerializeField] Inventory playerInventory, enemyInventory;
     DuelPlayer player, enemy;
+    Card playerMove, enemyMove;
+
+    public Card PlayerMove {get => playerMove; set => playerMove = value;}
+    public Card EnemyMove {get => enemyMove; set => enemyMove = value;}
 
     public DuelPlayer Player {get => player;}
     public DuelPlayer Enemy {get => enemy;}
@@ -31,12 +35,14 @@ public class DuelController : MonoBehaviour
 
     public void FakeTurn(Card played)
     {
-
+        playerMove = played;
         // Is the enemy Attacking or Defending? 
         string enemyHand = (played.CardClass == "Attack")? "Defense": "Attack";
         
         // Enemy plays a random card from their hand
         Card enemyPlayed = enemy.PlayCard(enemyHand, Random.Range(0, 6));
+        enemyMove = enemyPlayed;
+
         enemy.DrawCard(enemyHand);
         Debug.Log($"<color=orange><color=red>{player.Name}</color> Played {played.Name} <color=aqua>{enemy.Name}</color> Played {enemyPlayed.Name} </color>");
         

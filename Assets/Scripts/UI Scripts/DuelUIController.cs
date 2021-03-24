@@ -11,6 +11,8 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] Text playerName;
     [SerializeField] ItemUiController playerWeapon;
     [SerializeField] ItemUiController playerArmor;
+    [SerializeField] Text playerMoveName;
+    [SerializeField] CardUIController playerMoveCard;
     [SerializeField] List<CardUIController> attackHandUI;
     [SerializeField] List<CardUIController> defenseHandUI;
     [SerializeField] GameObject attackCardPannel;
@@ -19,6 +21,9 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] Text enemyName;
     [SerializeField] ItemUiController enemyWeapon;
     [SerializeField] ItemUiController enemyArmor;
+    [SerializeField] Text enemyMoveName;
+    [SerializeField] CardUIController enemyMoveCard;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +47,7 @@ public class DuelUIController : MonoBehaviour
         UpdateStressBar(duel.Player.HP);
         PopulateCardUIs(duel.Player.AttackHand, attackHandUI);
         PopulateCardUIs(duel.Player.DefenseHand, defenseHandUI);
+        UpdateMoveCards();
     }
 
     void PopulateCardUIs(List<Card> hand, List<CardUIController> handUI)
@@ -69,6 +75,36 @@ public class DuelUIController : MonoBehaviour
         stressUI.HP = hp;
     }
 
+    void UpdateMoveCards()
+    {
+        if(duel.PlayerMove != null)
+        {
+            playerMoveName.text = duel.PlayerMove.LongName;
+            playerMoveCard.transform.localScale = Vector3.one;
+            playerMoveCard.strength = duel.PlayerMove.Strength;
+            playerMoveCard.type = duel.PlayerMove.Type;
+        } 
+        else 
+        {
+            playerMoveName.text = "";
+            playerMoveCard.transform.localScale = Vector3.zero;
+        }
+
+        if(duel.EnemyMove != null)
+        {   
+            enemyMoveName.text = duel.EnemyMove.LongName;
+
+            enemyMoveCard.transform.localScale = Vector3.one;
+            enemyMoveCard.strength = duel.EnemyMove.Strength;
+            enemyMoveCard.type = duel.EnemyMove.Type;
+        } 
+        else 
+        {
+            enemyMoveName.text = "";
+            enemyMoveCard.transform.localScale = Vector3.zero;
+        }
+    }
+
     void RegisterButtonListeners(List<CardUIController> uiCards)
     {
         foreach (CardUIController uiCard in uiCards)
@@ -88,10 +124,10 @@ public class DuelUIController : MonoBehaviour
                 
                 // Play current card - Test Code!!!!
                 Card played = duel.Player.PlayCard(cardparse[0], int.Parse(cardparse[1]));
-                                
+
                 // Play a fake turn
                 duel.FakeTurn(played);
-                StartCoroutine(waitABit(2.5f));
+                //StartCoroutine(waitABit(3.5f));
 
                 // TEST CODE
                 SwapHands(cardparse[0]);              
@@ -118,6 +154,8 @@ public class DuelUIController : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(seconds);
 
+        duel.PlayerMove = null;
+        duel.EnemyMove = null;
         //After we have waited 5 seconds print the time again.
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
