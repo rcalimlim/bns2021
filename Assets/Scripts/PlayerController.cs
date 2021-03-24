@@ -16,12 +16,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 facingDirection = Vector2.zero;
     private bool isMoving = false;
+    private Animator animator;
 
 
     private void Awake()
     {
         controls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Move(Vector2 direction)
     {
+        animator.SetBool("Moving", true);
         isMoving = true;
         Vector2 normalizedVector = direction;
         normalizedVector.x = Mathf.RoundToInt(normalizedVector.x);
@@ -49,10 +52,17 @@ public class PlayerController : MonoBehaviour
 
         // face the player in the direction of the last movement attempt
         facingDirection = normalizedVector;
+
+        // sprite direction
+        animator.SetFloat("Horizontal", facingDirection.x);
+        animator.SetFloat("Vertical", facingDirection.y);
+
+        // setup movement
         Vector2 currentPos = transform.position;
         Vector2 targetPos = transform.position + (Vector3)(normalizedVector);
         float elapsedTime = 0;
         if (CanMove(normalizedVector)) {
+
             //transform.position += (Vector3)normalizedVector;
             while (elapsedTime < timeToMove)
             {
@@ -63,6 +73,8 @@ public class PlayerController : MonoBehaviour
             transform.position = targetPos;
         }
         isMoving = false;
+        yield return new WaitForEndOfFrame();
+        animator.SetBool("Moving", false);
     }
 
     private bool CanMove(Vector2 direction)

@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[3].text
-      value: Mukbang Magus Robe acquired!
+      value: Waaarkout Clothes acquired!
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].text
@@ -504,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: inventoryItems.Array.data[0].item
       value: 
-      objectReference: {fileID: 11400000, guid: 18e6e8e0f4239ed4fb50503eae29e480, type: 2}
+      objectReference: {fileID: 11400000, guid: 9c4a57a0bc22ad144932a59c9c5126db, type: 2}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: inventoryItems.Array.data[1].item
       value: 
