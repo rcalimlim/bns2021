@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum WeaponType 
+public enum WeaponType 
 {
     Straight,
     Heavy,
@@ -11,7 +11,7 @@ enum WeaponType
     Curved
 }
 
-enum ArmorType 
+public enum ArmorType 
 {
     Guarding,
     Parrying,
@@ -55,7 +55,9 @@ public abstract class EquipableItem : Item
     bool upgradable = true;
 
     [SerializeField]
-    List<string> specials = new List<string>();
+    List<Special> specials = new List<Special>();
+
+    public List<Special> Specials {get => specials;}
 
     public abstract string Type{get;}
 
