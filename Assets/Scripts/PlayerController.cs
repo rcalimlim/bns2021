@@ -19,16 +19,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 facingDirection = Vector2.zero;
     private bool isMoving = false;
     private Animator animator;
-    private string currentSpriteArmor = "";
 
     private void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
+        // make sure the right sprite is being used when scene switching
+        UpdateSprite(inventory.EquippedArmor);
+
         controls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
-
-        // make sure the right sprite is being used when scene switching
-        UpdateSprite(inventory.GetEquippedArmor());
     }
 
     private void OnEnable()
@@ -161,34 +160,25 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateSprite(Item equippedArmor)
     {
-        if (equippedArmor.name != currentSpriteArmor)
+        switch (equippedArmor.name) 
         {
-            Debug.Log(equippedArmor.name);
-            switch (equippedArmor.name) 
-            {
-                case ("JorFeig Everyday Casual"):
-                    currentSpriteArmor = "JorFeig Everyday Casual";
-                    animator.SetTrigger("ChangeToJorFei");
-                    break;
-                case ("Fencing Gear"):
-                    currentSpriteArmor = "Fencing Gear";
-                    animator.SetTrigger("ChangeToFencing");
-                    break;
-                case ("Mukbang Magus Robe"):
-                    currentSpriteArmor = "Mukbang Magus Robe";
-                    animator.SetTrigger("ChangeToChef");
-                    break;
-                case ("NYE Stream Gear"):
-                    currentSpriteArmor = "NYE Stream Gear";
-                    animator.SetTrigger("ChangeToNYEStream");
-                    break;
-                case ("Waaarkout Clothes"):
-                    currentSpriteArmor = "Waaarkout Clothes";
-                    animator.SetTrigger("ChangeToWarkout");
-                    break;
-                default:
-                    break;
-            }
+            case ("JorFeig Everyday Casual"):
+                animator.SetTrigger("ChangeToJorFei");
+                break;
+            case ("Fencing Gear"):
+                animator.SetTrigger("ChangeToFencing");
+                break;
+            case ("Mukbang Magus Robe"):
+                animator.SetTrigger("ChangeToChef");
+                break;
+            case ("NYE Stream Gear"):
+                animator.SetTrigger("ChangeToNYEStream");
+                break;
+            case ("Waaarkout Clothes"):
+                animator.SetTrigger("ChangeToWarkout");
+                break;
+            default:
+                break;
         }
     }
 }
