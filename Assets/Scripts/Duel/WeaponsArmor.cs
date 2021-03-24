@@ -50,6 +50,12 @@ public class Equipment
     public string details;
     public List<Special> specials = new List<Special>();
 
+    protected EquipableItem overworldEquipment;
+    public EquipableItem OverworldEquipment
+    {
+        get => overworldEquipment;
+    }
+    
     public string Rating
     {
         get => Enum.GetName(typeof(EquitmentRaiting), rating);
@@ -72,6 +78,22 @@ public class Equipment
                 return EquitmentRaiting.C;
         }
     }
+
+    public static List<Equipment> InventoryToEquipment(Inventory inventory)
+    {
+        List<Equipment> equipList = new List<Equipment>();
+
+        foreach(InventorySlot inventorySlot in inventory.Items)
+        {
+            Item item = inventorySlot.Item;
+            if(item is Weapon)
+                equipList.Add(new DuelWeapon((Weapon)item));
+            else if(item is Armor)
+                equipList.Add(new DuelArmor((Armor) item));
+        }
+        return equipList;
+    }
+    
 }
 
 public class DuelWeapon : Equipment
@@ -116,6 +138,7 @@ public class DuelWeapon : Equipment
         foreach (Special s in a.Specials) {
             this.specials.Add(s);
         }
+        this.overworldEquipment = a;
     }
 
     public string Type
@@ -167,6 +190,7 @@ public class DuelArmor : Equipment
         foreach (Special s in a.Specials) {
             this.specials.Add(s);
         }
+        this.overworldEquipment = a;
     }
 
     public string Type
