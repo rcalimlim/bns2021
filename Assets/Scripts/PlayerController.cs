@@ -155,9 +155,6 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateSprite(Item equippedArmor)
     {
-        switch (equippedArmor)
-        {
-            // build out mapping of equipped armors then call from Inventory script
-        }
+        Debug.Log("UpdateSprite called, but Armor to Sprite mapping not implemented yet.");
     }
 }
