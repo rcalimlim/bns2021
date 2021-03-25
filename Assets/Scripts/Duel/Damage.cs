@@ -42,36 +42,163 @@ public class Damage
     const double ARMORCLASS_MULT_B = 1/1.05;
     const double ARMORCLASS_MULT_A = 1/1.1;
     const double ARMORCLASS_MULT_S = 1/1.15;
-/*
-    public int stackBase(
+
+    public static bool isEffective(Attack attackT, Defense defenseT)
+    {
+        return (attackT == Attack.Strike && defenseT == Defense.Parry) ||
+            (attackT == Attack.Lash && defenseT == Defense.Dodge) ||
+            (attackT == Attack.Thrust && defenseT == Defense.Block);
+    }
+
+    public static bool isCounter(Attack attackT, Defense defenseT)
+    {
+        return (attackT == Attack.Strike && defenseT == Defense.Dodge) ||
+            (attackT == Attack.Lash && defenseT == Defense.Block) ||
+            (attackT == Attack.Thrust && defenseT == Defense.Parry);
+    }
+
+    public static bool isWeaponSpecialty(Attack attackT, WeaponType weaponT) {
+        return (attackT == Attack.Strike && weaponT == WeaponType.Heavy) ||
+            (attackT == Attack.Lash && weaponT == WeaponType.Curved) ||
+            (attackT == Attack.Thrust && weaponT == WeaponType.Fencing);
+    }
+
+    public static bool isArmorSpecialty(Defense defenseT, ArmorType armorT) {
+        return (defenseT == Defense.Parry && armorT == ArmorType.Parrying) ||
+            (defenseT == Defense.Block && armorT == ArmorType.Blocking) ||
+            (defenseT == Defense.Dodge && armorT == ArmorType.Dodging);
+    }
+
+    public static double stackBase(
             Attack attackT,
             Defense defenseT,
             int attackS,
             int defenseS)
     {
-        return NaN;
+        int effectiveBonus = 0;
+        if (isEffective(attackT,defenseT)) {
+            effectiveBonus = EFFECTIVE_BASE_STACK;
+        }
+        return (attackS * BASE_ATTACK_FACTOR
+                - defenseS
+                + BASE_OFFSET
+                + effectiveBonus)/10 * MAX_BASE_STACK;
     }
 
-    public int stackWeaponType(
+    public static double stackWeaponType(
             WeaponType weaponT,
             Attack attackT
             )
     {
-        return NaN;
+        if (weaponT == WeaponType.Straight) {
+            return WEAPON_STRAIGHT_STACK;
+        }
+        if (isWeaponSpecialty(attackT, weaponT)) {
+            return WEAPONTYPE_STACK;
+        }
+        return 0;
     }
 
-    public int stackWeaponClass(EquitmentRaiting weaponR)
+    public static double stackWeaponClass(EquitmentRaiting weaponR)
     {
-
+        switch (weaponR) {
+            case EquitmentRaiting.C: return WEAPONCLASS_STACK_C;
+            case EquitmentRaiting.B: return WEAPONCLASS_STACK_B;
+            case EquitmentRaiting.A: return WEAPONCLASS_STACK_A;
+            case EquitmentRaiting.S: return WEAPONCLASS_STACK_S;
+            default: return 0;
+        }
     }
 
-    public int stackArmorType(ArmorType armorT, Defense defenseT)
+    public static double stackArmorType(
+            ArmorType armorT,
+            Defense defenseT
+            )
     {
+        if (armorT == ArmorType.Guarding) return ARMOR_GUARD_STACK;
+        if (isArmorSpecialty(defenseT, armorT)) {
+            return ARMORTYPE_STACK;
+        }
+        return 0;
     }
-*/
 
+    public static double stackArmorClass(EquitmentRaiting armorR)
+    {
+        switch (armorR) {
+            case EquitmentRaiting.C: return ARMORCLASS_STACK_C;
+            case EquitmentRaiting.B: return ARMORCLASS_STACK_B;
+            case EquitmentRaiting.A: return ARMORCLASS_STACK_A; 
+            case EquitmentRaiting.S: return ARMORCLASS_STACK_S;
+            default: return 0;
+        }
+    }
 
-    public int damage(
+    public static int multNegate(Attack attackT, Defense defenseT)
+    {
+        if (isCounter(attackT, defenseT)) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public static double multBase(
+            Attack attackT,
+            Defense defenseT,
+            int attackS,
+            int defenseS
+            )
+    {
+        if (isEffective(attackT, defenseT)) {
+            return BASE_EFFECTIVE_MULT;
+        }
+        return 1;
+    }
+
+    public static double multWeaponType(
+            WeaponType weaponT,
+            Attack attackT
+            )
+    {
+        if (weaponT == WeaponType.Straight) return WEAPON_STRAIGHT_MULT;
+        if (isWeaponSpecialty(attackT, weaponT)) return WEAPONTYPE_MULT;
+        return 1;
+    }
+
+    public static double multWeaponClass(EquitmentRaiting weaponR)
+    {
+        switch (weaponR) {
+            case EquitmentRaiting.C: return WEAPONCLASS_MULT_C;
+            case EquitmentRaiting.B: return WEAPONCLASS_MULT_B;
+            case EquitmentRaiting.A: return WEAPONCLASS_MULT_A;
+            case EquitmentRaiting.S: return WEAPONCLASS_MULT_S;
+            default: return 1;
+        }
+    }
+
+    public static double multArmorType(
+            ArmorType armorT,
+            Defense defenseT
+            )
+    {
+        if (armorT == ArmorType.Guarding) return ARMOR_GUARD_MULT;
+        if (isArmorSpecialty(defenseT, armorT)) {
+            return ARMORTYPE_MULT;
+        }
+        return 1;
+    }
+
+    public static double multArmorClass(EquitmentRaiting armorR)
+    {
+        switch (armorR) {
+            case EquitmentRaiting.C: return ARMORCLASS_MULT_C;
+            case EquitmentRaiting.B: return ARMORCLASS_MULT_B;
+            case EquitmentRaiting.A: return ARMORCLASS_MULT_A;
+            case EquitmentRaiting.S: return ARMORCLASS_MULT_S;
+            default: return 1;
+        }
+    }
+
+    public static int damage(
             Attack attackT,
             Defense defenseT,
             int attackS,
@@ -82,9 +209,7 @@ public class Damage
             EquitmentRaiting armorR
             )
     {
-        /*
-        int stackEvent = 0;
-        int multEvent = 1;
+
         double stackDmg = (
                      stackBase(attackT, defenseT, attackS, defenseS)
                      + stackWeaponType(weaponT, attackT)
@@ -99,10 +224,8 @@ public class Damage
                      * multArmorType(armorT, defenseT)
                      * multArmorClass(armorR)
                 );
-        dmg = Math.Max(Math.Ceiling(stackDmg * multDmg), 1);
+        int dmg = (int)Math.Max(Math.Ceiling(stackDmg * multDmg), 1);
         return multNegate(attackT, defenseT) * dmg;
-        */
-        return 1; // not implemented
     }
 }
 
