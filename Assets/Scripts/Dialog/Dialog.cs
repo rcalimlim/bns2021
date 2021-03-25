@@ -12,13 +12,22 @@ public class Dialog
     }
 }
 
+public enum AudioType 
+{ 
+    Music,
+    Effect
+}
+
 [System.Serializable]
 public class DialogElement
 {
     [SerializeField] private string text;
     [SerializeField] private FontStyle style = FontStyle.Normal;
+    [SerializeField] private AudioType audioType;
+    [SerializeField] private AudioClip audioClip;
 
     public string Text { get { return text; } }
     public FontStyle Style { get { return style; } }
-
+    public AudioType AudioType { get { return audioType; } }
+    public AudioClip AudioClip { get { return audioClip; } }
 }

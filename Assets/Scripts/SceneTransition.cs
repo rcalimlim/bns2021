@@ -21,7 +21,7 @@ public class SceneTransition : MonoBehaviour
                 SceneManager.GetActiveScene().name,
                 sceneToLoad
             );
-            SoundManager.Instance.PlayMusic(transitionSoundEffect);
+            SoundManager.Instance.Play(transitionSoundEffect);
             SceneManager.LoadScene(sceneToLoad);
         }
     }
