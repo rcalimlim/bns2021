@@ -1578,6 +1578,8 @@ MonoBehaviour:
     lines:
     - text: The ant is blocking the front door... menacingly.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
 --- !u!114 &171277624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,19 +1703,29 @@ MonoBehaviour:
     lines:
     - text: Replace a missing ornament?
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onAcceptDialogSuccess:
     lines:
     - text: After you hang the ornament, you hear a rustling of tree branches, something
         thumping, then a heavy clang.
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: ...what the hell? I'm definitely dreaming or something now.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: Buster Barbell acquired!
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onAcceptDialogFailure:
     lines:
     - text: You don't have enough ornaments. Perhaps you can come back later.
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onDecline:
     lines: []
 --- !u!114 &293874992
@@ -1740,16 +1752,24 @@ MonoBehaviour:
     lines:
     - text: Replace a missing ornament?
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onAcceptDialogSuccess:
     lines:
     - text: A Duper Junk falls out of the tree.
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: Duper Junk acquired!
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onAcceptDialogFailure:
     lines:
     - text: You don't have enough ornaments!
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   onDecline:
     lines: []
 --- !u!1 &294109493 stripped
@@ -4570,6 +4590,8 @@ MonoBehaviour:
     lines:
     - text: Oh, the ant moved closer to the front door.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
 --- !u!114 &781565021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4592,10 +4614,16 @@ MonoBehaviour:
     lines:
     - text: Oh crap, there's that ant again. Good thing I'm waiting for my package.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: But... if the ant is there, how will I get to the package?
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: Guess I'll worry about that later.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
 --- !u!114 &781565022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6070,6 +6098,8 @@ MonoBehaviour:
     lines:
     - text: Use the Upgrade Bench?
       style: 2
+      audioClip: {fileID: 0}
+      audioDuration: 0
   upgradeMenu: {fileID: 11400000, guid: f66b67ead197eca4f8310714edc6b04c, type: 2}
 --- !u!114 &870170034
 MonoBehaviour:
@@ -6093,8 +6123,12 @@ MonoBehaviour:
     lines:
     - text: My toolbox! Good thing I keep it in the living room.
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
     - text: I wonder if I could use these tools for anything?
       style: 0
+      audioClip: {fileID: 0}
+      audioDuration: 0
 --- !u!1 &940261082
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,6 +7540,10 @@ PrefabInstance:
       propertyPath: dialog.lines.Array.data[0].style
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
     - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Name
       value: DKLOutsideOliRoom

@@ -23,6 +23,10 @@ public class DialogManager : MonoBehaviour
     private int currentLine = 0;
     private bool isTyping = false;
 
+    // sound properties
+    private bool shouldStopEffect = false;
+    private bool shouldStopMusic = false;
+
     // events
     public event Action OnShowDialog;
     public event Action OnCloseDialog;
@@ -53,6 +57,14 @@ public class DialogManager : MonoBehaviour
                 StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
             } else
             {
+                if (shouldStopEffect == true) 
+				{
+                    SoundManager.Instance.StopEffect();
+				}
+                if (shouldStopMusic == true) 
+				{
+                    SoundManager.Instance.StopMusic();
+				}
                 CloseDialog();
             }
         }
@@ -90,6 +102,47 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator TypeDialog(DialogElement line)
     {
+        Debug.LogFormat("effect {0} music {1}", line.EffectClip, line.MusicClip);
+        // play effect
+        if (line.EffectClip != null) 
+		{ 
+            switch (line.EffectDuration)
+            {
+                case AudioDuration.Once:
+                    SoundManager.Instance.Play(line.EffectClip);
+                    break;
+                case AudioDuration.LoopDuringDialog:
+                    shouldStopEffect = true;
+                    SoundManager.Instance.Play(line.EffectClip, true);
+                    break;
+                case AudioDuration.LoopUntilStopped:
+                    SoundManager.Instance.Play(line.EffectClip, true);
+                    break;
+                default:
+                    break;
+			}
+		}
+
+        // play music
+        if (line.MusicClip != null) 
+		{ 
+            switch (line.EffectDuration)
+            {
+                case AudioDuration.Once:
+                    SoundManager.Instance.PlayMusic(line.MusicClip);
+                    break;
+                case AudioDuration.LoopDuringDialog:
+                    shouldStopMusic = true;
+                    SoundManager.Instance.PlayMusic(line.MusicClip, true);
+                    break;
+                case AudioDuration.LoopUntilStopped:
+                    SoundManager.Instance.PlayMusic(line.MusicClip, true);
+                    break;
+                default:
+                    break;
+			}
+		}
+
         isTyping = true;
         dialogText.text = "";
 

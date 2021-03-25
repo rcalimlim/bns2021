@@ -920,12 +920,24 @@ MonoBehaviour:
     lines:
     - text: If I hop on right now, I'll be too stressed to enjoy myself.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Maybe I should take a quick nap first.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
   dialogForLowStress:
     lines:
     - text: Time to see what people are up to.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!1 &314186033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,6 +2301,10 @@ MonoBehaviour:
     lines:
     - text: Oh crap, there's a rubber ant here. How am I supposed to leave now?
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!114 &506981658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,6 +2327,10 @@ MonoBehaviour:
     lines:
     - text: Alright, time to deal with this ant- wait, where'd it go?
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!114 &506981659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2336,18 +2356,46 @@ MonoBehaviour:
     lines:
     - text: You search the area, but it's as if the ant has been removed completely.
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Maybe someone helped you out?
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: ...
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: '[Familiar Distant Voice] Yah... right.'
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: ...
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Hmm, no ant, but what's this?
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Ornament acquired!
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!1 &552277311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,10 +3210,18 @@ MonoBehaviour:
     lines:
     - text: Feeling pretty good. Maybe not right now.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
   stressedDialog:
     lines:
     - text: A nap won't fix everything, but maybe it'll make me less stressed.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!61 &753795053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3478,6 +3534,10 @@ MonoBehaviour:
     lines:
     - text: Usually I'd practice, but I've played Aerheadh's Theme enough today.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!1 &1206878537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3604,7 @@ GameObject:
   m_Layer: 0
   m_Name: BBOnEnterFromClosetOnce
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3611,16 +3671,40 @@ MonoBehaviour:
     lines:
     - text: ...
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+      musicDuration: 2
     - text: That was confusing. Oh, I'm back in my room.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: -blup- Celestial Timepiece not found. Pairing with Moogle Bixle. -blip-
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Celestial Timepiece? Isn't that-
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: -blep- Charge leech unavailable. Low battery mode. -blop-
       style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Better save it for when it's important.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!1 &1498762790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,6 +4183,10 @@ MonoBehaviour:
     lines:
     - text: How am I supposed to play from this angle?
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!1001 &1611919079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5819,16 +5907,40 @@ MonoBehaviour:
     lines:
     - text: Uh, is someone in there?
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: ...
       style: 1
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: ... ...
       style: 1
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: ... ... ...
       style: 1
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: '[Familiar Voice] Um... occupied, sorry... #BryceDiedForBryce'
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
     - text: Probably better if I don't go in there.
       style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
 --- !u!4 &2102901796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}

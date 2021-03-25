@@ -12,10 +12,11 @@ public class Dialog
     }
 }
 
-public enum AudioType 
+public enum AudioDuration
 { 
-    Music,
-    Effect
+    Once,
+    LoopDuringDialog,
+    LoopUntilStopped
 }
 
 [System.Serializable]
@@ -23,11 +24,15 @@ public class DialogElement
 {
     [SerializeField] private string text;
     [SerializeField] private FontStyle style = FontStyle.Normal;
-    [SerializeField] private AudioType audioType;
-    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip effectClip;
+    [SerializeField] private AudioDuration effectDuration;
+    [SerializeField] private AudioClip musicClip;
+    [SerializeField] private AudioDuration musicDuration;
 
     public string Text { get { return text; } }
     public FontStyle Style { get { return style; } }
-    public AudioType AudioType { get { return audioType; } }
-    public AudioClip AudioClip { get { return audioClip; } }
+    public AudioClip EffectClip { get { return effectClip; } }
+    public AudioDuration EffectDuration { get { return effectDuration; } }
+    public AudioClip MusicClip { get { return musicClip; } }
+    public AudioDuration MusicDuration { get { return musicDuration; } }
 }
