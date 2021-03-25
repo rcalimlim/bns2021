@@ -21,10 +21,18 @@ public class InventoryDisplayController : MonoBehaviour
     {
         if(itemsDisplayed.Count != inventory.Items.Count)
         {
+            ClearInventorySlots();
             itemsDisplayed.Clear();
             CreateDisplay();
         }
-        //UpdateItemList();
+    }
+
+    private void ClearInventorySlots()
+    {
+        foreach (InventorySlot key in itemsDisplayed.Keys)
+        {
+            Destroy(itemsDisplayed[key]);
+        }
     }
 
     public void CreateDisplay()
