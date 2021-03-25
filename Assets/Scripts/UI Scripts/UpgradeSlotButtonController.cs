@@ -65,7 +65,9 @@ public class UpgradeSlotButtonController : MonoBehaviour, IPointerClickHandler
         EquipableItem item = (EquipableItem)inventorySlot.Item;
         GameObject.Find("UpgradeUIWeaponName").GetComponent<Text>().text = item.name;
         GameObject.Find("UpgradeUIWeaponLevel").GetComponent<Text>().text = "Rating: " + item.Rating + " ➞ " + item.GetUpgradeRating();
+        GameObject.Find("UpgradeUIAccept").GetComponent<Button>().onClick.RemoveListener(OnUpgradeAccept);
         GameObject.Find("UpgradeUIAccept").GetComponent<Button>().onClick.AddListener(OnUpgradeAccept);
+        GameObject.Find("UpgradeUIDecline").GetComponent<Button>().onClick.RemoveListener(OnUpgradeDecline);
         GameObject.Find("UpgradeUIDecline").GetComponent<Button>().onClick.AddListener(OnUpgradeDecline);
         GameObject.Find("UpgradeUI").transform.localScale = Vector3.one;
     }

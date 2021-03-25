@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  rating: 0
+  sprite: {fileID: 0}
+  rating: 1
   upgradable: 1
   specials:
-  - Full Thrust Combo
+  - name: 
+    description: 
+    expended: 0
+    duration: 0
+    timing: 0
   weaponType: 2

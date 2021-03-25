@@ -106,6 +106,7 @@ public abstract class EquipableItem : Item
 
     public void Upgrade()
     {
+        Debug.Log(rating);
         if(upgradable)
         {
             switch(rating)
