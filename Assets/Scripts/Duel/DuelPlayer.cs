@@ -12,6 +12,7 @@ public class DuelPlayer
     DuelWeapon equipedWeapon;
     DuelArmor equipedArmor;
     Dictionary<string, List<Equipment>> inventory;
+    public List<string> specialsUsed;
 
     /*
      * Getters
@@ -45,7 +46,8 @@ public class DuelPlayer
             defenseHand.Add(deck.DrawDefenseCard());
         }
 
-        CreateInventory(gearList);        
+        CreateInventory(gearList);
+        specialsUsed = new List<string>();    
     }
 
     public override string ToString()

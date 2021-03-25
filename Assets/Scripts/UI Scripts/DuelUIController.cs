@@ -51,12 +51,12 @@ public class DuelUIController : MonoBehaviour
         playerArmor.Item = duel.Player.Armor.OverworldEquipment;
 
         /* Add all the specials equipment's specials to the list */
-        specials = new List<Special>();
-        foreach(Special special in duel.Player.Weapon.specials)
-            specials.Add(special);
+        // specials = new List<Special>();
+        // foreach(Special special in duel.Player.Weapon.specials)
+        //     specials.Add(special);
 
-        foreach(Special special in duel.Player.Armor.specials)
-            specials.Add(special);
+        // foreach(Special special in duel.Player.Armor.specials)
+        //     specials.Add(special);
 
         enemyName.text = duel.Enemy.Name;
         enemyWeapon.Item = duel.Enemy.Weapon.OverworldEquipment;
@@ -80,21 +80,26 @@ public class DuelUIController : MonoBehaviour
             requipPannel.ShowRequipMenu();
             //specialBlocker.transform.localScale = Vector3.one;
         });
-        foreach(Special special in specials)
-        {
-            var obj = Instantiate<Button>(requipButton, Vector3.zero, Quaternion.identity);
-            obj.GetComponentInChildren<Text>().text = special.name;
-            obj.transform.SetParent(equipmentSpecials.transform);
-            obj.transform.localScale = Vector3.one;
-            obj.transform.position = Vector3.zero;
 
-            obj.onClick.AddListener( () => {
-                Debug.Log($"<color=yellow>{special.name} {special.description}</color>");
-                special.expended = true;
-                obj.interactable = false;
-                specialBlocker.transform.localScale = Vector3.one;
-            });
-        }
+        UpdateSpecials();
+
+        // foreach(Special special in specials)
+        // {
+        //     var obj = Instantiate<Button>(requipButton, Vector3.zero, Quaternion.identity);
+        //     obj.GetComponentInChildren<Text>().text = special.name;
+        //     obj.transform.SetParent(equipmentSpecials.transform);
+        //     obj.transform.localScale = Vector3.one;
+        //     obj.transform.position = Vector3.zero;
+        //     obj.interactable = (!duel.Player.specialsUsed.Contains(special.name));
+
+        //     obj.onClick.AddListener( () => {
+        //         Debug.Log($"<color=yellow>{special.name} {special.description}</color>");
+        //         special.expended = true;
+        //         duel.Player.specialsUsed.Add(special.name);
+        //         obj.interactable = false;
+        //         specialBlocker.transform.localScale = Vector3.one;
+        //     });
+        // }
     }
 
     // Update is called once per frame
@@ -131,6 +136,7 @@ public class DuelUIController : MonoBehaviour
         for(int i = specialButtons.Length - 1; i > -1; i-- )
             Destroy(specialButtons[i].gameObject);
 
+        
         foreach(Special special in specials)
         {
             var obj = Instantiate<Button>(requipButton, Vector3.zero, Quaternion.identity);
@@ -138,11 +144,13 @@ public class DuelUIController : MonoBehaviour
             obj.transform.SetParent(equipmentSpecials.transform);
             obj.transform.localScale = Vector3.one;
             obj.transform.position = Vector3.zero;
+            obj.interactable = (!duel.Player.specialsUsed.Contains(special.name));
 
             obj.onClick.AddListener( () => {
                 Debug.Log($"<color=yellow>{special.name} {special.description}</color>");
                 special.expended = true;
                 obj.interactable = false;
+                duel.Player.specialsUsed.Add(special.name);
                 specialBlocker.transform.localScale = Vector3.one;
             });
         }
