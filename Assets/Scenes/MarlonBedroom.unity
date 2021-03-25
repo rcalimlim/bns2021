@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[2].text
-      value: Sealed sword acquired!
+      value: Sealed Sword acquired!
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[2].style
@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: inventoryItems.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: 969d10e374c7abe4f86ff7f0683ccd14, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0b4ce00e8167c646b394c296b75a9ae, type: 3}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1493,6 +1497,10 @@ PrefabInstance:
       propertyPath: sceneFade
       value: 
       objectReference: {fileID: 10534405}
+    - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
+      propertyPath: dialogOnDeath.lines.Array.data[0].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
 --- !u!1001 &1060122840
@@ -1542,6 +1550,10 @@ PrefabInstance:
       propertyPath: inventoryItems.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3478,6 +3490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stressAdd: 20
+  hurtClip: {fileID: 8300000, guid: ff02640e80bdb2c429d9d0e8fbdbbe40, type: 3}
 --- !u!1 &2043863669
 GameObject:
   m_ObjectHideFlags: 0

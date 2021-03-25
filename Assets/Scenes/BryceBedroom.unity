@@ -1390,6 +1390,10 @@ PrefabInstance:
       propertyPath: inventoryItems.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0b4ce00e8167c646b394c296b75a9ae, type: 3}
     - target: {fileID: 3221797028031848944, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -2392,7 +2396,7 @@ MonoBehaviour:
       musicDuration: 0
     - text: Ornament acquired!
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -3683,7 +3687,7 @@ MonoBehaviour:
       musicDuration: 0
     - text: -blup- Celestial Timepiece not found. Pairing with Moogle Bixle. -blip-
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -3695,7 +3699,7 @@ MonoBehaviour:
       musicDuration: 0
     - text: -blep- Charge leech unavailable. Low battery mode. -blop-
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -5280,6 +5284,14 @@ PrefabInstance:
       propertyPath: inventoryItems.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].effectClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Name
       value: BBPostTrollDuperJunk

@@ -1959,9 +1959,85 @@ Transform:
   - {fileID: 2051465353}
   - {fileID: 2060357382}
   - {fileID: 1866603165}
+  - {fileID: 1347474864}
+  - {fileID: 991931994}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &991931993
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 876078096}
+    m_Modifications:
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: Looks like he left in the middle of his work cycle.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].text
+      value: Something's not right...
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_Name
+      value: OBComputer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!4 &991931994 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 991931993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1004345098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,6 +2556,96 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1347474863
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 876078096}
+    m_Modifications:
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: A heavily armored being is pointing at your from the picture.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].text
+      value: GOOD WORK
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
+      value: You feel empowered.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_Name
+      value: OBInspiringArt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!4 &1347474864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 1347474863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1481603123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3901,6 +4067,10 @@ PrefabInstance:
       propertyPath: inventoryItems.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 6617102503169830730, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_SortingOrder
       value: 5

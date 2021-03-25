@@ -6,6 +6,7 @@ public class DamageOnInteractionController : MonoBehaviour
 {
     private bool wasTriggered = false;
     [SerializeField] private uint stressAdd = 20;
+    [SerializeField] private AudioClip hurtClip;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class DamageOnInteractionController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && wasTriggered == false)
         {
+            SoundManager.Instance.Play(hurtClip);
             PlayerDataManager.Instance.AdjustStress(20);
             wasTriggered = true;
         }
