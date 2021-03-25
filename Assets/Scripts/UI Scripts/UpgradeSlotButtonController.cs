@@ -55,7 +55,6 @@ public class UpgradeSlotButtonController : MonoBehaviour, IPointerClickHandler
     private void CantUpgrade(string text)
     {
         CloseDialogs();
-        Debug.Log(text);
         GameObject.Find("CantUpgradeUIText").GetComponent<Text>().text = text;
         GameObject.Find("CantUpgradeUI").transform.localScale = Vector3.one;
     }
