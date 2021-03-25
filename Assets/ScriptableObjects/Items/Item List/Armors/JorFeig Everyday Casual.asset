@@ -15,7 +15,7 @@ MonoBehaviour:
   DeveloperDescription: Starting Armor
   description: Comfortable casual wear with stylish NUANCE
   sprite: {fileID: 0}
-  rating: 2
+  rating: 0
   upgradable: 1
   specials:
   - name: Barbell Medic
