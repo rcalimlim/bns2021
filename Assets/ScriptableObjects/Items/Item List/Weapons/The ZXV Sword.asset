@@ -21,17 +21,17 @@ MonoBehaviour:
   - name: How Can You See??
     description: 'Display an onscreen message for what action the opponent will take
       next. '
-    expended: 0
+    expended: 1
     duration: 3
     timing: 1
   - name: Chinese Red Vest
-    description: All player's defenses set to 9 for 3 rounds.
+    description: All player's defenses set to 9
     expended: 0
-    duration: 3
+    duration: 1
     timing: 0
   - name: SORD
-    description: All player's attacks set to 9 for 3 rounds.
-    expended: 0
-    duration: 3
+    description: All player's attacks set to 9
+    expended: 1
+    duration: 1
     timing: 0
   weaponType: 0

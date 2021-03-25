@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
+  sprite: {fileID: 0}
   rating: 2
   upgradable: 1
   specials:
-  - Mang Tomas
+  - name: M?ng Tom?s
+    description: Swap enemy health with player health
+    expended: 1
+    duration: 0
+    timing: 0
   type: 2

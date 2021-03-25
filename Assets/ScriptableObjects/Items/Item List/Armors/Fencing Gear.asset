@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
+  sprite: {fileID: 0}
   rating: 1
   upgradable: 1
   specials:
-  - Parry Reposte
+  - name: Parry Reposte
+    description: While the effect is active, if the enemy's attack is countered,
+      the enemy takes damage
+    expended: 0
+    duration: 3
+    timing: 0
   type: 1

@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: A large steel barbell that has inherited the hopes of those who lift.
+  sprite: {fileID: 0}
   rating: 1
   upgradable: 1
   specials:
-  - FAHVES
+  - name: FAHVES
+    description: All player and enemy actions are set to strength 5
+    expended: 1
+    duration: 1
+    timing: 0
   weaponType: 1
