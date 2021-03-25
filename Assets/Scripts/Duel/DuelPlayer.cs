@@ -97,6 +97,30 @@ public class DuelPlayer
 
     }
 
+    public List<Equipment> InventoryToEquipment()
+    {
+        List<Equipment> gearList = new List<Equipment>();
+        
+        foreach(Equipment gear in inventory["weapons"])
+            gearList.Add(gear);
+        foreach(Equipment gear in inventory["armors"])
+            gearList.Add(gear);
+        
+        return gearList;
+    }
+
+    public List<Item> InventoryToEquipItem()
+    {
+        List<Item> gearList = new List<Item>();
+        
+        foreach(Equipment gear in inventory["weapons"])
+            gearList.Add(gear.OverworldEquipment);
+        foreach(Equipment gear in inventory["armors"])
+            gearList.Add(gear.OverworldEquipment);
+        
+        return gearList;
+    }
+
     /*
      * Player Interaction Methods. 
      * These return a bool just for easily checking that they work

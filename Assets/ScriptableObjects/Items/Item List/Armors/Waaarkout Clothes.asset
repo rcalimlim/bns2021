@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
+  sprite: {fileID: 0}
   rating: 3
   upgradable: 1
   specials:
-  - Chocododge
+  - name: Chocododge
+    description: All enemy attacks become S, all defenses become D
+    expended: 0
+    duration: 1
+    timing: 0
   type: 3

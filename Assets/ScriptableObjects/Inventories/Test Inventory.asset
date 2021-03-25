@@ -17,9 +17,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: a430ba9528331eb4bb81d40905d4f951, type: 2}
     amount: 1
   - item: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
-    amount: 3
-  - item: {fileID: 11400000, guid: a430ba9528331eb4bb81d40905d4f951, type: 2}
-    amount: 0
+    amount: 1
   - item: {fileID: 11400000, guid: 18e6e8e0f4239ed4fb50503eae29e480, type: 2}
     amount: 1
   - item: {fileID: 11400000, guid: 9c4a57a0bc22ad144932a59c9c5126db, type: 2}
@@ -36,5 +34,5 @@ MonoBehaviour:
     amount: 20
   - item: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
     amount: 10
-  equipedWeapon: {fileID: 11400000, guid: 29f4a09ee1c8f8a4c8d8780ce20ed825, type: 2}
+  equipedWeapon: {fileID: 11400000, guid: 3edb7622e2e00de4b865d49a33b2bdf5, type: 2}
   equipedArmor: {fileID: 11400000, guid: 9c4a57a0bc22ad144932a59c9c5126db, type: 2}
