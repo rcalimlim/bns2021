@@ -15,7 +15,7 @@ MonoBehaviour:
   DeveloperDescription: 
   description: 
   sprite: {fileID: 0}
-  rating: 1
+  rating: 0
   upgradable: 1
   specials:
   - name: 
