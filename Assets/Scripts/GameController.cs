@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Dialog, Battle, Menu, Respawning }
+public enum GameState { FreeRoam, Dialog, Battle, Menu, Respawning, Upgrade }
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     private PlayerController playerController;
     [SerializeField] Inventory playerInventory;
     [SerializeField] Menu pauseMenu;
+    [SerializeField] Menu upgradeMenu;
 
     public GameState State { get { return state; } }
 
@@ -42,6 +43,15 @@ public class GameController : MonoBehaviour
                 state = GameState.FreeRoam;
         };
 
+        if (upgradeMenu != null)
+        {
+            upgradeMenu.OnOpenMenu += () => state = GameState.Upgrade;
+            upgradeMenu.OnCloseMenu += () => {
+                if(state == GameState.Upgrade)
+                    state = GameState.FreeRoam;
+            };
+        }
+
         RespawnManager.Instance.OnDeath += () => state = GameState.Respawning;
         RespawnManager.Instance.OnRevive += () => state = GameState.FreeRoam;
     }
@@ -69,5 +79,9 @@ public class GameController : MonoBehaviour
         {
             // ...
         }
+        else if (state == GameState.Upgrade)
+        {
+            upgradeMenu.HandleUpdate();
+        }    
     }
 }

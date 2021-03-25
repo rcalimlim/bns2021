@@ -73,8 +73,8 @@ public class InventoryDisplayController : MonoBehaviour
     GameObject AddItem(InventorySlot inventorySlot)
     {
         var obj = Instantiate(itemSlotPrefab, Vector3.zero, Quaternion.identity, this.transform);
-        InventorySlotButtonController isbc = obj.GetComponent<InventorySlotButtonController>();
-        isbc.InventorySlot = inventorySlot;
+        UpgradeSlotButtonController usbc = obj.GetComponent<UpgradeSlotButtonController>();
+        usbc.InventorySlot = inventorySlot;
         
         TooltipTrigger ttt = obj.GetComponent<TooltipTrigger>();
         ttt.inventorySlot = inventorySlot;

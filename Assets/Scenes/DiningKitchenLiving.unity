@@ -1449,8 +1449,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -11, y: -8, z: 0}
-  m_Size: {x: 21, y: 15, z: 1}
+  m_Origin: {x: -20, y: -8, z: 0}
+  m_Size: {x: 30, y: 355, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1700,7 +1700,7 @@ MonoBehaviour:
   dialog:
     lines:
     - text: Replace a missing ornament?
-      style: 0
+      style: 2
   onAcceptDialogSuccess:
     lines:
     - text: After you hang the ornament, you hear a rustling of tree branches, something
@@ -5991,6 +5991,110 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!1 &870170030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870170031}
+  - component: {fileID: 870170032}
+  - component: {fileID: 870170034}
+  - component: {fileID: 870170033}
+  m_Layer: 0
+  m_Name: DKLUpgradeBench
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &870170031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5, y: -6.5, z: -96.944016}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1259143956}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &870170032
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &870170033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2b5f5eca8f4b240bf792cdab95665d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: DKLUpgradeBenchFirstInteraction
+  disableAfterTriggerFlag: 
+  activatesTriggerFlagName: 
+  dialog:
+    lines:
+    - text: Use the Upgrade Bench?
+      style: 2
+  upgradeMenu: {fileID: 11400000, guid: f66b67ead197eca4f8310714edc6b04c, type: 2}
+--- !u!114 &870170034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95828d40e2cf56d429b88e5bff6e3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: 
+  disableAfterTriggerFlag: DKLUpgradeBenchFirstInteraction
+  activatesTriggerFlagName: DKLUpgradeBenchFirstInteraction
+  inventoryItems: []
+  playerInventory: {fileID: 0}
+  dialog:
+    lines:
+    - text: My toolbox! Good thing I keep it in the living room.
+      style: 0
+    - text: I wonder if I could use these tools for anything?
+      style: 0
 --- !u!1 &940261082
 GameObject:
   m_ObjectHideFlags: 0
@@ -6704,6 +6808,7 @@ Transform:
   - {fileID: 1999941589}
   - {fileID: 1730103219}
   - {fileID: 581619073}
+  - {fileID: 870170031}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6720,11 +6825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.496
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6770,6 +6875,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+      propertyPath: upgradeMenu
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6445550500562796402, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: groundTilemap
       value: 
@@ -7255,6 +7364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 2768938729796005471, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
+      propertyPath: upgradeMenu
+      value: 
+      objectReference: {fileID: 11400000, guid: f66b67ead197eca4f8310714edc6b04c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
 --- !u!1001 &1590938341
