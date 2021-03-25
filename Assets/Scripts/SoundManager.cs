@@ -37,17 +37,39 @@ public class SoundManager : MonoBehaviour
 	}
 
 	// Play a single clip through the sound effects source.
-	public void Play(AudioClip clip)
+	public void Play(AudioClip clip, bool loop = false)
 	{
+		EffectsSource.loop = loop;
 		EffectsSource.clip = clip;
 		EffectsSource.Play();
 	}
 
 	// Play a single clip through the music source.
-	public void PlayMusic(AudioClip clip)
+	public void PlayMusic(AudioClip clip, bool loop = false)
 	{
+		MusicSource.loop = loop;
 		MusicSource.clip = clip;
 		MusicSource.Play();
+	}
+
+	public void StopEffect()
+	{
+		EffectsSource.clip = null;
+		EffectsSource.loop = false;
+		EffectsSource.Stop();
+	}	
+
+	public void StopMusic()
+	{
+		MusicSource.clip = null;
+		MusicSource.loop = false;
+		MusicSource.Stop();
+	}	
+
+	public void StopAll() 
+	{
+		EffectsSource.Stop();
+		MusicSource.Stop();
 	}
 
 	// Play a random clip from an array, and randomize the pitch slightly.

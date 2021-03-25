@@ -9,6 +9,9 @@ public class Inventory : ScriptableObjectBase
     [SerializeField] Weapon equipedWeapon;
     [SerializeField] Armor equipedArmor;
 
+    public Item EquippedWeapon { get { return equipedWeapon; } }
+    public Item EquippedArmor { get { return equipedArmor; } }
+
     public void AddItem(Item _item, int _amount)
     {
         for(int i = 0; i < itemBag.Count; i++)
@@ -60,9 +63,13 @@ public class Inventory : ScriptableObjectBase
         else if(item is Armor)
         {
             equipedArmor = (Armor)item;
-            // TODO: update this
             GameObject.FindGameObjectWithTag("Player").gameObject.GetComponent<PlayerController>()?.UpdateSprite(item);
         }
+    }
+
+    public Item GetEquippedArmor()
+    {
+        return equipedArmor;
     }
     
     public Weapon EquipedWeapon

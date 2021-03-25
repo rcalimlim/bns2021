@@ -80,8 +80,33 @@ public abstract class EquipableItem : Item
         }
     }
 
+    public bool CanBeUpgraded()
+    {
+        if (upgradable && rating != EquitmentRaiting.S)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public string GetUpgradeRating()
+    {
+        switch(rating)
+        {
+            case EquitmentRaiting.C:
+                return "B";
+            case EquitmentRaiting.B:
+                return "A";
+            case EquitmentRaiting.A:
+                return "✩";
+            default:
+                return "";
+        }
+    }
+
     public void Upgrade()
     {
+        Debug.Log(rating);
         if(upgradable)
         {
             switch(rating)

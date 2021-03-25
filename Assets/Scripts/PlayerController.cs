@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Tilemap collisionTilemap;
     [SerializeField] private Menu menu;
     [SerializeField] private float timeToMove;
+    [SerializeField] private Inventory inventory;
+
     private Vector3Int heightCorrection;
     private PlayerInput controls;
     private Rigidbody2D rb;
@@ -20,9 +22,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
+        // make sure the right sprite is being used when scene switching
+        UpdateSprite(inventory.EquippedArmor);
+
         controls = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -155,6 +160,25 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateSprite(Item equippedArmor)
     {
-        Debug.Log("UpdateSprite called, but Armor to Sprite mapping not implemented yet.");
+        switch (equippedArmor.name) 
+        {
+            case ("JorFeig Everyday Casual"):
+                animator.SetTrigger("ChangeToJorFei");
+                break;
+            case ("Fencing Gear"):
+                animator.SetTrigger("ChangeToFencing");
+                break;
+            case ("Mukbang Magus Robe"):
+                animator.SetTrigger("ChangeToChef");
+                break;
+            case ("NYE Stream Gear"):
+                animator.SetTrigger("ChangeToNYEStream");
+                break;
+            case ("Waaarkout Clothes"):
+                animator.SetTrigger("ChangeToWarkout");
+                break;
+            default:
+                break;
+        }
     }
 }

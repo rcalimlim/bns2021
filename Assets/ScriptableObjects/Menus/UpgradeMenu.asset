@@ -9,18 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4758ae8ece1d16442ab98afeb9f32fa3, type: 3}
-  m_Name: Fencing Sword
+  m_Script: {fileID: 11500000, guid: 04bd551b60250454a922abc330f11418, type: 3}
+  m_Name: UpgradeMenu
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  description: 
-  sprite: {fileID: 0}
-  rating: 1
-  upgradable: 1
-  specials:
-  - name: 
-    description: 
-    expended: 0
-    duration: 0
-    timing: 0
-  weaponType: 2
+  menuPreFab: {fileID: 7477406423606521514, guid: d6fb7dc61364a684aaf551febb36b239, type: 3}
