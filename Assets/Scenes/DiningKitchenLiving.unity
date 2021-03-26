@@ -1582,6 +1582,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
 --- !u!114 &171277624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1710,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onAcceptDialogSuccess:
     lines:
     - text: After you hang the ornament, you hear a rustling of tree branches, something
@@ -1718,18 +1720,21 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: ...what the hell? I'm definitely dreaming or something now.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: Buster Barbell acquired!
       style: 2
       effectClip: {fileID: 8300000, guid: e0b4ce00e8167c646b394c296b75a9ae, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onAcceptDialogFailure:
     lines:
     - text: You don't have enough ornaments. Perhaps you can come back later.
@@ -1738,6 +1743,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onDecline:
     lines: []
 --- !u!114 &293874992
@@ -1768,6 +1774,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onAcceptDialogSuccess:
     lines:
     - text: A Duper Junk falls out of the tree.
@@ -1776,12 +1783,14 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: Duper Junk acquired!
       style: 2
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onAcceptDialogFailure:
     lines:
     - text: You don't have enough ornaments!
@@ -1790,6 +1799,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   onDecline:
     lines: []
 --- !u!1 &294109493 stripped
@@ -2932,6 +2942,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: enableAfterTriggerFlag
+      value: MagusRobesAcquired
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2949,16 +2963,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
-      value: Without even opening the closet, I can sense someone ate all of the
-        vegetarian ramen.
+      value: Ugh, someone ate all of the vegetarian ramen. The peanut butter wrap
+        ingredients are also all gone.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
-      value: Curved Wooden Spoon acquired!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].style
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: inventoryItems.Array.data[0].qty
@@ -3023,6 +3037,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
   m_PrefabInstance: {fileID: 581619072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &654565694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 581619072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &654565695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654565694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95828d40e2cf56d429b88e5bff6e3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: 
+  disableAfterTriggerFlag: MagusRobesAcquired
+  activatesTriggerFlagName: MagusRobesAcquired
+  inventoryItems:
+  - item: {fileID: 11400000, guid: 18e6e8e0f4239ed4fb50503eae29e480, type: 2}
+    qty: 1
+  playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+  dialog:
+    lines:
+    - text: What's this?
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: My Mukbang Clothes are in here! That's where I left them.
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: Mukbang Magus Robes acquired!
+      style: 2
+      effectClip: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
 --- !u!1 &662129966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,6 +4676,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
 --- !u!114 &781565021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4640,18 +4703,21 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: But... if the ant is there, how will I get to the package?
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: Guess I'll worry about that later.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
 --- !u!114 &781565022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6130,6 +6196,7 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
   upgradeMenu: {fileID: 11400000, guid: f66b67ead197eca4f8310714edc6b04c, type: 2}
 --- !u!114 &870170034
 MonoBehaviour:
@@ -6157,12 +6224,14 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: I wonder if I could use these tools for anything?
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
 --- !u!1 &940261082
 GameObject:
   m_ObjectHideFlags: 0
