@@ -474,6 +474,7 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
+  player: {fileID: 1550998739}
   videoCanvas: {fileID: 464414763}
 --- !u!114 &393524126 stripped
 MonoBehaviour:
@@ -3360,6 +3361,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
   m_PrefabInstance: {fileID: 1489573450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1550998739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7726569853506671233, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+  m_PrefabInstance: {fileID: 2039896654}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570052656
 GameObject:

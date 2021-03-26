@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VirginiaHouse.unity
     guid: 144f9904dec81e440b3dfbc58c9be22a
+  - enabled: 1
+    path: Assets/Scenes/Battle.unity
+    guid: ff1422b627ef85044862e1046e47c2fa
   m_configObjects: {}

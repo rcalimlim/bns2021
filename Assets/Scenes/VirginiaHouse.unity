@@ -1096,6 +1096,7 @@ MonoBehaviour:
       addStressToPlayer: 0
   onDecline:
     lines: []
+  player: {fileID: 1971143720}
 --- !u!1001 &927836695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4994,3 +4995,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1971143720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7726569853506671233, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
+  m_PrefabInstance: {fileID: 1279951022}
+  m_PrefabAsset: {fileID: 0}
