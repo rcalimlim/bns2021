@@ -50,11 +50,57 @@ public class Damage
             (attackT == Attack.Thrust && defenseT == Defense.Block);
     }
 
+    public static Attack effectiveAttackForDefense(Defense defenseT)
+    {
+        switch (defenseT) {
+            case Defense.Dodge: return Attack.Lash;
+            case Defense.Block: return Attack.Thrust;
+            default: return Attack.Strike;
+        }
+    }
+
+    public static Attack neutralAttackForDefense(Defense defenseT)
+    {
+        switch (defenseT) {
+            case Defense.Dodge: return Attack.Thrust;
+            case Defense.Block: return Attack.Strike;
+            default: return Attack.Lash;
+        }
+    }
+
+
     public static bool isCounter(Attack attackT, Defense defenseT)
     {
         return (attackT == Attack.Strike && defenseT == Defense.Dodge) ||
             (attackT == Attack.Lash && defenseT == Defense.Block) ||
             (attackT == Attack.Thrust && defenseT == Defense.Parry);
+    }
+
+    public static Defense counteringDefenseForAttack(Attack attackT)
+    {
+        switch (attackT) {
+            case Attack.Lash: return Defense.Block;
+            case Attack.Thrust: return Defense.Parry;
+            default: return Defense.Dodge;
+        }
+    }
+
+    public static Defense neutralDefenseForAttack(Attack attackT)
+    {
+        switch (attackT) {
+            case Attack.Lash: return Defense.Parry;
+            case Attack.Thrust: return Defense.Dodge;
+            default: return Defense.Block;
+        }
+    }
+
+    public static Defense weakestDefenseForAttack(Attack attackT)
+    {
+        switch (attackT) {
+            case Attack.Lash: return Defense.Dodge;
+            case Attack.Thrust: return Defense.Block;
+            default: return Defense.Parry;
+        }
     }
 
     public static bool isWeaponSpecialty(Attack attackT, WeaponType weaponT) {
