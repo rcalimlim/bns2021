@@ -56,6 +56,8 @@ public class DuelController : MonoBehaviour
 
     public void initDuel()
     {
+
+        // any special set up we decide we need can go here
         switch (duelID) {
             case DuelID.KeyboardWarrior:
                 break;
@@ -72,6 +74,7 @@ public class DuelController : MonoBehaviour
         }
         enemyChoiceVisible = false; // stop seeing for now
 
+        /* Creating the player and enemy creates them with full hands */
         player = new DuelPlayer("Bryce", 
             new DuelWeapon(playerInventory.EquipedWeapon), 
             new DuelArmor(playerInventory.EquipedArmor),
@@ -83,18 +86,18 @@ public class DuelController : MonoBehaviour
             new DuelArmor(enemyInventory.EquipedArmor),
             Equipment.InventoryToEquipment(enemyInventory));
 
-        /* Creating the player and enemy creates them with full hands */
-
-        // Enemy defends on first turn (0), attacks on second turn (1)
-        // so needs to draw an attack card at top of first turn (0)
-        // and a defense card on the second turn (1)
-        string enemyCardType = (turn == 1) ? "Attack" : "Defense";
+        // no specials yet to trigger
+        Debug.LogFormat("Staring Duel {0}", duelID.ToString());
+        Debug.LogFormat("Round {0} Turn {1} : {2} to attack / {3} to defend",
+                round,turn, player.Name, enemy.Name);
+        
+        // Enemy defends on first turn
+        string enemyCardType = "Defense";
 
         // this is needed in order to see
         enemyMove = cpuChooseCard(enemyCardType);
 
-        // do we need to do this too? 
-        //Yes. This removes the played card from the hand
+        // This removes the played card from the hand
         enemy.PlayCard(
                 enemyCardType,
                 cardIndex(enemyMove, enemy, enemyCardType)
@@ -164,6 +167,7 @@ public class DuelController : MonoBehaviour
     }
 
     void Chocododge()
+    // All enemy attacks become S, all player defenses become D
     {
         Debug.Log("Player used Chocododge!");
         List<Card> newEnemyAttackHand = new List<Card>();
@@ -180,6 +184,7 @@ public class DuelController : MonoBehaviour
     }
 
     void ChineseRedVest()
+    // All defenses become 9
     {
         Debug.Log("Player Used Chinese Red Vest!");
         List<Card> newHand = new List<Card>();
@@ -190,6 +195,7 @@ public class DuelController : MonoBehaviour
     }
 
     void SORD()
+    // All attacks become 9
     {
         Debug.Log("Player Used SORD!");
         List<Card> newHand = new List<Card>();
@@ -200,8 +206,9 @@ public class DuelController : MonoBehaviour
     }
 
     void NO_theHolidaySpecial()
+    // Player takes damage
     {
-        Debug.Log("Player Uesed NO!");
+        Debug.Log("Player Used NO!");
         player.HP -= 30;
     }
 
@@ -209,21 +216,22 @@ public class DuelController : MonoBehaviour
      * Effect Over Time Specials:
     */
     void ParryReposte()
+    // While the effect is active, if the enemy's attack is countered,
+    // the enemy takes 15 damage
     {   
         Debug.Log("Player Used Parry Reposte");
-        // Set this boolean?
+        if (turn == 1 && dmg == 0) player.HP += 15;
     }
 
     void UlamEquilibrium()
+    // Restore 10 HP per turn for 10 turns (5 rounds) 
     {
         Debug.Log("Player Used Ulam Equilibrium");
-        player.HP += 20;
-
-        // Set recurring boolean? 
-
+        player.HP += 10;
     }
 
     void HowCanYouSee()
+    // CPU selected action will show up in the UI
     {
         Debug.Log("Player Used How Can You See??");
         // Set boolean
@@ -648,6 +656,20 @@ public class DuelController : MonoBehaviour
         bool armorBonus = hit && Damage.isArmorSpecialty(defense, defenseA.armorType);
         
         // Examples of how you can use this
+        if (hit) {
+            Debug.LogFormat("{0}{1} vs. {2}{3} -{4}{5}{6} hit : {7}",
+                    attackC.Type, attackC.Strength,
+                    defenseC.Type, defenseC.Strength,
+                    (criticalHit) ? " +critical" : "",
+                    (weaponBonus) ? " +weaponSpec" : "",
+                    (armorBonus) ? " -armorSpec" : "",
+                    dmg);
+        } else {
+            Debug.LogFormat("{0}{1} vs. {2}{3} - miss : {7}",
+                    attackC.Type, attackC.Strength,
+                    defenseC.Type, defenseC.Strength,
+                    dmg);
+        }
         // TODO: UI update calls here?
         
 
@@ -658,6 +680,9 @@ public class DuelController : MonoBehaviour
         if (status() == DuelStatus.Continue) {
             // next turn
             nextTurn();
+            string attackerName = (turn == 0) ? player.Name : enemy.Name;
+            string defenderName = (turn == 0) ? enemy.Name : player.Name;
+            Debug.LogFormat("Round {0} Turn {1} : {2} to attack / {3} to defend",round,turn, attackerName, defenderName);
             enemyChoiceVisible = false; // stop seeing for now
 
             // trigger pre attack specials in queue
