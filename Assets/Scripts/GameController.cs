@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Dialog, Battle, Menu, Respawning, Upgrade }
+public enum GameState { FreeRoam, Dialog, Battle, Menu, Respawning, Upgrade, Video }
 public class GameController : MonoBehaviour
 {
     private static GameController instance;
     public static GameController Instance { get { return instance; } }
 
-    private GameState state = GameState.FreeRoam;
+    [SerializeField] private GameState state = GameState.FreeRoam;
     private PlayerController playerController;
     [SerializeField] Inventory playerInventory;
     [SerializeField] Menu pauseMenu;
     [SerializeField] Menu upgradeMenu;
+    [SerializeField] GameObject videoObject;
 
     public GameState State { get { return state; } }
 
@@ -54,6 +55,12 @@ public class GameController : MonoBehaviour
 
         RespawnManager.Instance.OnDeath += () => state = GameState.Respawning;
         RespawnManager.Instance.OnRevive += () => state = GameState.FreeRoam;
+
+        if (videoObject != null)
+        {
+            videoObject.GetComponent<CringeVideoController>().OnVideoStart += () => state = GameState.Video;
+            videoObject.GetComponent<CringeVideoController>().OnVideoEnd += () => state = GameState.FreeRoam;
+        }
     }
 
     // Update is called once per frame

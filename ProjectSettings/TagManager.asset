@@ -10,6 +10,7 @@ TagManager:
   - Canvas
   - BBDoor0
   - SceneFadeUI
+  - Cringe
   layers:
   - Default
   - TransparentFX

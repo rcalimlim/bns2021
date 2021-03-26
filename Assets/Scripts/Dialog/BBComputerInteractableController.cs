@@ -9,12 +9,13 @@ public class BBComputerInteractableController : MonoBehaviour, Interactable
     [SerializeField] private string disableAfterTriggerFlag;
     [SerializeField] private string activatesTriggerFlagName;
 
+    [SerializeField] private int stressThreshold;
     [SerializeField] private Dialog dialogForHighStress;
     [SerializeField] private Dialog dialogForLowStress;
 
     public void Interact()
     {
-        if (PlayerDataManager.Instance.CurrentStress >= (PlayerDataManager.Instance.MaxStress / 2))
+        if (PlayerDataManager.Instance.CurrentStress > stressThreshold)
         {
             Debug.Log(PlayerDataManager.Instance.CurrentStress);
             StartCoroutine(DialogManager.Instance.ShowDialog(dialogForHighStress));
