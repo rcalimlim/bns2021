@@ -916,6 +916,7 @@ MonoBehaviour:
   enableAfterTriggerFlag: 
   disableAfterTriggerFlag: BBTrollInit
   activatesTriggerFlagName: BBTrollInit
+  stressThreshold: 0
   dialogForHighStress:
     lines:
     - text: If I hop on right now, I'll be too stressed to enjoy myself.
