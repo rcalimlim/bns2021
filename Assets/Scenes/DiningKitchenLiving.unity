@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugEnabled: 0
-  enableAfterTriggerFlag: HingeFought
+  enableAfterTriggerFlag: CringeFought
   disableAfterTriggerFlag: 
   activatesTriggerFlagName: 
   inventoryItems: []
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnabled: 1
   isBlocking: 1
-  enableAfterTriggerFlag: HingeFought
+  enableAfterTriggerFlag: CringeFought
   disableAfterTriggerFlag: 
   activatesTriggerFlagName: 
 --- !u!212 &171277625
@@ -4662,7 +4662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugEnabled: 0
-  enableAfterTriggerFlag: HingeFought
+  enableAfterTriggerFlag: CringeFought
   disableAfterTriggerFlag: DKLAntMoved
   activatesTriggerFlagName: DKLAntMoved
   inventoryItems: []
@@ -4691,7 +4691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: 
-  disableAfterTriggerFlag: HingeFought
+  disableAfterTriggerFlag: CringeFought
   activatesTriggerFlagName: 
   inventoryItems: []
   playerInventory: {fileID: 0}
@@ -4733,7 +4733,7 @@ MonoBehaviour:
   isEnabled: 1
   isBlocking: 1
   enableAfterTriggerFlag: 
-  disableAfterTriggerFlag: HingeFought
+  disableAfterTriggerFlag: CringeFought
   activatesTriggerFlagName: 
 --- !u!212 &781565023
 SpriteRenderer:
