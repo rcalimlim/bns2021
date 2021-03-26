@@ -71,10 +71,12 @@ public class RespawnManager : MonoBehaviour
         }
 
         // do some fade to black
+        Animator sceneFade = GameObject.FindGameObjectWithTag("SceneFadeUI")?.GetComponent<Animator>();
+        sceneFade?.SetTrigger("Start");
+        yield return new WaitForEndOfFrame();
 
         PlayerDataManager.Instance.ResetStress();
         OnRevive?.Invoke();
-        // do some fade to scene
 
         yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialogOnRevive));
     }

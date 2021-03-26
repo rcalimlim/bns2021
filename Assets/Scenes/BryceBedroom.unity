@@ -914,8 +914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: 
-  disableAfterTriggerFlag: 
-  activatesTriggerFlagName: 
+  disableAfterTriggerFlag: BBTrollInit
+  activatesTriggerFlagName: BBTrollInit
   dialogForHighStress:
     lines:
     - text: If I hop on right now, I'll be too stressed to enjoy myself.
@@ -6248,7 +6248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3288700815577712686, guid: 0968895286cc3cd49a6bfa94e56f90e2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0968895286cc3cd49a6bfa94e56f90e2, type: 3}
