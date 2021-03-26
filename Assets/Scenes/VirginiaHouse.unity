@@ -937,6 +937,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!1 &799211177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 799211176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &799211178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799211177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0bc68f3f9d0264b89f6a3355dc29b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &896764839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,12 +3130,14 @@ MonoBehaviour:
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
     - text: There's no way I'm ever getting past this...
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
+      addStressToPlayer: 0
 --- !u!212 &1457553486
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3209,11 +3228,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
-      value: My bed that I don't use for sleep, just for storing items on.
+      value: This bed exists solely to place various items on, thus I cannot sleep
+        here.
       objectReference: {fileID: 0}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_LocalScale.y
@@ -3221,7 +3245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_LocalPosition.y
