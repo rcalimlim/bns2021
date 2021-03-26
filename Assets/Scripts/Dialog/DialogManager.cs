@@ -125,7 +125,6 @@ public class DialogManager : MonoBehaviour
         // play music
         if (line.MusicClip != null) 
 		{
-            Debug.LogFormat("music clip {0}", line.MusicDuration);
             switch (line.MusicDuration)
             {
                 case AudioDuration.Once:
