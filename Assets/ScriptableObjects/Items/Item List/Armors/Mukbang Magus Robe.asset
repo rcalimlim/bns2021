@@ -24,3 +24,5 @@ MonoBehaviour:
     duration: 0
     timing: 0
   type: 2
+  portrait: {fileID: 21300000, guid: a81dcfac75c4cb64ba6077c39ff39a6a, type: 3}
+  extraPortraits: []
