@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
-	private AudioSource EffectsSource;
-    [SerializeField]
-	private AudioSource MusicSource;
+    [SerializeField] private AudioSource EffectsSource;
+    [SerializeField] private AudioSource MusicSource;
+    [SerializeField] private AudioSource SpecialSource;
 
 	// Random pitch adjustment range.
     [SerializeField]
@@ -45,11 +44,20 @@ public class SoundManager : MonoBehaviour
 	}
 
 	// Play a single clip through the music source.
-	public void PlayMusic(AudioClip clip, bool loop = false)
+	public void PlayMusic(AudioClip clip, bool loop = false, double scheduledDelay = 0)
 	{
+		double now = AudioSettings.dspTime;
 		MusicSource.loop = loop;
 		MusicSource.clip = clip;
-		MusicSource.Play();
+		MusicSource.PlayScheduled(now + scheduledDelay);
+	}
+
+	public void PlaySpecial(AudioClip clip, bool loop = false, double scheduledDelay = 0)
+	{
+		double now = AudioSettings.dspTime;
+		SpecialSource.loop = loop;
+		SpecialSource.clip = clip;
+		SpecialSource.PlayScheduled(now + scheduledDelay);
 	}
 
 	public void StopEffect()
@@ -66,21 +74,33 @@ public class SoundManager : MonoBehaviour
 		MusicSource.Stop();
 	}	
 
+	public void StopSpecial()
+	{
+		SpecialSource.clip = null;
+		SpecialSource.loop = false;
+		SpecialSource.Stop();
+	}	
+
 	public void StopAll() 
 	{
 		EffectsSource.Stop();
 		MusicSource.Stop();
+		SpecialSource.Stop();
 	}
 
-	// Play a random clip from an array, and randomize the pitch slightly.
-	public void RandomSoundEffect(params AudioClip[] clips)
+	public void ScheduleTwoClips(AudioClip firstClip, AudioClip secondClip) 
 	{
-		int randomIndex = Random.Range(0, clips.Length);
-		float randomPitch = Random.Range(LowPitchRange, HighPitchRange);
+		double now = AudioSettings.dspTime;
+		double duration = (double)firstClip.samples / firstClip.frequency;
 
-		EffectsSource.pitch = randomPitch;
-		EffectsSource.clip = clips[randomIndex];
-		EffectsSource.Play();
+		// intro
+		SpecialSource.clip = firstClip;
+		SpecialSource.loop = false;
+		SpecialSource.PlayScheduled(now);
+
+		// following loop
+		MusicSource.clip = secondClip;
+		MusicSource.loop = true;
+		MusicSource.PlayScheduled(now + duration);
 	}
-	
 }
