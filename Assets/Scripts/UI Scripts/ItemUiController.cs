@@ -13,6 +13,7 @@ public class ItemUiController : MonoBehaviour
     Text special;
     Text quantity;
     Image image;
+    Button button;
 
     [SerializeField]
     Sprite defaultSprite;
@@ -46,7 +47,7 @@ public class ItemUiController : MonoBehaviour
         
         Image[] images = GetComponentsInChildren<Image>();
         image = images[images.Length-1];
-            
+        button = GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -123,6 +124,8 @@ public class ItemUiController : MonoBehaviour
                 item = inventorySlot.Item;
         }
     }
+    
+    //public Button Button {get => button; set => button = value;}
 
     public void resetUI()
     {

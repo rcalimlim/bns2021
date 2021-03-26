@@ -197,4 +197,5 @@ public class DuelArmor : Equipment
     {
         get => Enum.GetName(typeof(ArmorType), armorType);
     }
+
 }

@@ -12,6 +12,7 @@ public class DuelPlayer
     DuelWeapon equipedWeapon;
     DuelArmor equipedArmor;
     Dictionary<string, List<Equipment>> inventory;
+    public List<string> specialsUsed;
 
     /*
      * Getters
@@ -45,7 +46,8 @@ public class DuelPlayer
             defenseHand.Add(deck.DrawDefenseCard());
         }
 
-        CreateInventory(gearList);        
+        CreateInventory(gearList);
+        specialsUsed = new List<string>();    
     }
 
     public override string ToString()
@@ -97,6 +99,30 @@ public class DuelPlayer
 
     }
 
+    public List<Equipment> InventoryToEquipment()
+    {
+        List<Equipment> gearList = new List<Equipment>();
+        
+        foreach(Equipment gear in inventory["weapons"])
+            gearList.Add(gear);
+        foreach(Equipment gear in inventory["armors"])
+            gearList.Add(gear);
+        
+        return gearList;
+    }
+
+    public List<Item> InventoryToEquipItem()
+    {
+        List<Item> gearList = new List<Item>();
+        
+        foreach(Equipment gear in inventory["weapons"])
+            gearList.Add(gear.OverworldEquipment);
+        foreach(Equipment gear in inventory["armors"])
+            gearList.Add(gear.OverworldEquipment);
+        
+        return gearList;
+    }
+
     /*
      * Player Interaction Methods. 
      * These return a bool just for easily checking that they work
@@ -123,8 +149,11 @@ public class DuelPlayer
             return false;
         
         foreach(Card card in newCards)
-            if(card.CardClass != cardClass)
+            if(card.CardClass != cardClass) {
+                Debug.Log($"Was given {card.Name} for cardClass {cardClass}");
                 return false;
+            }
+                
         
         if(cardClass == "Attack")
             attackHand = new List<Card>(newCards);

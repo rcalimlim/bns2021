@@ -15,12 +15,12 @@ MonoBehaviour:
   DeveloperDescription: 
   description: 
   sprite: {fileID: 0}
-  rating: 0
+  rating: 3
   upgradable: 1
   specials:
-  - name: 
-    description: 
-    expended: 0
+  - name: Full Thrust
+    description: All player's attacks Thrusts
+    expended: 1
     duration: 0
     timing: 0
   weaponType: 2
