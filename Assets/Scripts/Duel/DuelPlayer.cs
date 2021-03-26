@@ -149,8 +149,11 @@ public class DuelPlayer
             return false;
         
         foreach(Card card in newCards)
-            if(card.CardClass != cardClass)
+            if(card.CardClass != cardClass) {
+                Debug.Log($"Was given {card.Name} for cardClass {cardClass}");
                 return false;
+            }
+                
         
         if(cardClass == "Attack")
             attackHand = new List<Card>(newCards);

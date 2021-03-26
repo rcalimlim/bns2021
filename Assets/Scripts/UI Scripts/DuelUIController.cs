@@ -12,6 +12,7 @@ public class DuelUIController : MonoBehaviour
      * Player Related Fields
     */
     [SerializeField] Text playerName;
+    [SerializeField] Image playerPortrait;
     [SerializeField] ItemUiController playerWeapon;
     [SerializeField] ItemUiController playerArmor;
     [SerializeField] Text playerMoveName;
@@ -25,6 +26,7 @@ public class DuelUIController : MonoBehaviour
      * Enemy Related Fields
     */
     [SerializeField] Text enemyName;
+    [SerializeField] Image enemyPortrait;
     [SerializeField] ItemUiController enemyWeapon;
     [SerializeField] ItemUiController enemyArmor;
     [SerializeField] Text enemyMoveName;
@@ -49,18 +51,13 @@ public class DuelUIController : MonoBehaviour
         playerName.text = duel.Player.Name;
         playerWeapon.Item = duel.Player.Weapon.OverworldEquipment;
         playerArmor.Item = duel.Player.Armor.OverworldEquipment;
-
-        /* Add all the specials equipment's specials to the list */
-        // specials = new List<Special>();
-        // foreach(Special special in duel.Player.Weapon.specials)
-        //     specials.Add(special);
-
-        // foreach(Special special in duel.Player.Armor.specials)
-        //     specials.Add(special);
+        Armor a = (Armor) playerArmor.Item;
+        playerPortrait.overrideSprite = a.Portrait;
+        
 
         enemyName.text = duel.Enemy.Name;
         enemyWeapon.Item = duel.Enemy.Weapon.OverworldEquipment;
-        enemyArmor.Item = duel.Enemy.Armor.OverworldEquipment;
+        enemyArmor.Item = duel.Enemy.Armor.OverworldEquipment;  
 
         RegisterButtonListeners(attackHandUI);
         RegisterButtonListeners(defenseHandUI);
@@ -78,33 +75,15 @@ public class DuelUIController : MonoBehaviour
         requipButton.onClick.AddListener(() => {
             Debug.Log($"<color=yellow>Requip BITCHES!</color>");
             requipPannel.ShowRequipMenu();
-            //specialBlocker.transform.localScale = Vector3.one;
         });
 
         UpdateSpecials();
-
-        // foreach(Special special in specials)
-        // {
-        //     var obj = Instantiate<Button>(requipButton, Vector3.zero, Quaternion.identity);
-        //     obj.GetComponentInChildren<Text>().text = special.name;
-        //     obj.transform.SetParent(equipmentSpecials.transform);
-        //     obj.transform.localScale = Vector3.one;
-        //     obj.transform.position = Vector3.zero;
-        //     obj.interactable = (!duel.Player.specialsUsed.Contains(special.name));
-
-        //     obj.onClick.AddListener( () => {
-        //         Debug.Log($"<color=yellow>{special.name} {special.description}</color>");
-        //         special.expended = true;
-        //         duel.Player.specialsUsed.Add(special.name);
-        //         obj.interactable = false;
-        //         specialBlocker.transform.localScale = Vector3.one;
-        //     });
-        // }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         UpdateStressBar(duel.Player.HP);
         PopulateCardUIs(duel.Player.AttackHand, attackHandUI);
         PopulateCardUIs(duel.Player.DefenseHand, defenseHandUI);
@@ -152,6 +131,9 @@ public class DuelUIController : MonoBehaviour
                 obj.interactable = false;
                 duel.Player.specialsUsed.Add(special.name);
                 specialBlocker.transform.localScale = Vector3.one;
+
+                // Apply the effects of the special
+                duel.playerChoosesSpecial(special);
             });
         }
     }
@@ -285,8 +267,11 @@ public class DuelUIController : MonoBehaviour
                 duel.Player.Equip(gear);
                 if(item is Weapon)
                     playerWeapon.Item = duel.Player.Weapon.OverworldEquipment;
-                else 
+                else {
                     playerArmor.Item = duel.Player.Armor.OverworldEquipment;
+                    Armor a = (Armor) playerArmor.Item;
+                    playerPortrait.overrideSprite = a.Portrait;
+                }    
                 
                 UpdateSpecials();
                 return;

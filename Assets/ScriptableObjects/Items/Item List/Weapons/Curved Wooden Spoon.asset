@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
+  sprite: {fileID: 0}
   rating: 2
   upgradable: 1
   specials:
-  - Ulam Equilibrium
+  - name: Ulam Equilibrium
+    description: Restore 20 HP per round for 5 rounds.
+    expended: 0
+    duration: 5
+    timing: 0
   weaponType: 3
