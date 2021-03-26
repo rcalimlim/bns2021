@@ -3103,6 +3103,10 @@ PrefabInstance:
       propertyPath: dialog.lines.Array.data[2].style
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].addStressToPlayer
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4495,7 +4499,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 11
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -4649,8 +4653,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: OBLetter
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
 --- !u!4 &2051465353 stripped
 Transform:
