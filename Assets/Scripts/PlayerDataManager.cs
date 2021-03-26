@@ -33,7 +33,7 @@ public class PlayerDataManager : MonoBehaviour
     {
         if (stress < 0)
         {
-            currentStress = Mathf.Max(minStress, currentStress - stress);
+            currentStress = Mathf.Max(minStress, currentStress + stress);
         }
         else
         {
