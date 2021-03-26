@@ -102,7 +102,6 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator TypeDialog(DialogElement line)
     {
-        Debug.LogFormat("effect {0} music {1}", line.EffectClip, line.MusicClip);
         // play effect
         if (line.EffectClip != null) 
 		{ 
