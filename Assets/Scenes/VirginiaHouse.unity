@@ -4502,9 +4502,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1087089419958818449, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165536527899777840, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4194312592937640671, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484382227226663165, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098532248779756472, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_RootOrder
