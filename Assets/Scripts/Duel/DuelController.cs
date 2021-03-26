@@ -2,6 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DuelID
+{
+    KeyboardWarrior,
+    Stalker,
+    ComputerBug
+}
+public enum DuelStatus
+{
+    Continue,
+    PlayerWin,
+    EnemyWin,
+    Draw
+}
+
 public class DuelController : MonoBehaviour
 {   
 
@@ -15,25 +29,15 @@ public class DuelController : MonoBehaviour
 
     /* game model variables and objects */
 
-    public enum DuelStatus
-    {
-        Continue,
-        PlayerWin,
-        EnemyWin,
-        Draw
-    }
-
-    public enum DuelID
-    {
-        KeyboardWarrior,
-        Stalker,
-        ComputerBug
-    }
     [SerializeField] DuelID duelID;
+    [SerializeField]
+    DuelInfo[] duelInfos;
+    DuelInfo duelInfo;
 
     DuelPlayer player, enemy;
     public DuelPlayer Player {get => player;}
     public DuelPlayer Enemy {get => enemy;}
+
 
     int round = 1;
     int turn = 0; 
@@ -52,14 +56,31 @@ public class DuelController : MonoBehaviour
         return turn;
     }
 
+    public DuelInfo DuelInfo {get => duelInfo;}
+
     /* game state helper methods */
+
+    void SetDuelSpecifics(DuelID thisDuel)
+    {
+        // Hyjacking native conversion to int from Enum
+        // This means that the data in the editor MUST be in the correct order
+        duelInfo = duelInfos[(int)thisDuel];
+
+        DuelWeapon duelWeapon = new DuelWeapon(duelInfo.Weapon);
+        DuelArmor duelArmor = new DuelArmor(duelInfo.Armor);
+
+        enemy = new DuelPlayer(thisDuel.ToString(), 
+            duelWeapon, 
+            duelArmor,
+            new List<Equipment>{duelWeapon, duelArmor});
+    }
 
     public void initDuel()
     {
 
         // any special set up we decide we need can go here
         switch (duelID) {
-            case DuelID.KeyboardWarrior:
+            case DuelID.KeyboardWarrior: 
                 break;
             case DuelID.Stalker:
                 break;
@@ -72,6 +93,7 @@ public class DuelController : MonoBehaviour
                         );
                 break;
         }
+        SetDuelSpecifics(duelID);
         enemyChoiceVisible = false; // stop seeing for now
 
         /* Creating the player and enemy creates them with full hands */
@@ -81,10 +103,7 @@ public class DuelController : MonoBehaviour
             Equipment.InventoryToEquipment(playerInventory));
         
 
-        enemy = new DuelPlayer("Pkmn Trainer Blue", 
-            new DuelWeapon(enemyInventory.EquipedWeapon), 
-            new DuelArmor(enemyInventory.EquipedArmor),
-            Equipment.InventoryToEquipment(enemyInventory));
+        
 
         // no specials yet to trigger
         Debug.LogFormat("Staring Duel {0}", duelID.ToString());

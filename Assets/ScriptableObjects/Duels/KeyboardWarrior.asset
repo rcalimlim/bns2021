@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356cae05a75320446a9c2fc53e987e91, type: 3}
+  m_Name: KeyboardWarrior
+  m_EditorClassIdentifier: 
+  DeveloperDescription: 
+  duelID: 0
+  enemyPortrait: {fileID: 21300000, guid: 10f4cbc3c7ebebb4095ecba3f5ae766f, type: 3}
+  duelTopBg: {fileID: 21300000, guid: cf99590906b79d043a5de1b0261cfe66, type: 3}
+  weapon: {fileID: 11400000, guid: 19d6d5fde0ef5da40afbecdd91bcb381, type: 2}
+  armor: {fileID: 11400000, guid: 91367d02915f983429685f5e2778c275, type: 2}
+  attackNames:
+  - key: 0
+    value: LOL YOU DON'T KNOW
+  - key: 1
+    value: Strawman
+  - key: 2
+    value: TL;DR
+  defenseNames:
+  - key: 0
+    value: Bad Faith Argument
+  - key: 1
+    value: Dismiss
+  - key: 2
+    value: Post hoc

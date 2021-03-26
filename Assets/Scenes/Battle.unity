@@ -1815,6 +1815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duel: {fileID: 2059953909}
   stressUI: {fileID: 1057975100}
+  duelBackground: {fileID: 433805361}
   playerName: {fileID: 1796564411}
   playerPortrait: {fileID: 375269771}
   playerWeapon: {fileID: 6538101713483536751}
@@ -3433,7 +3434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &941448103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6690,6 +6691,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: e3429f02cb1dd54449b633154a3445d1, type: 2}
   enemyInventory: {fileID: 11400000, guid: 39a5047cfed7d804f94314774437af0f, type: 2}
+  enemyChoiceVisible: 0
+  duelID: 1
+  duelInfos:
+  - {fileID: 11400000, guid: a7499e523705dd142901af62ff788b60, type: 2}
+  - {fileID: 11400000, guid: 9b147fb2119f1ab4892a3e847949d7ab, type: 2}
+  - {fileID: 11400000, guid: d7c3cb2594a8e8a46b17930aec4c8b54, type: 2}
 --- !u!4 &2059953910
 Transform:
   m_ObjectHideFlags: 0

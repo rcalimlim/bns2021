@@ -8,6 +8,8 @@ public class DuelUIController : MonoBehaviour
     public DuelController duel;
     public StressUIController stressUI;
     
+    [SerializeField] Image duelBackground;
+
     /*
      * Player Related Fields
     */
@@ -57,7 +59,11 @@ public class DuelUIController : MonoBehaviour
 
         enemyName.text = duel.Enemy.Name;
         enemyWeapon.Item = duel.Enemy.Weapon.OverworldEquipment;
-        enemyArmor.Item = duel.Enemy.Armor.OverworldEquipment;  
+        enemyArmor.Item = duel.Enemy.Armor.OverworldEquipment;
+        enemyPortrait.overrideSprite = duel.DuelInfo.Portrait;
+
+        duelBackground.overrideSprite = duel.DuelInfo.DuelTopBg;
+
 
         RegisterButtonListeners(attackHandUI);
         RegisterButtonListeners(defenseHandUI);
