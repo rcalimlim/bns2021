@@ -214,13 +214,14 @@ public class DuelUIController : MonoBehaviour
                 Card played = duel.Player.PlayCard(cardparse[0], int.Parse(cardparse[1]));
 
                 // Play a fake turn
-                duel.FakeTurn(played);
+                //duel.FakeTurn(played);
+                duel.playerChoosesCard(played);
                 //StartCoroutine(waitABit(3.5f));
 
                 // TEST CODE
                 SwapHands(cardparse[0]);              
                 // TEST CODE
-                duel.Player.DrawCard(cardparse[0]);
+                //duel.Player.DrawCard(cardparse[0]);
             });
         }
     }

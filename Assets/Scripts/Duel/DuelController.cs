@@ -23,7 +23,6 @@ public class DuelController : MonoBehaviour
         Draw
     }
 
-    [System.Serializable] // do I need this
     public enum DuelID
     {
         KeyboardWarrior,
@@ -73,27 +72,29 @@ public class DuelController : MonoBehaviour
         }
         enemyChoiceVisible = false; // stop seeing for now
 
-        // no specials yet to trigger
+        player = new DuelPlayer("Bryce", 
+            new DuelWeapon(playerInventory.EquipedWeapon), 
+            new DuelArmor(playerInventory.EquipedArmor),
+            Equipment.InventoryToEquipment(playerInventory));
+        
 
-        // TODO: Unclear if this is needed or if this is handled by the UI
-        // Player attacks on the first turn (0), defends on the second turn (1)
-        // so needs to draw a defense card on the first turn (0)
-        // and an attack card on the second turn (1)
-        string playerCardType = (turn == 0) ? "Defense" : "Attack";
-        bool success = player.DrawCard(playerCardType);
+        enemy = new DuelPlayer("Pkmn Trainer Blue", 
+            new DuelWeapon(enemyInventory.EquipedWeapon), 
+            new DuelArmor(enemyInventory.EquipedArmor),
+            Equipment.InventoryToEquipment(enemyInventory));
+
+        /* Creating the player and enemy creates them with full hands */
+
         // Enemy defends on first turn (0), attacks on second turn (1)
         // so needs to draw an attack card at top of first turn (0)
         // and a defense card on the second turn (1)
         string enemyCardType = (turn == 1) ? "Attack" : "Defense";
-        success = enemy.DrawCard(enemyCardType);
-        enemy.PlayCard(
-                enemyCardType,
-                cardIndex(enemyMove, enemy, enemyCardType)
-                );
+
         // this is needed in order to see
         enemyMove = cpuChooseCard(enemyCardType);
 
-        // do we need to do this too?
+        // do we need to do this too? 
+        //Yes. This removes the played card from the hand
         enemy.PlayCard(
                 enemyCardType,
                 cardIndex(enemyMove, enemy, enemyCardType)
@@ -477,7 +478,7 @@ public class DuelController : MonoBehaviour
     }
 
     private Attack parseAttackString(string cs)
-    {
+    {//return (Attack) Enum.Parse(typeof(Attack), cs) Where cs is card.LongType
        switch (cs) {
            case "S" :
            case "Strike" :
@@ -496,7 +497,7 @@ public class DuelController : MonoBehaviour
     }
 
     private Defense parseDefenseString(string cs)
-    {
+    { //return (Defense) Enum.Parse(typeof(Defense), cs) Where cs is card.LongType
         switch (cs) {
             case "D" :
             case "Dodge" :
@@ -594,22 +595,14 @@ public class DuelController : MonoBehaviour
 
     /* Controller Lifecycle and Triggered Actions */
 
-    private void Awake() {
-        player = new DuelPlayer("Pkmn Trainer Red", 
-            new DuelWeapon(playerInventory.EquipedWeapon), 
-            new DuelArmor(playerInventory.EquipedArmor),
-            Equipment.InventoryToEquipment(playerInventory));
-        
-        enemy = new DuelPlayer("Pkmn Trainer Blue", 
-            new DuelWeapon(enemyInventory.EquipedWeapon), 
-            new DuelArmor(enemyInventory.EquipedArmor),
-            Equipment.InventoryToEquipment(enemyInventory));
+    private void Awake() 
+    {
+        initDuel();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
 
     }
 
@@ -631,6 +624,7 @@ public class DuelController : MonoBehaviour
         // is player attacking or defending?
         // set player move
         playerMove = c;
+       
         // enemyMove is already chosen
         // resolve damage
         dmg = resolveDamage(); // resolve damage doesn't need any parameters
@@ -641,21 +635,25 @@ public class DuelController : MonoBehaviour
         Card attackC = getAttackCard();
         DuelWeapon attackW = getAttackWeapon();
         Attack attack = parseAttackString(attackC.Type);
+
         // defense type and armor
         Card defenseC = getDefenseCard();
         DuelArmor defenseA = getDefenseArmor();
         Defense defense = parseDefenseString(defenseC.Type);
+
         // Some nice info for custom messages
         bool hit = ! Damage.isCounter(attack,defense);
         bool criticalHit = Damage.isEffective(attack,defense);
         bool weaponBonus = hit && Damage.isWeaponSpecialty(attack, attackW.weaponType);
         bool armorBonus = hit && Damage.isArmorSpecialty(defense, defenseA.armorType);
+        
         // Examples of how you can use this
         // TODO: UI update calls here?
         
 
         // trigger post damage resolution specials
         runSpecials(afterDamage: true);
+
         // check duel status
         if (status() == DuelStatus.Continue) {
             // next turn
@@ -665,25 +663,22 @@ public class DuelController : MonoBehaviour
             // trigger pre attack specials in queue
             runSpecials(afterDamage: false);
 
-            // TODO: Unclear if this is needed or if this is handled by the UI
-            // Player attacks on the first turn (0), defends on the second turn (1)
-            // so needs to draw a defense card on the first turn (0)
-            // and an attack card on the second turn (1)
-            string playerCardType = (turn == 0) ? "Defense" : "Attack";
-            bool success = player.DrawCard(playerCardType);
-            // Enemy defends on first turn (0), attacks on second turn (1)
-            // so needs to draw an attack card at top of first turn (0)
-            // and a defense card on the second turn (1)
-            string enemyCardType = (turn == 1) ? "Attack" : "Defense";
-            success = enemy.DrawCard(enemyCardType);
+            
+            // We can assume that the hand we have yet to play is already full
+            // thus we only need to Refill the hand of the card type you just played
+            bool success = player.DrawCard(playerMove.CardClass);
+
+            // Same goes for enemy
+            string enemyCardType = (playerMove.CardClass == "Defense") ? "Attack" : "Defense";
+            enemy.DrawCard(enemyCardType); // you could drop the success if you dont use it
 
             // this is needed in order to see
-            enemyMove = cpuChooseCard(enemyCardType);
+            enemyMove = cpuChooseCard(playerMove.CardClass);
 
-            // do we need to do this too?
+            // Remove the card from the enemyMove from the enemy's hand
             enemy.PlayCard(
-                    enemyCardType,
-                    cardIndex(enemyMove, enemy, enemyCardType)
+                    playerMove.CardClass,
+                    cardIndex(enemyMove, enemy, playerMove.CardClass)
                     );
 
         } else if (status() == DuelStatus.PlayerWin) {
