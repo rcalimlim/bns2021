@@ -154,6 +154,12 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
 
+        // trigger health change to player
+        if (line.AddStressToPlayer != 0)
+        {
+            PlayerDataManager.Instance.AdjustStress(line.AddStressToPlayer);
+        }
+
         isTyping = false;
     }
 }

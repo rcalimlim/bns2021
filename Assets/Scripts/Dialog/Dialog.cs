@@ -28,6 +28,7 @@ public class DialogElement
     [SerializeField] private AudioDuration effectDuration;
     [SerializeField] private AudioClip musicClip;
     [SerializeField] private AudioDuration musicDuration;
+    [SerializeField] private int addStressToPlayer = 0;
 
     public string Text { get { return text; } }
     public FontStyle Style { get { return style; } }
@@ -35,4 +36,5 @@ public class DialogElement
     public AudioDuration EffectDuration { get { return effectDuration; } }
     public AudioClip MusicClip { get { return musicClip; } }
     public AudioDuration MusicDuration { get { return musicDuration; } }
+    public int AddStressToPlayer { get { return addStressToPlayer; } }
 }
