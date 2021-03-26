@@ -124,15 +124,17 @@ public class DialogManager : MonoBehaviour
 
         // play music
         if (line.MusicClip != null) 
-		{ 
-            switch (line.EffectDuration)
+		{
+            Debug.LogFormat("music clip {0}", line.MusicDuration);
+            switch (line.MusicDuration)
             {
                 case AudioDuration.Once:
                     SoundManager.Instance.PlayMusic(line.MusicClip);
                     break;
                 case AudioDuration.LoopDuringDialog:
-                    shouldStopMusic = true;
+                    Debug.Log("here in loop during dialog");
                     SoundManager.Instance.PlayMusic(line.MusicClip, true);
+                    shouldStopMusic = true;
                     break;
                 case AudioDuration.LoopUntilStopped:
                     SoundManager.Instance.PlayMusic(line.MusicClip, true);
