@@ -50,11 +50,16 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] Button requipButton;
     [SerializeField] RequipUIController requipPannel;
     [SerializeField] UITower towSpecial;
-    List<Special> specials;
+    [SerializeField] Image RedVestImg;
+    [SerializeField] Image HowCanYouSeeImg; 
+    [SerializeField] Image SORDImg; 
+    List<Special> specials; 
 
 
     // 
     float waitTime =  0;
+    Special chineseRedSpecial;
+    Special sordSpecial;
     
 
     // Start is called before the first frame update
@@ -127,10 +132,10 @@ public class DuelUIController : MonoBehaviour
         // Update the available Specials
         specials = new List<Special>();
         foreach(Special special in duel.Player.Weapon.specials)
-            specials.Add(special);
+            specials.Add(new Special(special));
 
         foreach(Special special in duel.Player.Armor.specials)
-            specials.Add(special);
+            specials.Add(new Special(special));
         
         Button[] specialButtons = equipmentSpecials.GetComponentsInChildren<Button>();
         for(int i = specialButtons.Length - 1; i > -1; i-- )
@@ -154,16 +159,49 @@ public class DuelUIController : MonoBehaviour
                 specialBlocker.transform.localScale = Vector3.one;
 
                 // Apply the effects of the special
-                Special specialCopy = new Special(special);
-                duel.playerChoosesSpecial(specialCopy);
+                duel.playerChoosesSpecial(special);
 
                 //Display Special Sprite
-                towSpecial.SetImage(special.sprite);
-                towSpecial.Teleport(new Vector3(0, 0, 0));
-                towSpecial.AddDestination(new Vector3(0f, 260f, 0f));
-                towSpecial.AddDestination(new Vector3(800f, 800f, 0));
-
+                
+                
                 HowCanYouSeeActive();
+                    switch(special.name)
+                    {
+                        case "How Can You See??":   
+                            IEnumerator[] hcys_routines = {
+                                UITower.ScaleOverTime(HowCanYouSeeImg.transform, 3*Vector3.one, 2f),
+                                UITower.ScaleOverTime(HowCanYouSeeImg.transform, Vector3.one, 3f)
+                            };
+                            StartCoroutine(UITower.ChainCoroutines(hcys_routines));
+                            break;
+                        case "Chinese Red Vest": 
+                            chineseRedSpecial = special;
+                            Vector3 orgin = RedVestImg.transform.localPosition;
+                            IEnumerator[] crv_routines = {
+                                UITower.MoveOverTime(RedVestImg.transform, new Vector3(RedVestImg.transform.localPosition.x - 650f, RedVestImg.transform.localPosition.y, 0f), 3500f),
+                                UITower.MoveOverTime(RedVestImg.transform, new Vector3(RedVestImg.transform.localPosition.x - 600f, RedVestImg.transform.localPosition.y, 0f), 30f),
+                                UITower.MoveOverTime(RedVestImg.transform, orgin, 400f),
+                            };
+                            StartCoroutine(UITower.ScaleOverTime(RedVestImg.transform, Vector3.one, 3.5f));
+                            StartCoroutine(UITower.ChainCoroutines(crv_routines));
+                            break;
+                        case "SORD": 
+                            sordSpecial = special;
+                            StartCoroutine(UITower.ScaleOverTime(SORDImg.transform, Vector3.one, 0.5f));
+                            break;
+                        default:
+                            towSpecial.SetImage(special.sprite);
+                            towSpecial.Teleport(new Vector3(0, 0, 0));
+                            IEnumerator[] def_routines = {
+                                UITower.ScaleOverTime(towSpecial.transform, Vector3.one, 1.5f),
+                                UITower.MoveOverTime(towSpecial.transform, new Vector3(0f, 260f, 0f), 600f),
+                                UITower.MoveOverTime(towSpecial.transform, new Vector3(500f, 330f, 0f), 600f),
+                                UITower.ScaleOverTime(towSpecial.transform, Vector3.zero, 1.5f)
+                            };
+                            StartCoroutine(UITower.ChainCoroutines(def_routines));
+                        break;
+                    }
+
             });
         }
     }
@@ -203,8 +241,28 @@ public class DuelUIController : MonoBehaviour
             enemyMoveCard.type = duel.EnemyMove.Type;
             enemyMoveCard.color = duel.EnemyMove.CardClass == "Attack" ? 
                 CardUIController.Red : CardUIController.Blue;
+        } else if(Vector3.Distance(HowCanYouSeeImg.transform.localScale, Vector3.zero) > 0)
+        {
+            StartCoroutine(UITower.ScaleOverTime(HowCanYouSeeImg.transform, Vector3.zero, 2f));
         }    
     }
+    void ChineseRedVestActive()
+    {
+        Debug.Log($"Chinese Red Vest in Specials {specials.Contains(chineseRedSpecial)}, duration is {chineseRedSpecial?.duration} Vector distance {Vector3.Distance(RedVestImg.transform.localScale, Vector3.zero)}");
+        if(specials.Contains(chineseRedSpecial) && chineseRedSpecial?.duration < 1 && Vector3.Distance(RedVestImg.transform.localScale, Vector3.zero) > 0)
+        {
+            StartCoroutine(UITower.ScaleOverTime(RedVestImg.transform, Vector3.zero, 2f));
+        }
+    }
+
+    void SORDActive()
+    {
+        if(sordSpecial != null && sordSpecial.duration < 1 && Vector3.Distance(SORDImg.transform.localScale, Vector3.zero) > 0)
+        {
+            StartCoroutine(UITower.ScaleOverTime(SORDImg.transform, Vector3.zero, 2f));
+        }
+    }
+
     void HideMoveCards()
     {
         equipmentPannelBlocker.transform.localScale = Vector3.zero;
@@ -216,6 +274,8 @@ public class DuelUIController : MonoBehaviour
         enemyMoveName.text = "";
 
         HowCanYouSeeActive();
+        ChineseRedVestActive();
+        SORDActive();
     }
 
     void ShowMoveCards(Card played)
@@ -248,9 +308,6 @@ public class DuelUIController : MonoBehaviour
     {
         foreach (CardUIController uiCard in uiCards)
         {
-            // THIS IS TEST CODE
-
-
             // AddListen accepts a UnityAction
             uiCard.button.onClick.AddListener(() => {
                 
@@ -260,9 +317,57 @@ public class DuelUIController : MonoBehaviour
                 // Play current card - Test Code!!!!
                 Card played = duel.Player.PlayCard(cardparse[0], int.Parse(cardparse[1]));
                 
+                // 
+                if(cardparse[0] == "Attack")
+                {
+                    
+                    Transform parent = playerAvatar.gameObject.transform.parent.transform;
+                    Vector3 startPos = parent.localPosition;
+
+                    Transform moveTrans = playerMoveName.transform.parent.transform;
+                    Vector3 returnPos = moveTrans.localPosition; 
+
+                    IEnumerator[] playerAtk_routines = {
+                        UITower.MoveOverTime(moveTrans, returnPos + new Vector3(-70f,-120f, 0), 1000f),
+                        UITower.RotateOverTime(moveTrans, -1f, -120f, 1000f),
+                        UITower.MoveOverTime(parent, startPos + new Vector3(-650f, 0,0), 1000f),
+                        UITower.MoveOverTime(parent, startPos + new Vector3(-649f, 0,0), 1f),
+                        UITower.RotateOverTime(moveTrans, 1f, 70f, 1000f),
+                        UITower.RotateOverTime(moveTrans, -1f, -90f, 1000f),
+                        UITower.MoveOverTime(parent, startPos, 1000f),
+                        UITower.RotateOverTime(moveTrans, 1f, 0f, 1000f),
+                        UITower.MoveOverTime(moveTrans, returnPos, 1000f)
+                    };
+                    StartCoroutine(UITower.ChainCoroutines(playerAtk_routines));
+                }
+                else 
+                {
+
+                    Transform parent = enemyAvatar.gameObject.transform.parent.transform;
+                    Vector3 startPos = parent.localPosition;
+
+                    Transform moveTrans = enemyMoveName.transform.parent.transform;
+                    Vector3 returnPos = moveTrans.localPosition; 
+
+                    IEnumerator[] enemyAtk_routines = {
+                        UITower.MoveOverTime(moveTrans, returnPos + new Vector3(50f,-100f, 0), 1000f),
+                        UITower.RotateOverTime(moveTrans, 1f, 70f, 1000f),
+                        UITower.MoveOverTime(parent, startPos + new Vector3(650f, 0,0), 1000f),
+                        UITower.MoveOverTime(parent, startPos + new Vector3(649f, 0,0), 1f),
+                        UITower.RotateOverTime(moveTrans, -1f, -70f, 1000f),
+                        UITower.RotateOverTime(moveTrans, 1f, 90f, 1000f),
+                        UITower.MoveOverTime(parent, startPos, 1000f),
+                        UITower.RotateOverTime(moveTrans, -1f, 0f, 1000f),
+                        UITower.MoveOverTime(moveTrans, returnPos, 1000f)
+                    };
+
+                    StartCoroutine(UITower.ChainCoroutines(enemyAtk_routines));
+                }
+
                 ShowMoveCards(played);
                 duel.playerChoosesCard(played);
                 
+
                 StartCoroutine(waitABit(moveWaitTime));
                 SwapHands(cardparse[0]);     
             });
