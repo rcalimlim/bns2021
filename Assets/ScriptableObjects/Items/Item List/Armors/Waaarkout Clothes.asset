@@ -21,7 +21,7 @@ MonoBehaviour:
   - name: Chocododge
     description: All enemy attacks become S, all defenses become D
     expended: 1
-    duration: 1
+    duration: 0
     timing: 0
   type: 3
   portrait: {fileID: 21300000, guid: 7896d1b38c2a2b049b83a2a4c85d89c8, type: 3}

@@ -21,6 +21,6 @@ MonoBehaviour:
   - name: FAHVES
     description: All player and enemy actions are set to strength 5
     expended: 1
-    duration: 1
+    duration: 0
     timing: 0
   weaponType: 1
