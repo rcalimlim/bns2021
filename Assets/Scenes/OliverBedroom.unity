@@ -3746,7 +3746,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[2].text
-      value: Oh! With all this excitement I forgot to do my laundry.
+      value: Oh! With all this excitement I forgot to do my laundry. And I also might
+        want to set up for the stream...
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].style
