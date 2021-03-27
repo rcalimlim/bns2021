@@ -24,3 +24,17 @@ MonoBehaviour:
     duration: 5
     timing: 0
   weaponType: 3
+  attackNames:
+  - key: 0
+    value: Sinigang
+  - key: 1
+    value: Sinigang
+  - key: 2
+    value: Tinola
+  defenseNames:
+  - key: 0
+    value: Balut
+  - key: 1
+    value: Dinuguan
+  - key: 2
+    value: Palabok

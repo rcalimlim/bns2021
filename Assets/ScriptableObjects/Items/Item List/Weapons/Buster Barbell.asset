@@ -24,3 +24,17 @@ MonoBehaviour:
     duration: 0
     timing: 0
   weaponType: 1
+  attackNames:
+  - key: 0
+    value: Lunge
+  - key: 1
+    value: Squat
+  - key: 2
+    value: Turkish Getup
+  defenseNames:
+  - key: 0
+    value: Bench
+  - key: 1
+    value: Deadlift
+  - key: 2
+    value: Press

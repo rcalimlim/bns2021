@@ -54,7 +54,7 @@ public class DuelInfo : ScriptableObjectBase
     public Armor Armor{get => armor;}
 
 
-    private void populateDict() {
+    void populateDict() {
         // Default atk-def names
         skillNames = new Dictionary<string, string>();
         foreach(string attack in System.Enum.GetNames(typeof(Attack)))

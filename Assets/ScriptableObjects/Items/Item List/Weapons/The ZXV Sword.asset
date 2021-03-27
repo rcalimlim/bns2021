@@ -35,3 +35,17 @@ MonoBehaviour:
     duration: 0
     timing: 0
   weaponType: 0
+  attackNames:
+  - key: 0
+    value: LasH!
+  - key: 1
+    value: sTRIKe!
+  - key: 2
+    value: tHRUst
+  defenseNames:
+  - key: 0
+    value: bLoCk!
+  - key: 1
+    value: dODgE!
+  - key: 2
+    value: pArrY!

@@ -24,3 +24,5 @@ MonoBehaviour:
     duration: 0
     timing: 0
   weaponType: 2
+  attackNames: []
+  defenseNames: []

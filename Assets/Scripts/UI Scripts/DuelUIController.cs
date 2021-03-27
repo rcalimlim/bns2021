@@ -200,7 +200,8 @@ public class DuelUIController : MonoBehaviour
         if(played != null)
         {
             // Add weapon specific names
-            playerMoveName.text = played.LongName;
+            Weapon weapon = (Weapon)playerWeapon.Item;
+            playerMoveName.text = weapon.SkillNames[played.LongType];
             playerMoveCard.strength = played.Strength;
             playerMoveCard.type = played.Type;
 
@@ -210,7 +211,7 @@ public class DuelUIController : MonoBehaviour
 
         if(duel.EnemyMove != null)
         {   
-            enemyMoveName.text = duel.EnemyMove.LongName;
+            enemyMoveName.text = duel.DuelInfo.SkillNames[duel.EnemyMove.LongType];
             enemyMoveCard.strength = duel.EnemyMove.Strength;
             enemyMoveCard.type = duel.EnemyMove.Type;
             enemyMoveCard.color = duel.EnemyMove.CardClass == "Attack" ? 

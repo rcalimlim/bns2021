@@ -1894,6 +1894,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2561679561869731777, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
+      propertyPath: nextDuelID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2561679561869731783, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
       propertyPath: m_Name
       value: PlayerDataManager
@@ -6956,7 +6960,7 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
   enemyInventory: {fileID: 11400000, guid: 39a5047cfed7d804f94314774437af0f, type: 2}
   enemyChoiceVisible: 0
-  duelID: 0
+  duelID: 1
   duelInfos:
   - {fileID: 11400000, guid: a7499e523705dd142901af62ff788b60, type: 2}
   - {fileID: 11400000, guid: 9b147fb2119f1ab4892a3e847949d7ab, type: 2}
