@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: JorFeig Everyday Casual
   m_EditorClassIdentifier: 
   DeveloperDescription: Starting Armor
-  description: Comfortable casual wear with stylish NUANCE
-  sprite: {fileID: 0}
+  description: 
+  sprite: {fileID: 21300000, guid: c8c777c6d77c30140a25ec3dd2b6bafc, type: 3}
   rating: 1
   upgradable: 1
   specials:
@@ -23,6 +23,9 @@ MonoBehaviour:
     expended: 1
     duration: -1
     timing: 0
+    sprite: {fileID: 21300000, guid: e3fc432e3e60b964cbb6b5a60f7d1ee7, type: 3}
   type: 0
   portrait: {fileID: 21300000, guid: e3cb80e5ad2d80b48922e80b65aeed06, type: 3}
+  battleAvatar: {fileID: 7183195401824034768, guid: 3e3f79303eda3e644aca8c4d5f239b0d, type: 3}
   extraPortraits: []
+  extraAvatars: []

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 09d5ac587afc19348acf33809ffefc16, type: 3}
   rating: 0
   upgradable: 1
   specials:
@@ -23,4 +23,7 @@ MonoBehaviour:
     expended: 1
     duration: 0
     timing: 0
+    sprite: {fileID: 21300000, guid: 0c4cad37f8348d54188eb5c5fd2c2c5d, type: 3}
   weaponType: 2
+  attackNames: []
+  defenseNames: []
