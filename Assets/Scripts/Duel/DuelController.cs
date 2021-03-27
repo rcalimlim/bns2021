@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum DuelID
 {
@@ -628,7 +629,8 @@ public class DuelController : MonoBehaviour
 
     private void Awake() 
     {
-        /* */
+
+        duelID = PlayerDataManager.Instance.NextDuelID;
 
         initDuel();
     }
@@ -730,6 +732,39 @@ public class DuelController : MonoBehaviour
         } else if (status() == DuelStatus.PlayerWin) {
             Debug.Log("Player Won");
             // run any special conditions for player winning
+            Debug.LogFormat("Player won in {0}", duelID);
+
+            // get next scene
+            string nextScene = PlayerDataManager.Instance.PrevScene;
+
+            // track scene change with bogus door
+            PlayerDataManager.Instance.TrackSceneChange(
+                PlayerDataManager.Instance.LoadAtPos,
+                SceneManager.GetActiveScene().name,
+                PlayerDataManager.Instance.PrevScene
+            );
+
+            // set battle flag
+            switch (duelID)
+            {
+                case DuelID.KeyboardWarrior:
+                    PlayerDataManager.Instance.SetTriggerFlag("TrollFought", true);
+                    break;
+                case DuelID.Stalker:
+                    PlayerDataManager.Instance.SetTriggerFlag("CringeFought", true);
+                    break;
+                case DuelID.ComputerBug:
+                    PlayerDataManager.Instance.SetTriggerFlag("BugFought", true);
+                    break;
+                default:
+                    break;
+            }
+
+            // set next duel
+            PlayerDataManager.Instance.CompletePlayerBattle(duelID);
+
+            // change scene
+            SceneManager.LoadScene(nextScene);
         } else if (status() == DuelStatus.EnemyWin) {
             Debug.Log("Enemy Won");
             // run any special conditions for player losing

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StreamComputerController : MonoBehaviour, Interactable
 {
@@ -12,6 +13,8 @@ public class StreamComputerController : MonoBehaviour, Interactable
     [SerializeField] private Dialog dialog;
     [SerializeField] private Dialog onAcceptDialogSuccess;
     [SerializeField] private Dialog onDecline;
+
+    [SerializeField] private GameObject player;
 
     private bool IsEnabled()
     {
@@ -50,10 +53,21 @@ public class StreamComputerController : MonoBehaviour, Interactable
     {
         DialogManager.Instance.CloseDialog();
 
-        if (onAcceptDialogSuccess.Lines.Count > 0)
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(onAcceptDialogSuccess));
+
+        while (GameController.Instance.State == GameState.Dialog)
         {
-            yield return StartCoroutine(DialogManager.Instance.ShowDialog(onAcceptDialogSuccess));
+            yield return null;
         }
+
+        // setup info in PlayerDataManager
+        PlayerDataManager.Instance.TrackSceneChange(
+            player.gameObject.transform.position,
+            SceneManager.GetActiveScene().name,
+            "Battle"
+        );
+        // call scene switcher
+        SceneManager.LoadScene("Battle");
 
         ActivateTriggerFlag();
     }

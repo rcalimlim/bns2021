@@ -13,6 +13,9 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private string prevScene;
     [SerializeField] private string currScene;
     [SerializeField] private Vector3 loadPos;
+    [SerializeField] private DuelID nextDuelID;
+
+    public DuelID NextDuelID { get { return nextDuelID; } }
 
     /*
      Player Stats
@@ -60,6 +63,7 @@ public class PlayerDataManager : MonoBehaviour
 
     // global trigger flags
     private Dictionary<string, bool> triggerFlags = new Dictionary<string, bool>();
+    public Dictionary<string, bool> TriggerFlags { get { return triggerFlags; } }
 
     private void Awake()
     {
@@ -86,6 +90,25 @@ public class PlayerDataManager : MonoBehaviour
     public string CurrScene { get { return currScene; } }
 
     public Vector3 LoadAtPos { get { return loadPos;} }
+
+    public void CompletePlayerBattle(DuelID completedDuel)
+    {
+        if (completedDuel == nextDuelID)
+        {
+            switch (nextDuelID)
+            {
+                case DuelID.KeyboardWarrior:
+                    nextDuelID = DuelID.Stalker;
+                    break;
+                case DuelID.Stalker:
+                    nextDuelID = DuelID.ComputerBug;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
 
     // Call when changing scenes to keep track of player
     public void TrackSceneChange(string doorTag, string currentScene, string nextScene)

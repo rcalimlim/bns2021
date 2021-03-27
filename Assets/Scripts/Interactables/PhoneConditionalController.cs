@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhoneConditionalController : MonoBehaviour, Interactable
 {
@@ -13,6 +14,7 @@ public class PhoneConditionalController : MonoBehaviour, Interactable
     [SerializeField] private Dialog onAcceptDialogSuccess;
     [SerializeField] private Dialog onDecline;
 
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject videoCanvas;
 
     private bool IsEnabled()
@@ -59,7 +61,17 @@ public class PhoneConditionalController : MonoBehaviour, Interactable
         }
 
         // play video
-        StartCoroutine(videoCanvas.GetComponent<CringeVideoController>().PlayVideo());
+        yield return StartCoroutine(videoCanvas.GetComponent<CringeVideoController>().PlayVideo());
+
+        
+        // setup info in PlayerDataManager
+        PlayerDataManager.Instance.TrackSceneChange(
+            player.gameObject.transform.position,
+            SceneManager.GetActiveScene().name,
+            "Battle"
+        );
+        // call scene switcher
+        SceneManager.LoadScene("Battle");
 
         ActivateTriggerFlag();
     }
