@@ -1530,6 +1530,7 @@ GameObject:
   - component: {fileID: 171277625}
   - component: {fileID: 171277624}
   - component: {fileID: 171277623}
+  - component: {fileID: 171277627}
   m_Layer: 0
   m_Name: DKLFrontDoorGuardAnt
   m_TagString: Untagged
@@ -1570,7 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: CringeFought
-  disableAfterTriggerFlag: 
+  disableAfterTriggerFlag: BugFought
   activatesTriggerFlagName: 
   inventoryItems: []
   playerInventory: {fileID: 0}
@@ -1598,7 +1599,7 @@ MonoBehaviour:
   isEnabled: 1
   isBlocking: 1
   enableAfterTriggerFlag: CringeFought
-  disableAfterTriggerFlag: 
+  disableAfterTriggerFlag: BugFought
   activatesTriggerFlagName: 
 --- !u!212 &171277625
 SpriteRenderer:
@@ -1677,6 +1678,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &171277627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171277621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a8e60852294a44cb48e7a42f9530db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  enableAfterTriggerFlag: BugFought
+  disableAfterTriggerFlag: EndGame
+  activatesTriggerFlagName: EndGame
+  inventoryItems: []
+  playerInventory: {fileID: 0}
+  autoEquipItems: 0
+  dialog:
+    lines:
+    - text: Something something turon phone
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
 --- !u!1001 &194082732
 PrefabInstance:
   m_ObjectHideFlags: 0
