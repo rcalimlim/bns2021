@@ -6666,9 +6666,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1087089419958818449, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2165536527899777840, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: Loop
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165536527899777840, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2165536527899777840, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_PlayOnAwake
@@ -6677,6 +6685,10 @@ PrefabInstance:
     - target: {fileID: 4194312592937640671, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484382227226663165, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4484382227226663165, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_PlayOnAwake
