@@ -308,7 +308,7 @@ public class DuelController : MonoBehaviour
                 useSpecial(special);
                 special.duration--;
             }
-            if(special.duration > 1)
+            if(special.duration > 0)
                 stillActive.Enqueue(special);
         }
         activeSpecials = stillActive;
