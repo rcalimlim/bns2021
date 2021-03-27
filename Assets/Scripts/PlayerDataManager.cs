@@ -20,6 +20,7 @@ public class PlayerDataManager : MonoBehaviour
     /*
      Player Stats
     */
+    [SerializeField] private GameObject stressBar;
     [SerializeField] private int minStress;
     [SerializeField] private int maxStress;
     [SerializeField] private int currentStress;
@@ -47,6 +48,8 @@ public class PlayerDataManager : MonoBehaviour
         {
             currentStress = Mathf.Min(currentStress + stress, maxStress);
         }
+
+        GameObject.FindObjectOfType<FreeRoamStressBar>().SetStress(currentStress);
 
         if (currentStress >= maxStress)
         {
