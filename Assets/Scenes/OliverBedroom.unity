@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: OBPhoneFound
-  disableAfterTriggerFlag: CringeTriggered
+  disableAfterTriggerFlag: CringeFought
   activatesTriggerFlagName: CringeTriggered
   dialog:
     lines:
