@@ -2473,6 +2473,15 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
+    - text: Even though the scouter paired with it, the Moogle Bixel wasn't here
+        in my bedroom... I should look around the apartment to see where I could
+        have left it.
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
 --- !u!1 &552277311
 GameObject:
   m_ObjectHideFlags: 0

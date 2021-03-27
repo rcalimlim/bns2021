@@ -8059,7 +8059,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[4].text
-      value: I think I remember there are a few of my things in his room...
+      value: Now that I think of it, maybe some of the things that were missing from
+        my room are in here.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].style
