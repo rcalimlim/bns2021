@@ -17,16 +17,17 @@ public class ConditionalAssetController : MonoBehaviour
 
     private void Awake()
     {
+        // ...
+    }
+
+    private void Start()
+    {
         SpriteRenderer sp = gameObject.GetComponent<SpriteRenderer>();
         if (sp != null)
         {
             spriteRenderer = sp;
         }
 
-    }
-
-    private void Start()
-    {
         if (IsEnabled() == false)
         {
             Disable();
