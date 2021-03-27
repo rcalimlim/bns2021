@@ -1736,10 +1736,10 @@ MonoBehaviour:
       addStressToPlayer: 0
     - text: Hello?
       style: 0
-      effectClip: {fileID: 8300000, guid: b5d50622cd2aafb4baa20779ccebcff5, type: 3}
-      effectDuration: 1
-      musicClip: {fileID: 0}
-      musicDuration: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 8300000, guid: b5d50622cd2aafb4baa20779ccebcff5, type: 3}
+      musicDuration: 1
       addStressToPlayer: 0
     - text: '[Familiar Mysterious Voice] Oh hey. Can you hear me?'
       style: 0
