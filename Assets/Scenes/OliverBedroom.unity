@@ -439,7 +439,7 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: Phone's going off.
+    - text: Bixel is going off...
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -513,7 +513,8 @@ MonoBehaviour:
   activatesTriggerFlagName: CringeTriggered
   dialog:
     lines:
-    - text: My phone is blowing up! Am I ready to confront my stalker?
+    - text: Notifications on my Moogle Bixel are blowing up! Am I ready to confront
+        my stalker?
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
