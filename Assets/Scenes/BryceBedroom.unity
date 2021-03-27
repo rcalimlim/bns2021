@@ -968,7 +968,7 @@ MonoBehaviour:
     - text: '[Discussion] LOL they made a mistake by having Sephiroach show up so
         early. It''s downhill from here. Only shallow thinkers can''t see that LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
         Marxist mythology vis-a-vis postculturalism. If you don''t get it I feel
         sorry for you LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -985,7 +985,7 @@ MonoBehaviour:
     - text: '[Discussion] LOL no true fan will like this release. Because anyone
         who likes it isn''t a true fan. It''s called logic, LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
