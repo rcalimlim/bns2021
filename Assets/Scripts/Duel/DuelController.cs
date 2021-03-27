@@ -780,9 +780,16 @@ public class DuelController : MonoBehaviour
     private IEnumerator InvokePlayerLost()
     {
         yield return new WaitForEndOfFrame();
-        Debug.Log("Enemy Won");
-        PlayerDataManager.Instance.AdjustStress(10000);
+
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(playerLostDialog));
+
+
+        yield return new WaitForSecondsRealtime(3);
+        DialogManager.Instance.CloseDialog();
+
+        PlayerDataManager.Instance.HasDied = true;
         PlayerDataManager.Instance.TrackSceneChange("", SceneManager.GetActiveScene().name, PlayerDataManager.Instance.PrevScene);
+        SceneManager.LoadScene("BryceBedroom");
     }
 
     public void FakeTurn(Card played)
