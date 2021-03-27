@@ -16,6 +16,9 @@ MonoBehaviour:
   duelID: 0
   enemyPortrait: {fileID: 21300000, guid: 82664e3d63e7fc9418034d8efd202059, type: 3}
   duelTopBg: {fileID: 21300000, guid: f3df09cf8d56e4b4ab0711f78c8580dd, type: 3}
+  backgroundMusics:
+  - {fileID: 8300000, guid: a34712452fe44485088412f9a252bf5d, type: 3}
+  - {fileID: 8300000, guid: f2ffb43f3a7cc425f8b737bc9df889fa, type: 3}
   weapon: {fileID: 11400000, guid: bb3c6620e49a27745973b1ff425dbbcf, type: 2}
   armor: {fileID: 11400000, guid: d7bfbb4c8cbd1fb49b44a4395480e5ba, type: 2}
   attackNames:

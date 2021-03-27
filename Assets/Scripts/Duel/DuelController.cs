@@ -43,7 +43,8 @@ public class DuelController : MonoBehaviour
     int round = 1;
     int turn = 0; 
     int dmg; // holds last damage
-    List<Special> activeSpecials = new List<Special>();
+    //List<Special> activeSpecials = new List<Special>();
+    Queue<Special> activeSpecials = new Queue<Special>();
     List<Card> playerActionHistory = new List<Card>();
     List<Card> enemyActionHistory = new List<Card>();
 
@@ -67,6 +68,7 @@ public class DuelController : MonoBehaviour
         // This means that the data in the editor MUST be in the correct order
         duelInfo = duelInfos[(int)thisDuel];
 
+
         DuelWeapon duelWeapon = new DuelWeapon(duelInfo.Weapon);
         DuelArmor duelArmor = new DuelArmor(duelInfo.Armor);
 
@@ -80,12 +82,15 @@ public class DuelController : MonoBehaviour
     {
 
         // any special set up we decide we need can go here
+        
+        SetDuelSpecifics(duelID); // These are actually generic!
         switch (duelID) {
             case DuelID.KeyboardWarrior: 
-                break;
             case DuelID.Stalker:
+                SoundManager.Instance.PlayMusic(duelInfo.BGM[0], true);
                 break;
             case DuelID.ComputerBug:
+                SoundManager.Instance.ScheduleTwoClips(duelInfo.BGM[0], duelInfo.BGM[1]);
                 break;
             default:
                 Debug.LogError(
@@ -94,7 +99,7 @@ public class DuelController : MonoBehaviour
                         );
                 break;
         }
-        SetDuelSpecifics(duelID);
+        
         enemyChoiceVisible = false; // stop seeing for now
 
         /* Creating the player and enemy creates them with full hands */
@@ -116,12 +121,6 @@ public class DuelController : MonoBehaviour
 
         // this is needed in order to see
         enemyMove = cpuChooseCard(enemyCardType);
-
-        // This removes the played card from the hand
-        enemy.PlayCard(
-                enemyCardType,
-                cardIndex(enemyMove, enemy, enemyCardType)
-                );
 
     }
 
@@ -176,6 +175,7 @@ public class DuelController : MonoBehaviour
 
         enemy.ReplaceHand("Attack", newEnemyAttackHand);
         enemy.ReplaceHand("Defense", newEnemyDefenseHand);
+        enemyMove = cpuChooseCard(playerMove.CardClass);
     }
 
     void MangTomas()
@@ -201,6 +201,9 @@ public class DuelController : MonoBehaviour
 
         enemy.ReplaceHand("Attack", newEnemyAttackHand);
         enemy.ReplaceHand("Defense", newEnemyDefenseHand);
+
+        string cardClass = playerMove?.CardClass;
+        enemyMove = cpuChooseCard(cardClass ??= "Defense");
     }
 
     void ChineseRedVest()
@@ -286,23 +289,22 @@ public class DuelController : MonoBehaviour
     {
         // timing 1 means it runs when afterDamage = true
         int timing = (afterDamage) ? 1 : 0;
-        foreach (Special s in activeSpecials) {
-            if (s.timing == timing) {
-                useSpecial(s);
+        
+        int count = activeSpecials.Count;
+        Queue<Special> stillActive = new Queue<Special>();
+        for(int i=0; i < count; i++){
+            Special special = activeSpecials.Dequeue();
+
+            if (special.timing == timing) {
+                useSpecial(special);
             }
-            s.duration--;
-            if (s.duration <= 1) {
-                bool success = activeSpecials.Remove(s);
-                if (!success) {
-                    Debug.LogError(
-                            "Couldn't remove special from the queue: " +
-                            s.name +
-                            " duration: " +
-                            s.duration
-                            );
-                }
-            }
+
+            special.duration--;
+
+            if(special.duration > 1)
+                stillActive.Enqueue(special);
         }
+        activeSpecials = stillActive;
     }
 
     /* CPU action selection */
@@ -617,6 +619,8 @@ public class DuelController : MonoBehaviour
             turn = 0;
             round++; // next round
         }
+        else
+            turn++;
     }
 
     /* specials code */
@@ -625,7 +629,9 @@ public class DuelController : MonoBehaviour
 
     private void Awake() 
     {
+
         duelID = PlayerDataManager.Instance.NextDuelID;
+
         initDuel();
     }
 
@@ -641,11 +647,11 @@ public class DuelController : MonoBehaviour
      */
     {
         // trigger effects if duration is zero
-        if (s.duration == 0 && s.timing == 0) {
+        if (s.duration == 0 || s.timing == 0) {
             useSpecial(s);
         }
         // else add to specials list
-        activeSpecials.Add(s);
+        activeSpecials.Enqueue(s);
     }
 
     public void playerChoosesCard(Card c)
@@ -653,7 +659,16 @@ public class DuelController : MonoBehaviour
         // is player attacking or defending?
         // set player move
         playerMove = c;
-       
+        
+        
+        string enemyCardType = (playerMove.CardClass == "Defense") ? "Attack" : "Defense";
+        // This removes the enemy's card from the hand
+        enemy.PlayCard(
+                enemyCardType,
+                cardIndex(enemyMove, enemy, enemyCardType)
+                );
+
+
         // enemyMove is already chosen
         // resolve damage
         dmg = resolveDamage(); // resolve damage doesn't need any parameters
@@ -686,10 +701,7 @@ public class DuelController : MonoBehaviour
                     (armorBonus) ? " -armorSpec" : "",
                     dmg);
         } else {
-            Debug.LogFormat("{0}{1} vs. {2}{3} - miss : {7}",
-                    attackC.Type, attackC.Strength,
-                    defenseC.Type, defenseC.Strength,
-                    dmg);
+            Debug.LogFormat($"{attackC.Type}{attackC.Strength} vs. {defenseC.Type}{defenseC.Strength} - miss : {dmg}");
         }
         // TODO: UI update calls here?
         
@@ -712,22 +724,13 @@ public class DuelController : MonoBehaviour
             
             // We can assume that the hand we have yet to play is already full
             // thus we only need to Refill the hand of the card type you just played
-            bool success = player.DrawCard(playerMove.CardClass);
-
-            // Same goes for enemy
-            string enemyCardType = (playerMove.CardClass == "Defense") ? "Attack" : "Defense";
-            enemy.DrawCard(enemyCardType); // you could drop the success if you dont use it
-
+            player.DrawCard(playerMove.CardClass);
+            enemy.DrawCard(enemyCardType);
             // this is needed in order to see
-            enemyMove = cpuChooseCard(playerMove.CardClass);
-
-            // Remove the card from the enemyMove from the enemy's hand
-            enemy.PlayCard(
-                    playerMove.CardClass,
-                    cardIndex(enemyMove, enemy, playerMove.CardClass)
-                    );
+            enemyMove = cpuChooseCard(playerMove.CardClass);         
 
         } else if (status() == DuelStatus.PlayerWin) {
+            Debug.Log("Player Won");
             // run any special conditions for player winning
             Debug.LogFormat("Player won in {0}", duelID);
 
@@ -763,6 +766,7 @@ public class DuelController : MonoBehaviour
             // change scene
             SceneManager.LoadScene(nextScene);
         } else if (status() == DuelStatus.EnemyWin) {
+            Debug.Log("Enemy Won");
             // run any special conditions for player losing
         }
     }

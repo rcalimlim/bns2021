@@ -23,15 +23,15 @@ MonoBehaviour:
       next. '
     expended: 1
     duration: 3
-    timing: 1
+    timing: 0
   - name: Chinese Red Vest
     description: All player's defenses set to 9
     expended: 0
-    duration: 1
+    duration: 0
     timing: 0
   - name: SORD
     description: All player's attacks set to 9
     expended: 1
-    duration: 1
+    duration: 0
     timing: 0
   weaponType: 0

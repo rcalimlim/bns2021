@@ -26,6 +26,7 @@ public class DuelInfo : ScriptableObjectBase
 
     [SerializeField] Sprite enemyPortrait;
     [SerializeField] Sprite duelTopBg;
+    [SerializeField] AudioClip[] backgroundMusics;
 
     [SerializeField]
     Weapon weapon;
@@ -47,7 +48,7 @@ public class DuelInfo : ScriptableObjectBase
             populateDict();
         return skillNames;
     }}
-
+    public AudioClip[] BGM {get => backgroundMusics;}
     public Sprite Portrait {get=> enemyPortrait;}
     public Weapon Weapon{get => weapon;}
     public Armor Armor{get => armor;}
