@@ -1553,7 +1553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Name
-      value: TriggerablePrefabAsset
+      value: TRIGGER_END_CREDITS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
