@@ -11,12 +11,14 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] float moveWaitTime = 2f;
 
     [SerializeField] Image duelBackground;
+    [SerializeField] Image duelBottomBackground;
 
     /*
      * Player Related Fields
     */
     [SerializeField] Text playerName;
     [SerializeField] Image playerPortrait;
+    [SerializeField] Image playerAvatar;
     [SerializeField] ItemUiController playerWeapon;
     [SerializeField] ItemUiController playerArmor;
     [SerializeField] Text playerMoveName;
@@ -32,6 +34,7 @@ public class DuelUIController : MonoBehaviour
     */
     [SerializeField] Text enemyName;
     [SerializeField] Image enemyPortrait;
+    [SerializeField] Image enemyAvatar;
     [SerializeField] ItemUiController enemyWeapon;
     [SerializeField] ItemUiController enemyArmor;
     [SerializeField] Text enemyMoveName;
@@ -48,6 +51,9 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] RequipUIController requipPannel;
     List<Special> specials;
 
+
+    // 
+    float waitTime =  0;
     
 
     // Start is called before the first frame update
@@ -58,6 +64,7 @@ public class DuelUIController : MonoBehaviour
         playerArmor.Item = duel.Player.Armor.OverworldEquipment;
         Armor a = (Armor) playerArmor.Item;
         playerPortrait.overrideSprite = a.Portrait;
+        playerAvatar.overrideSprite = a.Avatar;
 
         playerMoveName.text = "";
         enemyMoveName.text = "";
@@ -66,8 +73,10 @@ public class DuelUIController : MonoBehaviour
         enemyWeapon.Item = duel.Enemy.Weapon.OverworldEquipment;
         enemyArmor.Item = duel.Enemy.Armor.OverworldEquipment;
         enemyPortrait.overrideSprite = duel.DuelInfo.Portrait;
+        enemyAvatar.overrideSprite = duel.DuelInfo.Avatar;
 
         duelBackground.overrideSprite = duel.DuelInfo.DuelTopBg;
+        duelBottomBackground.overrideSprite = duel.DuelInfo.DuelBottomBg;
 
 
         RegisterButtonListeners(attackHandUI);
@@ -99,6 +108,7 @@ public class DuelUIController : MonoBehaviour
         PopulateCardUIs(duel.Player.AttackHand, attackHandUI, true);
         PopulateCardUIs(duel.Player.DefenseHand, defenseHandUI, false);
         UpdateEquipedWeapons();
+        Chocobro();
 
     }
 
@@ -142,11 +152,14 @@ public class DuelUIController : MonoBehaviour
                 duel.Player.specialsUsed.Add(special.name);
                 specialBlocker.transform.localScale = Vector3.one;
 
+                //Display Special Sprite
+                //
+
                 // Apply the effects of the special
-                duel.playerChoosesSpecial(special);
-                if(duel.enemyChoiceVisible)
-                    enemyMoveCard.color = duel.EnemyMove.CardClass == "Attack" ? 
-                        CardUIController.Red : CardUIController.Blue;
+                Special specialCopy = new Special(special);
+                duel.playerChoosesSpecial(specialCopy);
+
+                HowCanYouSeeActive();
             });
         }
     }
@@ -178,6 +191,16 @@ public class DuelUIController : MonoBehaviour
         stressUI.HP = hp;
     }
 
+    void HowCanYouSeeActive()
+    {
+        if(duel.enemyChoiceVisible) {
+            enemyMoveName.text = duel.DuelInfo.SkillNames[duel.EnemyMove.LongType];
+            enemyMoveCard.strength = duel.EnemyMove.Strength;
+            enemyMoveCard.type = duel.EnemyMove.Type;
+            enemyMoveCard.color = duel.EnemyMove.CardClass == "Attack" ? 
+                CardUIController.Red : CardUIController.Blue;
+        }    
+    }
     void HideMoveCards()
     {
         equipmentPannelBlocker.transform.localScale = Vector3.zero;
@@ -188,11 +211,9 @@ public class DuelUIController : MonoBehaviour
         enemyMoveCard.color = CardUIController.Black;
         enemyMoveName.text = "";
 
-        if(duel.enemyChoiceVisible)
-            enemyMoveCard.color = duel.EnemyMove.CardClass == "Attack" ? 
-                CardUIController.Red : CardUIController.Blue;
-        
+        HowCanYouSeeActive();
     }
+
     void ShowMoveCards(Card played)
     {
         equipmentPannelBlocker.transform.localScale = Vector3.one;
@@ -257,6 +278,12 @@ public class DuelUIController : MonoBehaviour
             specialBlocker.transform.localScale = Vector3.zero;
     }
 
+
+    // IEnumerator moveAttackAcrossScreen(Vector3 start, Vector3 end)
+    // {
+    //     yield 
+    // }
+
     IEnumerator waitABit(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -283,6 +310,7 @@ public class DuelUIController : MonoBehaviour
                     playerArmor.Item = duel.Player.Armor.OverworldEquipment;
                     Armor a = (Armor) playerArmor.Item;
                     playerPortrait.overrideSprite = a.Portrait;
+                    playerAvatar.overrideSprite = a.Avatar;
                 }    
                 
                 UpdateSpecials();
@@ -290,5 +318,22 @@ public class DuelUIController : MonoBehaviour
             }
                 
         }
+    }
+
+    
+    void Chocobro()
+    {
+        if(playerArmor.Item.name == "Waaarkout Clothes" && Time.time > waitTime)
+        {   
+            Armor armor = (Armor)playerArmor.Item;
+            int randomChoco = Random.Range(0,armor.ExtraPortraits.Count);
+            int randomChocoAvatar = Random.Range(0,armor.ExtraAvatars.Count);
+            
+            playerPortrait.overrideSprite = armor.ExtraPortraits[randomChoco];
+            playerAvatar.overrideSprite = armor.ExtraAvatars[randomChocoAvatar];
+
+            waitTime = Time.deltaTime * Random.Range(50,500) + Time.time;
+        }
+
     }
 }

@@ -25,7 +25,9 @@ public class DuelInfo : ScriptableObjectBase
     DuelID duelID;
 
     [SerializeField] Sprite enemyPortrait;
+    [SerializeField] Sprite enemyAvatar;
     [SerializeField] Sprite duelTopBg;
+    [SerializeField] Sprite duelBottomBg;
     [SerializeField] AudioClip[] backgroundMusics;
 
     [SerializeField]
@@ -42,6 +44,7 @@ public class DuelInfo : ScriptableObjectBase
 
     public DuelID DuelId {get => duelID;}
     public Sprite DuelTopBg {get => duelTopBg;}
+    public Sprite DuelBottomBg {get => duelBottomBg;}
     public Dictionary<string, string> skillNames;
     public Dictionary<string, string> SkillNames {get {
         if(skillNames == null || skillNames.Count == 0)
@@ -50,6 +53,7 @@ public class DuelInfo : ScriptableObjectBase
     }}
     public AudioClip[] BGM {get => backgroundMusics;}
     public Sprite Portrait {get=> enemyPortrait;}
+    public Sprite Avatar {get => enemyAvatar;}
     public Weapon Weapon{get => weapon;}
     public Armor Armor{get => armor;}
 

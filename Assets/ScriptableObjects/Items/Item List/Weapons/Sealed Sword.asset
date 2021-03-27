@@ -16,13 +16,16 @@ MonoBehaviour:
 
     Turns into the ZXV Sword'
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 09d5ac587afc19348acf33809ffefc16, type: 3}
   rating: 0
   upgradable: 0
   specials:
   - name: NO
     description: No. NooooOOOO.
-    expended: 1
+    expended: 0
     duration: 0
     timing: 0
+    sprite: {fileID: 21300000, guid: 036816a0027305949b1c666fe3bd8c87, type: 3}
   weaponType: 3
+  attackNames: []
+  defenseNames: []

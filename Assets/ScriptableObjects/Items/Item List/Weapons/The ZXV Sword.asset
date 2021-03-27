@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 09d5ac587afc19348acf33809ffefc16, type: 3}
   rating: 3
   upgradable: 1
   specials:
@@ -22,18 +22,21 @@ MonoBehaviour:
     description: 'Display an onscreen message for what action the opponent will take
       next. '
     expended: 1
-    duration: 3
+    duration: 6
     timing: 0
+    sprite: {fileID: 21300000, guid: fc4d800e85d728e42881802825c1bdbe, type: 3}
   - name: Chinese Red Vest
     description: All player's defenses set to 9
-    expended: 0
-    duration: 0
+    expended: 1
+    duration: 6
     timing: 0
+    sprite: {fileID: 21300000, guid: e0851fd11d1420940a70318d7d17faf6, type: 3}
   - name: SORD
     description: All player's attacks set to 9
     expended: 1
-    duration: 0
+    duration: 6
     timing: 0
+    sprite: {fileID: 21300000, guid: 6a07a2189f5ce8b46ab692bfb53eebd7, type: 3}
   weaponType: 0
   attackNames:
   - key: 0
