@@ -958,35 +958,39 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: '[PLACEHOLDER TROLL SHIT]'
+    - text: Looks like there's some community discussion about the game...
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: '[PLACEHOLDER TROLL SHIT THAT HURTS PLAYER 1]'
-      style: 0
+    - text: '[Discussion] LOL they made a mistake by having Sephiroach show up so
+        early. It''s downhill from here. Only shallow thinkers can''t see that LOL.'
+      style: 2
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 10
-    - text: '[PLACEHOLDER TROLL SHIT THAT HURTS PLAYER 2]'
-      style: 0
+    - text: '[Discussion] LOL the ORIGINAL was a brilliant solipsist critique of
+        Marxist mythology vis-a-vis postculturalism. If you don''t get it I feel
+        sorry for you LOL.'
+      style: 2
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 15
-    - text: '[PLACEHOLDER TROLL SHIT THAT HURTS PLAYER 3]'
-      style: 0
+    - text: '[Discussion] LOL no true fan will like this release. Because anyone
+        who likes it isn''t a true fan. It''s called logic, LOL.'
+      style: 2
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 25
-    - text: '[PLACEHOLDER TOLL BATTLE LEAD IN]'
+    - text: This guy is hurting the community! I have to stand up to him!
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -6074,7 +6078,7 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: '[Familiar Voice] Um... occupied, sorry... #BryceDiedForBryce'
+    - text: '[Friendly Voice] Um... occupied, sorry... #BryceDiedForBryce'
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
