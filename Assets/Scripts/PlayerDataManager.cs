@@ -63,6 +63,7 @@ public class PlayerDataManager : MonoBehaviour
 
     // global trigger flags
     private Dictionary<string, bool> triggerFlags = new Dictionary<string, bool>();
+    public Dictionary<string, bool> TriggerFlags { get { return triggerFlags; } }
 
     private void Awake()
     {

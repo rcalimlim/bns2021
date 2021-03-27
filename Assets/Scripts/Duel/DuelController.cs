@@ -729,6 +729,7 @@ public class DuelController : MonoBehaviour
 
         } else if (status() == DuelStatus.PlayerWin) {
             // run any special conditions for player winning
+            Debug.LogFormat("Player won in {0}", duelID);
 
             // get next scene
             string nextScene = PlayerDataManager.Instance.PrevScene;
