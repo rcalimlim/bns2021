@@ -15,6 +15,6 @@ MonoBehaviour:
   DeveloperDescription: 
   itemBag:
   - item: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
-    amount: 0
+    amount: 1
   equipedWeapon: {fileID: 0}
   equipedArmor: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
