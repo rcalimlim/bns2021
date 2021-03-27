@@ -15,6 +15,8 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private Vector3 loadPos;
     [SerializeField] private DuelID nextDuelID;
 
+    public DuelID NextDuelID { get { return nextDuelID; } }
+
     /*
      Player Stats
     */

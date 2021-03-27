@@ -625,6 +625,7 @@ public class DuelController : MonoBehaviour
 
     private void Awake() 
     {
+        duelID = PlayerDataManager.Instance.NextDuelID;
         initDuel();
     }
 
@@ -734,7 +735,7 @@ public class DuelController : MonoBehaviour
 
             // track scene change with bogus door
             PlayerDataManager.Instance.TrackSceneChange(
-                "",
+                PlayerDataManager.Instance.LoadAtPos,
                 SceneManager.GetActiveScene().name,
                 PlayerDataManager.Instance.PrevScene
             );
@@ -754,6 +755,9 @@ public class DuelController : MonoBehaviour
                 default:
                     break;
             }
+
+            // set next duel
+            PlayerDataManager.Instance.CompletePlayerBattle(duelID);
 
             // change scene
             SceneManager.LoadScene(nextScene);

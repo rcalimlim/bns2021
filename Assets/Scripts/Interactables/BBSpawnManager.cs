@@ -31,6 +31,10 @@ public class BBSpawnManager : MonoBehaviour
                 case ("BNS2019+", "BryceBedroom"):
                     SpawnPlayerWithOffset(bbDoor1, new Vector3(-1.5f, 0.5f, 0f));
                     break;
+
+                case ("Battle", "BryceBedroom"):
+                    SpawnPlayerAt(PlayerDataManager.Instance.LoadAtPos);
+                    break;
                     
                 default:
                     break;
@@ -40,6 +44,11 @@ public class BBSpawnManager : MonoBehaviour
 
     private void SpawnPlayerWithOffset(GameObject door, Vector3 offset)
     {
-        GameObject.FindWithTag("Player").transform.position = door.transform.position + offset;
+        player.gameObject.transform.position = door.transform.position + offset;
+    }
+
+    private void SpawnPlayerAt(Vector3 location)
+    {
+        player.gameObject.transform.position = location;
     }
 }
