@@ -61,7 +61,7 @@ public class PhoneConditionalController : MonoBehaviour, Interactable
         }
 
         // play video
-        yield return StartCoroutine(videoCanvas.GetComponent<CringeVideoController>().PlayVideo());
+        // yield return StartCoroutine(videoCanvas.GetComponent<CringeVideoController>().PlayVideo());
 
         
         // setup info in PlayerDataManager
