@@ -14,15 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c8c777c6d77c30140a25ec3dd2b6bafc, type: 3}
   rating: 2
   upgradable: 1
   specials:
   - name: M?ng Tom?s
     description: Swap enemy health with player health
-    expended: 1
+    expended: 0
     duration: 0
     timing: 0
+    sprite: {fileID: 21300000, guid: aaba9d9469fbdae4bb2727a9e417e961, type: 3}
   type: 2
   portrait: {fileID: 21300000, guid: a81dcfac75c4cb64ba6077c39ff39a6a, type: 3}
+  battleAvatar: {fileID: 833086280163119898, guid: dab4585a3149b934491274fb402e9ed5, type: 3}
   extraPortraits: []
+  extraAvatars: []

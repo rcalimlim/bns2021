@@ -123,12 +123,6 @@ public class DuelController : MonoBehaviour
         Debug.LogFormat("Round {0} Turn {1} : {2} to attack / {3} to defend",
                 round,turn, player.Name, enemy.Name);
         
-        // Enemy defends on first turn
-        string enemyCardType = "Defense";
-
-        // this is needed in order to see
-        enemyMove = cpuChooseCard(enemyCardType);
-
     }
 
     public DuelStatus status()
@@ -186,7 +180,7 @@ public class DuelController : MonoBehaviour
 
         enemy.ReplaceHand("Attack", newEnemyAttackHand);
         enemy.ReplaceHand("Defense", newEnemyDefenseHand);
-        enemyMove = cpuChooseCard(playerMove.CardClass);
+        enemyMove = cpuChooseCard(enemyMove.CardClass);
     }
 
     void MangTomas()
@@ -202,19 +196,19 @@ public class DuelController : MonoBehaviour
     {
         Debug.Log("Player used Chocododge!");
         List<Card> newEnemyAttackHand = new List<Card>();
-        List<Card> newEnemyDefenseHand = new List<Card>();
+        List<Card> newPlayerDefenseHand = new List<Card>();
 
         for(int i = 0; i < 6; i++)
         {
             newEnemyAttackHand.Add(Card.MakeAttackCard(enemy.AttackHand[i].Strength, "Strike"));
-            newEnemyDefenseHand.Add(Card.MakeDefenseCard(enemy.DefenseHand[i].Strength, "Dodge"));
+            newPlayerDefenseHand.Add(Card.MakeDefenseCard(player.DefenseHand[i].Strength, "Dodge"));
         }
 
         enemy.ReplaceHand("Attack", newEnemyAttackHand);
-        enemy.ReplaceHand("Defense", newEnemyDefenseHand);
+        player.ReplaceHand("Defense", newPlayerDefenseHand);
 
         string cardClass = playerMove?.CardClass;
-        enemyMove = cpuChooseCard(cardClass ??= "Defense");
+        enemyMove = cpuChooseCard(enemyMove.CardClass);
     }
 
     void ChineseRedVest()
@@ -308,10 +302,8 @@ public class DuelController : MonoBehaviour
 
             if (special.timing == timing) {
                 useSpecial(special);
+                special.duration--;
             }
-
-            special.duration--;
-
             if(special.duration > 1)
                 stillActive.Enqueue(special);
         }
@@ -513,7 +505,7 @@ public class DuelController : MonoBehaviour
                             "Invalid DuelID - is this set in the inspector? ID: " +
                             duelID.ToString()
                             );
-                    return cpuMaxNeutralAttack();
+                    return cpuMinNeutralDefense();
             }
          }
     }
@@ -649,7 +641,8 @@ public class DuelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // this is needed in order to see
+        enemyMove = cpuChooseCard("Defense");
     }
 
     public void playerChoosesSpecial(Special s)
@@ -658,11 +651,14 @@ public class DuelController : MonoBehaviour
      */
     {
         // trigger effects if duration is zero
-        if (s.duration == 0 || s.timing == 0) {
+        if ( s.timing == 0) {
             useSpecial(s);
+            s.duration--;
         }
+
         // else add to specials list
         activeSpecials.Enqueue(s);
+        //runSpecials(false);
     }
 
     public void playerChoosesCard(Card c)

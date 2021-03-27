@@ -20,6 +20,7 @@ public class Special
 
     [SerializeField]
     public int timing;
+    public Sprite sprite;
 
     public Special(string name, string description, int duration = 0, int timing = 0)
     {
@@ -38,6 +39,7 @@ public class Special
         this.expended = false;
         this.duration = s.duration;
         this.timing = s.timing;
+        this.sprite = s.sprite;
     }
 
 }

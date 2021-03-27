@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c8c777c6d77c30140a25ec3dd2b6bafc, type: 3}
   rating: 1
   upgradable: 1
   specials:
   - name: Parry Reposte
     description: While the effect is active, if the enemy's attack is countered,
       the enemy takes damage
-    expended: 1
-    duration: 3
-    timing: 0
+    expended: 0
+    duration: 6
+    timing: 1
+    sprite: {fileID: 21300000, guid: e47f3ff46976ddf488e2ae7d182f3a2b, type: 3}
   type: 1
   portrait: {fileID: 21300000, guid: dccdb03498c54db4b8d50177ab33960c, type: 3}
+  battleAvatar: {fileID: 3910471521509026541, guid: 04636489294d96746be70f1ce26271bd, type: 3}
   extraPortraits: []
+  extraAvatars: []
