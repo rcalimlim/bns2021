@@ -186,7 +186,7 @@ public class TableuGameCtrl : MonoBehaviour
             PlayAudio(5);
             
             // Save Status to universal Stat Holder
-            PlayerDataManager.Instance.UpdateStats(playerManager.Stress, playerManager.Score, playerManager.Turns);
+            PlayerDataManager.Instance.UpdateStats(10 - playerManager.Stress, playerManager.Score, playerManager.Turns);
             Vector3 spawnLocation = new Vector3(transform.position.x , transform.position.y + 0.5f, transform.position.z);
             PlayerDataManager.Instance.TrackSceneChange(spawnLocation, SceneManager.GetActiveScene().name, "BNS2019+");
             

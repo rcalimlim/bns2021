@@ -49,6 +49,7 @@ public class DuelUIController : MonoBehaviour
     [SerializeField] GameObject specialBlocker;
     [SerializeField] Button requipButton;
     [SerializeField] RequipUIController requipPannel;
+    [SerializeField] UITower towSpecial;
     List<Special> specials;
 
 
@@ -152,12 +153,15 @@ public class DuelUIController : MonoBehaviour
                 duel.Player.specialsUsed.Add(special.name);
                 specialBlocker.transform.localScale = Vector3.one;
 
-                //Display Special Sprite
-                //
-
                 // Apply the effects of the special
                 Special specialCopy = new Special(special);
                 duel.playerChoosesSpecial(specialCopy);
+
+                //Display Special Sprite
+                towSpecial.SetImage(special.sprite);
+                towSpecial.Teleport(new Vector3(0, 0, 0));
+                towSpecial.AddDestination(new Vector3(0f, 260f, 0f));
+                towSpecial.AddDestination(new Vector3(800f, 800f, 0));
 
                 HowCanYouSeeActive();
             });
