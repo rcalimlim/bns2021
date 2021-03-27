@@ -187,7 +187,8 @@ public class TableuGameCtrl : MonoBehaviour
             
             // Save Status to universal Stat Holder
             PlayerDataManager.Instance.UpdateStats(playerManager.Stress, playerManager.Score, playerManager.Turns);
-            PlayerDataManager.Instance.TrackSceneChange(transform.position, SceneManager.GetActiveScene().name, "BNS2019+");
+            Vector3 spawnLocation = new Vector3(transform.position.x , transform.position.y + 0.5f, transform.position.z);
+            PlayerDataManager.Instance.TrackSceneChange(spawnLocation, SceneManager.GetActiveScene().name, "BNS2019+");
             
             //Load next scene
             SceneManager.LoadScene("BNS2019+");

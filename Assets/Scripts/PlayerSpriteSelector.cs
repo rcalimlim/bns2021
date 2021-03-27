@@ -19,11 +19,12 @@ public class PlayerSpriteSelector : MonoBehaviour
         switch((prevScene, currScene))
         {
             case ("BNS2019", "BNS2019+"):
-                spriteRenderer.sprite = playerSprites[1]; 
+                spriteRenderer.sprite = playerSprites[0]; 
                 playerController.updateHeightCorrection(0);
                 break;
             default:
-                spriteRenderer.sprite = playerSprites[0]; break;
+                //spriteRenderer.sprite = playerSprites[0]; 
+                break;
         }       
 
 
