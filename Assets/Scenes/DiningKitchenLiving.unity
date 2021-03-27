@@ -7757,7 +7757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -7778,6 +7778,14 @@ PrefabInstance:
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[2].text
       value: Oh, wait, the door is open. Is he not here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[3].text
+      value: Maybe he left a note?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[4].text
+      value: I think I remember there are a few of my things in his room...
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].style

@@ -245,12 +245,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: enableAfterTriggerFlag
       value: CringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -261,17 +265,45 @@ PrefabInstance:
       value: OBPostCringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
       value: I feel gross, but at least that's taken care of.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
+      value: Duper Junk acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
       value: Oh! With all this excitement I forgot to do my laundry.
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].style
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicClip
       value: 
       objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicDuration
       value: 2
@@ -432,14 +464,21 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: Dating apps can be really stressful.
+    - text: All of these notifications are from the same person! This is too much.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: Maybe I should check my notifications?
+    - text: Maybe I should confront them about this?
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: But I should make sure to take my time and prepare.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -464,7 +503,7 @@ MonoBehaviour:
   activatesTriggerFlagName: CringeTriggered
   dialog:
     lines:
-    - text: My phone is blowing up! Should I check it now?
+    - text: My phone is blowing up! Am I ready to confront my stalker?
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -2987,6 +3026,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: OBGiveFencingGear
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: activatesTriggerFlagName
       value: OBGiveFencingGear
       objectReference: {fileID: 0}
@@ -2996,15 +3039,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
-      value: You search through the odd bag in front of you.
+      value: Oh! Here's the weird bag--I think it was in here.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
-      value: Why is this in his closet?
+      value: I forgot we decided to store it in this closet temporarily.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[2].text
-      value: And why is this in here?!
+      value: This is so nostalgic! Hope it still fits.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[3].text
@@ -3012,7 +3055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].style
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].style
@@ -3527,12 +3570,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: enableAfterTriggerFlag
       value: CringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -3543,17 +3590,41 @@ PrefabInstance:
       value: OBPostCringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
       value: I feel gross, but at least that's taken care of.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
+      value: Duper Junk acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
       value: Oh! With all this excitement I forgot to do my laundry.
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicClip
       value: 
       objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicDuration
       value: 2
@@ -4720,35 +4791,37 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: disableAfterTriggerFlag
-      value: OBLetterRead
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: activatesTriggerFlagName
-      value: OBLetterRead
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
-      value: There's a letter...
+      value: Something's off. We went to check it out. Could you help with the ornaments?
+        Also make sure to gather useful equipment before you get too wrapped up with
+        stuff. -Brothers
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
-      value: '"Something''s off, we went to go check it out." -Brothers'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
-      propertyPath: dialog.lines.Array.data[2].text
       value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
-      propertyPath: dialog.lines.Array.data[3].text
+      propertyPath: dialog.lines.Array.data[2].text
       value: It's weird being home alone.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[3].text
+      value: Oh, there's more.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].text
-      value: '*ding*'
+      value: P.S. You might need to go grab a few things from Marlon's room.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[5].text
@@ -4771,12 +4844,16 @@ PrefabInstance:
       value: '*rapid notifications*'
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].style
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[10].text
       value: Dating apps can be really stressful.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].style
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[2].style
@@ -4788,7 +4865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].style
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[5].style
@@ -4813,7 +4890,7 @@ PrefabInstance:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].effectClip
       value: 
-      objectReference: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[7].effectClip
       value: 
