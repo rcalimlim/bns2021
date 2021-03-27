@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: VHZXVGiven
-  disableAfterTriggerFlag: StreamBugTriggered
+  disableAfterTriggerFlag: BugFought
   activatesTriggerFlagName: StreamBugTriggered
   dialog:
     lines:

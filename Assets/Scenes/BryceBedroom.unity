@@ -929,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: 
-  disableAfterTriggerFlag: BBTrollInit
+  disableAfterTriggerFlag: TrollFought
   activatesTriggerFlagName: BBTrollInit
   player: {fileID: 5530893629080893357}
   stressThreshold: 0
