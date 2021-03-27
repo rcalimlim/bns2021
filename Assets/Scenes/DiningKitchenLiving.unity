@@ -1699,7 +1699,78 @@ MonoBehaviour:
   autoEquipItems: 0
   dialog:
     lines:
-    - text: Something turon phone
+    - text: What's this? A padded envelope?
+      style: 0
+      effectClip: {fileID: 8300000, guid: 89752b8adac4c704a99ca1a1aef839c8, type: 3}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: ...
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: '[Note in envelope] We hope you like your new TURON PHONE!'
+      style: 3
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: There's also an actual CD in here. I haven't seen one in a while.
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: Wait, is someone calling me already?
+      style: 0
+      effectClip: {fileID: 8300000, guid: bd7fe071d7497024aad7512a0e74efc8, type: 3}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: Hello?
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 8300000, guid: b5d50622cd2aafb4baa20779ccebcff5, type: 3}
+      musicDuration: 1
+      addStressToPlayer: 0
+    - text: '[Familiar Mysterious Voice] Oh hey. Can you hear me?'
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: '[Sage of Turon] Hope you like your new phone.'
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: '[Sage of Turon] Sorry I fell asleep. It was only supposed to be for
+        a month or two.'
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: '[Sage of Turon] Are you still ready to go to the, uh, the thing?'
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: '[Sage of Turon] Then let''s get started...'
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -1913,7 +1984,7 @@ MonoBehaviour:
       addStressToPlayer: 0
     - text: Duper Junk acquired!
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -8059,7 +8130,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[4].text
-      value: I think I remember there are a few of my things in his room...
+      value: Now that I think of it, maybe some of the things that were missing from
+        my room are in here.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].style

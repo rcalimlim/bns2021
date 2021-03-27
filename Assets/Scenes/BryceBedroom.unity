@@ -929,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugEnabled: 0
   enableAfterTriggerFlag: 
-  disableAfterTriggerFlag: BBTrollInit
+  disableAfterTriggerFlag: TrollFought
   activatesTriggerFlagName: BBTrollInit
   player: {fileID: 5530893629080893357}
   stressThreshold: 0
@@ -968,7 +968,7 @@ MonoBehaviour:
     - text: '[Discussion] LOL they made a mistake by having Sephiroach show up so
         early. It''s downhill from here. Only shallow thinkers can''t see that LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
         Marxist mythology vis-a-vis postculturalism. If you don''t get it I feel
         sorry for you LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -985,7 +985,7 @@ MonoBehaviour:
     - text: '[Discussion] LOL no true fan will like this release. Because anyone
         who likes it isn''t a true fan. It''s called logic, LOL.'
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
@@ -1368,11 +1368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.85
+      value: -1.781
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848942, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2473,6 +2473,15 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
+    - text: Even though the scouter paired with it, the Moogle Bixel wasn't here
+        in my bedroom... I should look around the apartment to see where I could
+        have left it.
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
 --- !u!1 &552277311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,7 +2581,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: c4455624076d9144c85f61684078b6a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfe7c589079e1b648a5117906cd6e337, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3608,6 +3617,7 @@ MonoBehaviour:
       musicDuration: 0
       addStressToPlayer: 0
   stressBar: {fileID: 90520437}
+  backgroundMusic: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
 --- !u!4 &1206878539
 Transform:
   m_ObjectHideFlags: 0
