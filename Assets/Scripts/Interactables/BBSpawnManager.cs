@@ -11,11 +11,13 @@ public class BBSpawnManager : MonoBehaviour
     [SerializeField] private GameObject respawnPoint;
     [SerializeField] private Dialog dialogOnRevive;
     [SerializeField] private FreeRoamStressBar stressBar;
+    [SerializeField] private AudioClip backgroundMusic;
 
     private void Start()
     {
         if (PlayerDataManager.Instance.IsDead() == true || PlayerDataManager.Instance.HasDied == true)
         {
+            SoundManager.Instance.PlayMusic(backgroundMusic, true);
             PlayerDataManager.Instance.ResetStress();
             PlayerDataManager.Instance.HasDied = false;
             stressBar.SetStress(0);

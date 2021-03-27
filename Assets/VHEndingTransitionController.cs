@@ -60,9 +60,11 @@ public class VHEndingTransitionController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        if (dialog.Lines.Count > 0)
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+
+        while (GameController.Instance.State == GameState.Dialog)
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+            yield return null;
         }
 
         PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);

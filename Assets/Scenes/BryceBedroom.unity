@@ -3617,6 +3617,7 @@ MonoBehaviour:
       musicDuration: 0
       addStressToPlayer: 0
   stressBar: {fileID: 90520437}
+  backgroundMusic: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
 --- !u!4 &1206878539
 Transform:
   m_ObjectHideFlags: 0
