@@ -16,11 +16,5 @@ MonoBehaviour:
   itemBag:
   - item: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
-    amount: 4
-  - item: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 29f4a09ee1c8f8a4c8d8780ce20ed825, type: 2}
-    amount: 1
-  equipedWeapon: {fileID: 11400000, guid: f1e9c003221646f48946e36eaf620f38, type: 2}
+  equipedWeapon: {fileID: 0}
   equipedArmor: {fileID: 11400000, guid: 3e9de502ce3ea5d4ab062da3e15d227b, type: 2}
