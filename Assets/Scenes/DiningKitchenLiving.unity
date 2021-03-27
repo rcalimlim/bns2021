@@ -1530,7 +1530,7 @@ GameObject:
   - component: {fileID: 171277625}
   - component: {fileID: 171277624}
   - component: {fileID: 171277623}
-  - component: {fileID: 171277627}
+  - component: {fileID: 171277628}
   m_Layer: 0
   m_Name: DKLFrontDoorGuardAnt
   m_TagString: Untagged
@@ -1678,7 +1678,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &171277627
+--- !u!114 &171277628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 171277621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8a8e60852294a44cb48e7a42f9530db, type: 3}
+  m_Script: {fileID: 11500000, guid: 29860a635f9b73947adb311023fc84b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debugEnabled: 0
@@ -1699,13 +1699,14 @@ MonoBehaviour:
   autoEquipItems: 0
   dialog:
     lines:
-    - text: Something something turon phone
+    - text: Something turon phone
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
+  endingSceneName: EndingCredits
 --- !u!1001 &194082732
 PrefabInstance:
   m_ObjectHideFlags: 0
