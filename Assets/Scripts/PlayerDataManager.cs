@@ -23,10 +23,15 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private int minStress;
     [SerializeField] private int maxStress;
     [SerializeField] private int currentStress;
+    [SerializeField] private bool hasDied;
     public int MinStress { get { return minStress; } }
     public int MaxStress { get { return maxStress; } }
     public int CurrentStress { 
         get { return currentStress; } 
+    }
+    public bool HasDied
+    {
+        get { return hasDied; } set { hasDied = value; }
     }
     public bool IsDead()
     {
@@ -48,6 +53,11 @@ public class PlayerDataManager : MonoBehaviour
             currentStress = maxStress;
             StartCoroutine(RespawnManager.Instance.ActivateRespawnSequence());
         }
+    }
+
+    public void KillPlayer ()
+    {
+        currentStress = maxStress;
     }
 
     public void ResetStress ()

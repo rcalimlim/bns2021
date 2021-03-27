@@ -3576,6 +3576,22 @@ MonoBehaviour:
   bbDoor0: {fileID: 1159755044}
   bbDoor1: {fileID: 448307935}
   respawnPoint: {fileID: 385256827}
+  dialogOnRevive:
+    lines:
+    - text: '*blink* *yawn*'
+      style: 2
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: That nap felt great--I feel fully refreshed! Now where was I?
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
 --- !u!4 &1206878539
 Transform:
   m_ObjectHideFlags: 0
@@ -5370,12 +5386,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].effectClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].effectClip
       value: 
       objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[2].effectClip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848945, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Name

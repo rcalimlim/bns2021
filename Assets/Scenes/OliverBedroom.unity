@@ -268,6 +268,14 @@ PrefabInstance:
       propertyPath: dialog.lines.Array.data[1].text
       value: Oh! With all this excitement I forgot to do my laundry.
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848944, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -3325,6 +3333,14 @@ PrefabInstance:
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
       value: Oh! With all this excitement I forgot to do my laundry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[0].musicDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848944, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: m_Size.x
