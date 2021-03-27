@@ -1191,7 +1191,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a4483ab149d8b56438da821359387661, type: 3}
   - {fileID: 8300000, guid: e0b4ce00e8167c646b394c296b75a9ae, type: 3}
   - {fileID: 8300000, guid: c3684c32ad2979940bed26c9b3c6cc43, type: 3}
-  - {fileID: 8300000, guid: ff02640e80bdb2c429d9d0e8fbdbbe40, type: 3}
+  - {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
   - {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
   iTilePreFab: {fileID: 5792591173724984233, guid: f7352730b6051944b9cedee58d2aea93, type: 3}
   spawnScouterTurn: 20
