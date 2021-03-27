@@ -196,16 +196,16 @@ public class DuelController : MonoBehaviour
     {
         Debug.Log("Player used Chocododge!");
         List<Card> newEnemyAttackHand = new List<Card>();
-        List<Card> newEnemyDefenseHand = new List<Card>();
+        List<Card> newPlayerDefenseHand = new List<Card>();
 
         for(int i = 0; i < 6; i++)
         {
             newEnemyAttackHand.Add(Card.MakeAttackCard(enemy.AttackHand[i].Strength, "Strike"));
-            newEnemyDefenseHand.Add(Card.MakeDefenseCard(enemy.DefenseHand[i].Strength, "Dodge"));
+            newPlayerDefenseHand.Add(Card.MakeDefenseCard(player.DefenseHand[i].Strength, "Dodge"));
         }
 
         enemy.ReplaceHand("Attack", newEnemyAttackHand);
-        enemy.ReplaceHand("Defense", newEnemyDefenseHand);
+        player.ReplaceHand("Defense", newPlayerDefenseHand);
 
         string cardClass = playerMove?.CardClass;
         enemyMove = cpuChooseCard(enemyMove.CardClass);
