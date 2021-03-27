@@ -11,7 +11,6 @@ public class RespawnManager : MonoBehaviour
     public static RespawnManager Instance { get { return instance; } }
 
     [SerializeField] private Dialog dialogOnDeath;
-    [SerializeField] private Dialog dialogOnRevive;
     private Animator sceneFade;
     private GameObject player;
     private GameObject respawnSpot;
@@ -42,24 +41,9 @@ public class RespawnManager : MonoBehaviour
             yield return null;
         }
 
-        // do some fade to black
-        Animator sceneFade = GameObject.FindGameObjectWithTag("SceneFadeUI")?.GetComponent<Animator>();
-        sceneFade?.SetTrigger("Start");
+        PlayerDataManager.Instance.HasDied = true;
+        PlayerDataManager.Instance.TrackSceneChange("", SceneManager.GetActiveScene().name, PlayerDataManager.Instance.PrevScene);
         SceneManager.LoadScene("BryceBedroom");
-
-        while (SceneManager.GetActiveScene().name != "BryceBedroom")
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(1);
-
-        yield return new WaitForEndOfFrame();
-
-        PlayerDataManager.Instance.ResetStress();
-        OnRevive?.Invoke();
-
-        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialogOnRevive));
     }
 
     public IEnumerator ActivateSleepSequence()
@@ -70,15 +54,8 @@ public class RespawnManager : MonoBehaviour
             yield return null;
         }
 
-        // do some fade to black
-        Animator sceneFade = GameObject.FindGameObjectWithTag("SceneFadeUI")?.GetComponent<Animator>();
-        sceneFade?.SetTrigger("Start");
-        yield return new WaitForEndOfFrame();
-
-        PlayerDataManager.Instance.ResetStress();
-        OnRevive?.Invoke();
-
-        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialogOnRevive));
+        PlayerDataManager.Instance.HasDied = true;
+        SceneManager.LoadScene("BryceBedroom");
     }
 
     private void HandleUpdate()

@@ -9,12 +9,16 @@ public class BBSpawnManager : MonoBehaviour
     [SerializeField] private GameObject bbDoor0;
     [SerializeField] private GameObject bbDoor1;
     [SerializeField] private GameObject respawnPoint;
+    [SerializeField] private Dialog dialogOnRevive;
 
     private void Start()
     {
-        if (PlayerDataManager.Instance.IsDead() == true)
+        if (PlayerDataManager.Instance.IsDead() == true || PlayerDataManager.Instance.HasDied == true)
         {
+            PlayerDataManager.Instance.ResetStress();
+            PlayerDataManager.Instance.HasDied = false;
             SpawnPlayerWithOffset(respawnPoint, new Vector3(0f, 0.5f, 0f));
+            StartCoroutine(DialogOnRevive());
         }
         else
         {
@@ -39,6 +43,15 @@ public class BBSpawnManager : MonoBehaviour
                 default:
                     break;
             }
+        }
+    }
+
+    private IEnumerator DialogOnRevive()
+    {
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialogOnRevive));
+        while (GameController.Instance.State == GameState.Dialog)
+        {
+            yield return null;
         }
     }
 

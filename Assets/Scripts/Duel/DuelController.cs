@@ -18,7 +18,14 @@ public enum DuelStatus
 }
 
 public class DuelController : MonoBehaviour
-{   
+{
+    // REMOVE, for debugging only
+    [SerializeField] DuelStatus debugDuelStatus;
+
+    // win/loss transitions
+    [SerializeField] Dialog playerWonDialog;
+    [SerializeField] Dialog playerLostDialog;
+
 
     [SerializeField] Inventory playerInventory, enemyInventory;
     Card playerMove, enemyMove;
@@ -120,6 +127,10 @@ public class DuelController : MonoBehaviour
 
     public DuelStatus status()
     {
+        if (debugDuelStatus == DuelStatus.EnemyWin)
+        {
+            return DuelStatus.EnemyWin;
+        }
         if (Player.HP == 200) return DuelStatus.PlayerWin;
         if (Player.HP == 0) return DuelStatus.EnemyWin;
         if (round >= 10) return DuelStatus.Draw;
@@ -726,10 +737,6 @@ public class DuelController : MonoBehaviour
             enemyMove = cpuChooseCard(playerMove.CardClass);         
 
         } else if (status() == DuelStatus.PlayerWin) {
-            Debug.Log("Player Won");
-            // run any special conditions for player winning
-            Debug.LogFormat("Player won in {0}", duelID);
-
             // get next scene
             string nextScene = PlayerDataManager.Instance.PrevScene;
 
@@ -762,9 +769,23 @@ public class DuelController : MonoBehaviour
             // change scene
             SceneManager.LoadScene(nextScene);
         } else if (status() == DuelStatus.EnemyWin) {
-            Debug.Log("Enemy Won");
-            // run any special conditions for player losing
+            StartCoroutine(InvokePlayerLost());
         }
+    }
+
+    private IEnumerator InvokePlayerLost()
+    {
+        yield return new WaitForEndOfFrame();
+
+        yield return StartCoroutine(DialogManager.Instance.ShowDialog(playerLostDialog));
+
+
+        yield return new WaitForSecondsRealtime(3);
+        DialogManager.Instance.CloseDialog();
+
+        PlayerDataManager.Instance.HasDied = true;
+        PlayerDataManager.Instance.TrackSceneChange("", SceneManager.GetActiveScene().name, PlayerDataManager.Instance.PrevScene);
+        SceneManager.LoadScene("BryceBedroom");
     }
 
     public void FakeTurn(Card played)
