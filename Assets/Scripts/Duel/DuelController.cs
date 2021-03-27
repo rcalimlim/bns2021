@@ -131,6 +131,10 @@ public class DuelController : MonoBehaviour
         {
             return DuelStatus.EnemyWin;
         }
+        if (debugDuelStatus == DuelStatus.PlayerWin)
+        {
+            return DuelStatus.PlayerWin;
+        }
         if (Player.HP == 200) return DuelStatus.PlayerWin;
         if (Player.HP == 0) return DuelStatus.EnemyWin;
         if (round >= 10) return DuelStatus.Draw;
