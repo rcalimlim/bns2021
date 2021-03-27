@@ -1597,7 +1597,7 @@ PrefabInstance:
     - target: {fileID: 8396668091899638363, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
       propertyPath: dialogOnDeath.lines.Array.data[0].effectClip
       value: 
-      objectReference: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
+      objectReference: {fileID: 8300000, guid: 01e15ab178a85204aaff7cd870d5c1e7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
 --- !u!1001 &1060122840
@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stressAdd: 20
-  hurtClip: {fileID: 8300000, guid: ff02640e80bdb2c429d9d0e8fbdbbe40, type: 3}
+  hurtClip: {fileID: 8300000, guid: f2836d19dab37224c8ae3e847f3c56c4, type: 3}
 --- !u!1 &2043863669
 GameObject:
   m_ObjectHideFlags: 0
