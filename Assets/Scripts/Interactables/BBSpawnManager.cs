@@ -10,6 +10,7 @@ public class BBSpawnManager : MonoBehaviour
     [SerializeField] private GameObject bbDoor1;
     [SerializeField] private GameObject respawnPoint;
     [SerializeField] private Dialog dialogOnRevive;
+    [SerializeField] private FreeRoamStressBar stressBar;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class BBSpawnManager : MonoBehaviour
         {
             PlayerDataManager.Instance.ResetStress();
             PlayerDataManager.Instance.HasDied = false;
+            stressBar.SetStress(0);
             SpawnPlayerWithOffset(respawnPoint, new Vector3(0f, 0.5f, 0f));
             StartCoroutine(DialogOnRevive());
         }

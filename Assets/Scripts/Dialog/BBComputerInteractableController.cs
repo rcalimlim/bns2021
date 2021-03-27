@@ -31,20 +31,27 @@ public class BBComputerInteractableController : MonoBehaviour, Interactable
             SceneManager.GetActiveScene().name,
             "Battle"
         );
+
+        // Trigger
+        PlayerDataManager.Instance.SetTriggerFlag(activatesTriggerFlagName, true);
+
         // call scene switcher
         SceneManager.LoadScene("Battle");
     }
 
     public void Interact()
     {
-        if (PlayerDataManager.Instance.CurrentStress > stressThreshold)
+        if (PlayerDataManager.Instance.GetTriggerFlag(disableAfterTriggerFlag) == false)
         {
-            Debug.Log(PlayerDataManager.Instance.CurrentStress);
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialogForHighStress));
-        }
-        else
-        {
-            StartCoroutine(InvokeActionsSync());
+            if (PlayerDataManager.Instance.CurrentStress > stressThreshold)
+            {
+                Debug.Log(PlayerDataManager.Instance.CurrentStress);
+                StartCoroutine(DialogManager.Instance.ShowDialog(dialogForHighStress));
+            }
+            else
+            {
+                StartCoroutine(InvokeActionsSync());
+            }
         }
     }
 }

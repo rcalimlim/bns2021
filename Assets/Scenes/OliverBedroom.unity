@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2561679561869731776, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2561679561869731776, guid: 5f6183930386b75418ea6f8b751ca45f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,12 +245,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: enableAfterTriggerFlag
       value: CringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -261,17 +265,45 @@ PrefabInstance:
       value: OBPostCringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
       value: I feel gross, but at least that's taken care of.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
+      value: Duper Junk acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
       value: Oh! With all this excitement I forgot to do my laundry.
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].style
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicClip
       value: 
       objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicDuration
       value: 2
@@ -432,14 +464,21 @@ MonoBehaviour:
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: Dating apps can be really stressful.
+    - text: All of these notifications are from the same person! This is too much.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
       addStressToPlayer: 0
-    - text: Maybe I should check my notifications?
+    - text: Maybe I should confront them about this?
+      style: 0
+      effectClip: {fileID: 0}
+      effectDuration: 0
+      musicClip: {fileID: 0}
+      musicDuration: 0
+      addStressToPlayer: 0
+    - text: But I should make sure to take my time and prepare.
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -464,7 +503,7 @@ MonoBehaviour:
   activatesTriggerFlagName: CringeTriggered
   dialog:
     lines:
-    - text: My phone is blowing up! Should I check it now?
+    - text: My phone is blowing up! Am I ready to confront my stalker?
       style: 0
       effectClip: {fileID: 0}
       effectDuration: 0
@@ -569,6 +608,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &455642364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828950, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331949580136828954, guid: 38597e118cc66bd489091763bb75188b, type: 3}
+      propertyPath: m_Name
+      value: FreeRoamPlayerUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38597e118cc66bd489091763bb75188b, type: 3}
 --- !u!1 &464414763
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +800,7 @@ RectTransform:
   - {fileID: 957030688}
   - {fileID: 1570052657}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1389,7 +1525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641956202
 GameObject:
@@ -1971,8 +2107,118 @@ Transform:
   - {fileID: 1780754164}
   - {fileID: 544958195}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &665638334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 876078096}
+    m_Modifications:
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: OBOrnamentShelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: activatesTriggerFlagName
+      value: OBOrnamentShelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: He sure has a lot of stuff.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].text
+      value: But this will come in handy...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
+      value: Ornament acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: eedbdef3acc670148b1ea7a81070b338, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_Name
+      value: OBClosetShelf
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!4 &665638335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 665638334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &672136131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6877184074512559931, guid: a2754df07560eb2438e274f88f3432df, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6877184074512559931, guid: a2754df07560eb2438e274f88f3432df, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2393,7 +2639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8098532248779756472, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8098532248779756472, guid: 939017a33f51f8b4485460df19bd79bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2470,8 +2716,10 @@ Transform:
   - {fileID: 1347474864}
   - {fileID: 991931994}
   - {fileID: 356028781}
+  - {fileID: 1189520596}
+  - {fileID: 665638335}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957030686
 GameObject:
@@ -2817,7 +3065,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5386025063971205444, guid: 2b8ced9f5c4caf743b28bbed2f035900, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5386025063971205444, guid: 2b8ced9f5c4caf743b28bbed2f035900, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2873,6 +3121,128 @@ PrefabInstance:
       objectReference: {fileID: 393524126}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b8ced9f5c4caf743b28bbed2f035900, type: 3}
+--- !u!1001 &1189520595
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 876078096}
+    m_Modifications:
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: disableAfterTriggerFlag
+      value: OBGiveFencingGear
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: activatesTriggerFlagName
+      value: OBGiveFencingGear
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].text
+      value: Oh! Here's the weird bag--I think it was in here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].text
+      value: I forgot we decided to store it in this closet temporarily.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
+      value: This is so nostalgic! Hope it still fits.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[3].text
+      value: Fencing Gear acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].style
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[3].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: a430ba9528331eb4bb81d40905d4f951, type: 2}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[3].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035517620991037325, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: m_Name
+      value: OBFencingGear
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+--- !u!4 &1189520596 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9035517620991037323, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+  m_PrefabInstance: {fileID: 1189520595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287999477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6877184076019099938, guid: a2754df07560eb2438e274f88f3432df, type: 3}
@@ -3171,7 +3541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3288700815577712674, guid: 0968895286cc3cd49a6bfa94e56f90e2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3288700815577712674, guid: 0968895286cc3cd49a6bfa94e56f90e2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3311,12 +3681,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 433bfa546c127504ca331405f301b05e, type: 2}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: enableAfterTriggerFlag
       value: CringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: disableAfterTriggerFlag
@@ -3327,17 +3701,41 @@ PrefabInstance:
       value: OBPostCringeFought
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
       value: I feel gross, but at least that's taken care of.
       objectReference: {fileID: 0}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
+      value: Duper Junk acquired!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[2].text
       value: Oh! With all this excitement I forgot to do my laundry.
       objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].qty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: inventoryItems.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 38fd4e019a0f60c49921f4bc0e4cfc04, type: 2}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicClip
       value: 
       objectReference: {fileID: 8300000, guid: 2da4a8658cda00a46a8d7d558a00b05c, type: 3}
+    - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
+      propertyPath: dialog.lines.Array.data[1].effectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
     - target: {fileID: 3221797028031848943, guid: 0b74b9574e72bcd4bb874c3ab877ac58, type: 3}
       propertyPath: dialog.lines.Array.data[0].musicDuration
       value: 2
@@ -3447,7 +3845,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2768938729796005468, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2768938729796005468, guid: a9fc02d15e1546742a29a7ccacb2a2b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3577,7 +3975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3912314985833771498, guid: 1dbafd7392518184d935084bc6a6947a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4388,7 +4786,7 @@ Transform:
   m_Children:
   - {fileID: 69779141}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1988837948
 GameObject:
@@ -4420,7 +4818,7 @@ Transform:
   - {fileID: 1489573451}
   - {fileID: 191813832}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2039896654
 PrefabInstance:
@@ -4431,7 +4829,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5367044873026967477, guid: a7c5c11c7920c4ae29da5c413571541b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4504,35 +4902,37 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: disableAfterTriggerFlag
-      value: OBLetterRead
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: activatesTriggerFlagName
-      value: OBLetterRead
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[0].text
-      value: There's a letter...
+      value: Something's off. We went to check it out. Could you help with the ornaments?
+        Also make sure to gather useful equipment before you get too wrapped up with
+        stuff. -Brothers
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].text
-      value: '"Something''s off, we went to go check it out." -Brothers'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
-      propertyPath: dialog.lines.Array.data[2].text
       value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
-      propertyPath: dialog.lines.Array.data[3].text
+      propertyPath: dialog.lines.Array.data[2].text
       value: It's weird being home alone.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[3].text
+      value: Oh, there's more.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].text
-      value: '*ding*'
+      value: P.S. You might need to go grab a few things from Marlon's room.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[5].text
@@ -4555,12 +4955,16 @@ PrefabInstance:
       value: '*rapid notifications*'
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
+      propertyPath: dialog.lines.Array.data[0].style
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[10].text
       value: Dating apps can be really stressful.
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[1].style
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[2].style
@@ -4572,7 +4976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].style
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[5].style
@@ -4597,7 +5001,7 @@ PrefabInstance:
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[4].effectClip
       value: 
-      objectReference: {fileID: 8300000, guid: d94caa03b8acbea48810554e7b585edd, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1892680565423525074, guid: a54ac252ad820b74698be881d3791eb4, type: 3}
       propertyPath: dialog.lines.Array.data[7].effectClip
       value: 

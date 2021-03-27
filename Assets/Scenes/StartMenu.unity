@@ -1315,6 +1315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mute Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8269096604524896154, guid: aed665ee2522c214ea17944d0fa97497, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8269096604524896155, guid: aed665ee2522c214ea17944d0fa97497, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
