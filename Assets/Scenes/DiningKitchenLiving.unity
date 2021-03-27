@@ -1984,7 +1984,7 @@ MonoBehaviour:
       addStressToPlayer: 0
     - text: Duper Junk acquired!
       style: 2
-      effectClip: {fileID: 0}
+      effectClip: {fileID: 8300000, guid: 24dc3af8987c184408e8341bcb23a85e, type: 3}
       effectDuration: 0
       musicClip: {fileID: 0}
       musicDuration: 0
