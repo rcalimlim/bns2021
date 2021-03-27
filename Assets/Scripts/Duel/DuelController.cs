@@ -741,6 +741,8 @@ public class DuelController : MonoBehaviour
             enemyMove = cpuChooseCard(playerMove.CardClass);         
 
         } else if (status() == DuelStatus.PlayerWin) {
+            playerInventory.Equip(player.Weapon.OverworldEquipment);
+            playerInventory.Equip(player.Armor.OverworldEquipment);
             // get next scene
             string nextScene = PlayerDataManager.Instance.PrevScene;
 
@@ -773,6 +775,8 @@ public class DuelController : MonoBehaviour
             // change scene
             SceneManager.LoadScene(nextScene);
         } else if (status() == DuelStatus.EnemyWin) {
+            playerInventory.Equip(player.Weapon.OverworldEquipment);
+            playerInventory.Equip(player.Armor.OverworldEquipment);
             StartCoroutine(InvokePlayerLost());
         }
     }
