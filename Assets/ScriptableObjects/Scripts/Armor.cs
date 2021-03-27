@@ -12,15 +12,23 @@ public class Armor: EquipableItem
 
     [SerializeField]
     Sprite portrait;
+
+    [SerializeField]
+    Sprite battleAvatar;
     
     [SerializeField]
     List<Sprite> extraPortraits;
+    
+    [SerializeField]
+    List<Sprite> extraAvatars;
 
     public override string Type
     {
         get => Enum.GetName(typeof(ArmorType), type); 
     }
 
+    public Sprite Avatar {get => battleAvatar;}
+    public List<Sprite> ExtraAvatars {get => extraAvatars;}
     public List<Sprite> ExtraPortraits {get => extraPortraits;}
     public Sprite Portrait {get => portrait;}
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 09d5ac587afc19348acf33809ffefc16, type: 3}
   rating: 2
   upgradable: 1
   specials:
@@ -23,4 +23,19 @@ MonoBehaviour:
     expended: 0
     duration: 5
     timing: 0
+    sprite: {fileID: 21300000, guid: 7e33146fe7b18de4c90fa97148509f63, type: 3}
   weaponType: 3
+  attackNames:
+  - key: 0
+    value: Sinigang
+  - key: 1
+    value: Sinigang
+  - key: 2
+    value: Tinola
+  defenseNames:
+  - key: 0
+    value: Balut
+  - key: 1
+    value: Dinuguan
+  - key: 2
+    value: Palabok
