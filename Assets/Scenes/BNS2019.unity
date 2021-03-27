@@ -1119,7 +1119,7 @@ Transform:
   m_Children:
   - {fileID: 966424079}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &831249492
 SpriteRenderer:
@@ -2520,7 +2520,7 @@ Transform:
   - {fileID: 389013707}
   - {fileID: 1001388748}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1405789943
 PrefabInstance:
@@ -2789,8 +2789,8 @@ Canvas:
   m_GameObject: {fileID: 1931508304}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 211294040}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2799,7 +2799,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 301
   m_TargetDisplay: 0
 --- !u!224 &1931508308
 RectTransform:
@@ -2818,7 +2818,7 @@ RectTransform:
   - {fileID: 20802400}
   - {fileID: 1300781256}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2842,6 +2842,7 @@ MonoBehaviour:
   showCreditsButton: {fileID: 0}
   initialSelected: {fileID: 0}
   muteText: {fileID: 2021293786}
+  song: {fileID: 0}
 --- !u!1001 &2021293785
 PrefabInstance:
   m_ObjectHideFlags: 0
