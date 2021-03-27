@@ -44,6 +44,11 @@ public class VHUnsealedSwordController : MonoBehaviour
     {
         playerInventory.RemoveItem(sealedSword, -1);
         playerInventory.AddItem(zxvSword, 1);
+
+        if (playerInventory.EquippedWeapon == sealedSword)
+        {
+            playerInventory.Equip((EquipableItem)zxvSword);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
