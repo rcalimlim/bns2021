@@ -10,9 +10,11 @@ public class FreeRoamStressBar : MonoBehaviour
     [SerializeField] private Image barImage;
     private int maxStress = 100;
 
-    public void SetStress(int stressAmount)
+    private void Start()
     {
-        stress = stressAmount;
+        stress = PlayerDataManager.Instance.CurrentStress;
+        float target = (stress / (float)maxStress);
+        barImage.fillAmount = target;
     }
 
     private void Update() 
@@ -26,5 +28,9 @@ public class FreeRoamStressBar : MonoBehaviour
         
         if(barImage.fillAmount > target)
             barImage.fillAmount -= (fillSpeed * Time.deltaTime);
+    }
+    public void SetStress(int stressAmount)
+    {
+        stress = stressAmount;
     }
 }

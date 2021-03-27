@@ -49,7 +49,7 @@ public class PlayerDataManager : MonoBehaviour
             currentStress = Mathf.Min(currentStress + stress, maxStress);
         }
 
-        GameObject.FindObjectOfType<FreeRoamStressBar>().SetStress(currentStress);
+        GameObject.FindObjectOfType<FreeRoamStressBar>()?.SetStress(currentStress);
 
         if (currentStress >= maxStress)
         {
